@@ -1521,9 +1521,9 @@ const LLM_DEFINITIONS = [
     price: { inputPrice: 1.25, outputPrice: 10.0, cachedInputPrice: 0.125 },
   },
   {
-    uniqueId: "gpt-5.2-2025-12-09",
-    id: "gpt-5.2-2025-12-09",
-    name: "GPT-5.2 (2025/12/09)",
+    uniqueId: "gpt-5.2-2025-12-11",
+    id: "gpt-5.2-2025-12-11",
+    name: "GPT-5.2 (2025/12/11)",
     provider: LLM_PROVIDER.OPENAI,
     tokenizer: LLM_TOKENIZER.O200K_BASE,
     flags: [
