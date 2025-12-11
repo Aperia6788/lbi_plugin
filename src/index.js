@@ -29,6 +29,7 @@
 //@arg common_openaiCompatibleProvider_useMaxOutputTokensInstead string
 //@arg common_openaiCompatibleProvider_verbosity string
 //@arg common_openaiCompatibleProvider_reasoningEffort string
+//@arg common_openaiCompatibleProvider_useThoughtSignature string
 //@arg common_openaiCompatibleProvider_2_url string
 //@arg common_openaiCompatibleProvider_2_apiKey string
 //@arg common_openaiCompatibleProvider_2_model string
@@ -41,6 +42,7 @@
 //@arg common_openaiCompatibleProvider_2_useMaxOutputTokensInstead string
 //@arg common_openaiCompatibleProvider_2_verbosity string
 //@arg common_openaiCompatibleProvider_2_reasoningEffort string
+//@arg common_openaiCompatibleProvider_2_useThoughtSignature string
 //@arg common_openaiCompatibleProvider_3_url string
 //@arg common_openaiCompatibleProvider_3_apiKey string
 //@arg common_openaiCompatibleProvider_3_model string
@@ -53,6 +55,7 @@
 //@arg common_openaiCompatibleProvider_3_useMaxOutputTokensInstead string
 //@arg common_openaiCompatibleProvider_3_verbosity string
 //@arg common_openaiCompatibleProvider_3_reasoningEffort string
+//@arg common_openaiCompatibleProvider_3_useThoughtSignature string
 //@arg common_openaiCompatibleProvider_4_url string
 //@arg common_openaiCompatibleProvider_4_apiKey string
 //@arg common_openaiCompatibleProvider_4_model string
@@ -65,6 +68,7 @@
 //@arg common_openaiCompatibleProvider_4_useMaxOutputTokensInstead string
 //@arg common_openaiCompatibleProvider_4_verbosity string
 //@arg common_openaiCompatibleProvider_4_reasoningEffort string
+//@arg common_openaiCompatibleProvider_4_useThoughtSignature string
 //@arg common_openaiCompatibleProvider_5_url string
 //@arg common_openaiCompatibleProvider_5_apiKey string
 //@arg common_openaiCompatibleProvider_5_model string
@@ -77,6 +81,7 @@
 //@arg common_openaiCompatibleProvider_5_useMaxOutputTokensInstead string
 //@arg common_openaiCompatibleProvider_5_verbosity string
 //@arg common_openaiCompatibleProvider_5_reasoningEffort string
+//@arg common_openaiCompatibleProvider_5_useThoughtSignature string
 //@arg common_openaiCompatibleProvider_6_url string
 //@arg common_openaiCompatibleProvider_6_apiKey string
 //@arg common_openaiCompatibleProvider_6_model string
@@ -89,6 +94,7 @@
 //@arg common_openaiCompatibleProvider_6_useMaxOutputTokensInstead string
 //@arg common_openaiCompatibleProvider_6_verbosity string
 //@arg common_openaiCompatibleProvider_6_reasoningEffort string
+//@arg common_openaiCompatibleProvider_6_useThoughtSignature string
 //@arg common_openaiCompatibleProvider_7_url string
 //@arg common_openaiCompatibleProvider_7_apiKey string
 //@arg common_openaiCompatibleProvider_7_model string
@@ -101,6 +107,7 @@
 //@arg common_openaiCompatibleProvider_7_useMaxOutputTokensInstead string
 //@arg common_openaiCompatibleProvider_7_verbosity string
 //@arg common_openaiCompatibleProvider_7_reasoningEffort string
+//@arg common_openaiCompatibleProvider_7_useThoughtSignature string
 //@arg common_openaiCompatibleProvider_8_url string
 //@arg common_openaiCompatibleProvider_8_apiKey string
 //@arg common_openaiCompatibleProvider_8_model string
@@ -113,6 +120,7 @@
 //@arg common_openaiCompatibleProvider_8_useMaxOutputTokensInstead string
 //@arg common_openaiCompatibleProvider_8_verbosity string
 //@arg common_openaiCompatibleProvider_8_reasoningEffort string
+//@arg common_openaiCompatibleProvider_8_useThoughtSignature string
 //@arg common_openaiCompatibleProvider_9_url string
 //@arg common_openaiCompatibleProvider_9_apiKey string
 //@arg common_openaiCompatibleProvider_9_model string
@@ -125,6 +133,7 @@
 //@arg common_openaiCompatibleProvider_9_useMaxOutputTokensInstead string
 //@arg common_openaiCompatibleProvider_9_verbosity string
 //@arg common_openaiCompatibleProvider_9_reasoningEffort string
+//@arg common_openaiCompatibleProvider_9_useThoughtSignature string
 //@arg common_previewPrompt string
 //@arg common_useEditorForInputBox string
 //@arg common_gemini_blockPaidModel string
@@ -265,11 +274,11 @@
  * fflate:0.8.2 -- MIT
  */
 /*! streamsaver. MIT License. Jimmy Wärting <https://jimmy.warting.se/opensource> */
-var StreamSaver={exports:{}};var hasRequiredStreamSaver;function requireStreamSaver(){if(hasRequiredStreamSaver)return StreamSaver.exports;hasRequiredStreamSaver=1;(function(module){((name,definition)=>{module.exports=definition()})("streamSaver",()=>{const global=typeof window==="object"?window:this;if(!global.HTMLElement)console.warn("streamsaver is meant to run on browsers main thread");let mitmTransporter=null;let supportsTransferable=false;const test=(fn)=>{try{fn()}catch(e){}};const ponyfill=global.WebStreamsPolyfill||{};const isSecureContext=global.isSecureContext;let useBlobFallback=/constructor/i.test(global.HTMLElement)||!!global.safari||!!global.WebKitPoint;const downloadStrategy=isSecureContext||"MozAppearance" in document.documentElement.style?"iframe":"navigate";const streamSaver2={createWriteStream,WritableStream:global.WritableStream||ponyfill.WritableStream,supported:true,version:{full:"2.0.5",major:2,minor:0,dot:5},mitm:"https://jimmywarting.github.io/StreamSaver.js/mitm.html?version=2.0.0"};function makeIframe(src){if(!src)throw new Error("meh");const iframe=document.createElement("iframe");iframe.hidden=true;iframe.src=src;iframe.loaded=false;iframe.name="iframe";iframe.isIframe=true;iframe.postMessage=(...args)=>iframe.contentWindow.postMessage(...args);iframe.addEventListener("load",()=>{iframe.loaded=true},{once:true});document.body.appendChild(iframe);return iframe}function makePopup(src){const options="width=200,height=100";const delegate2=document.createDocumentFragment();const popup={frame:global.open(src,"popup",options),loaded:false,isIframe:false,isPopup:true,remove(){popup.frame.close()},addEventListener(...args){delegate2.addEventListener(...args)},dispatchEvent(...args){delegate2.dispatchEvent(...args)},removeEventListener(...args){delegate2.removeEventListener(...args)},postMessage(...args){popup.frame.postMessage(...args)}};const onReady=(evt)=>{if(evt.source===popup.frame){popup.loaded=true;global.removeEventListener("message",onReady);popup.dispatchEvent(new Event("load"))}};global.addEventListener("message",onReady);return popup}try{new Response(new ReadableStream());if(isSecureContext&&!("serviceWorker" in navigator)){useBlobFallback=true}}catch(err2){useBlobFallback=true}test(()=>{const{readable}=new TransformStream();const mc=new MessageChannel();mc.port1.postMessage(readable,[readable]);mc.port1.close();mc.port2.close();supportsTransferable=true;Object.defineProperty(streamSaver2,"TransformStream",{configurable:false,writable:false,value:TransformStream})});function loadTransporter(){if(!mitmTransporter){mitmTransporter=isSecureContext?makeIframe(streamSaver2.mitm):makePopup(streamSaver2.mitm)}}function createWriteStream(filename,options,size){let opts={size:null,pathname:null,writableStrategy:void 0,readableStrategy:void 0};let bytesWritten=0;let downloadUrl=null;let channel=null;let ts=null;if(Number.isFinite(options)){[size,options]=[options,size];console.warn("[StreamSaver] Deprecated pass an object as 2nd argument when creating a write stream");opts.size=size;opts.writableStrategy=options}else if(options&&options.highWaterMark){console.warn("[StreamSaver] Deprecated pass an object as 2nd argument when creating a write stream");opts.size=size;opts.writableStrategy=options}else{opts=options||{}}if(!useBlobFallback){loadTransporter();channel=new MessageChannel();filename=encodeURIComponent(filename.replace(/\//g,":")).replace(/['()]/g,escape).replace(/\*/g,"%2A");const response={transferringReadable:supportsTransferable,pathname:opts.pathname||Math.random().toString().slice(-6)+"/"+filename,headers:{"Content-Type":"application/octet-stream; charset=utf-8","Content-Disposition":"attachment; filename*=UTF-8''"+filename}};if(opts.size){response.headers["Content-Length"]=opts.size}const args=[response,"*",[channel.port2]];if(supportsTransferable){const transformer=downloadStrategy==="iframe"?void 0:{transform(chunk,controller){if(!(chunk instanceof Uint8Array)){throw new TypeError("Can only write Uint8Arrays")}bytesWritten+=chunk.length;controller.enqueue(chunk);if(downloadUrl){location.href=downloadUrl;downloadUrl=null}},flush(){if(downloadUrl){location.href=downloadUrl}}};ts=new streamSaver2.TransformStream(transformer,opts.writableStrategy,opts.readableStrategy);const readableStream=ts.readable;channel.port1.postMessage({readableStream},[readableStream])}channel.port1.onmessage=(evt)=>{if(evt.data.download){if(downloadStrategy==="navigate"){mitmTransporter.remove();mitmTransporter=null;if(bytesWritten){location.href=evt.data.download}else{downloadUrl=evt.data.download}}else{if(mitmTransporter.isPopup){mitmTransporter.remove();mitmTransporter=null;if(downloadStrategy==="iframe"){makeIframe(streamSaver2.mitm)}}makeIframe(evt.data.download)}}else if(evt.data.abort){chunks=[];channel.port1.postMessage("abort");channel.port1.onmessage=null;channel.port1.close();channel.port2.close();channel=null}};if(mitmTransporter.loaded){mitmTransporter.postMessage(...args)}else{mitmTransporter.addEventListener("load",()=>{mitmTransporter.postMessage(...args)},{once:true})}}let chunks=[];return(!useBlobFallback&&ts&&ts.writable)||new streamSaver2.WritableStream({write(chunk){if(!(chunk instanceof Uint8Array)){throw new TypeError("Can only write Uint8Arrays")}if(useBlobFallback){chunks.push(chunk);return}channel.port1.postMessage(chunk);bytesWritten+=chunk.length;if(downloadUrl){location.href=downloadUrl;downloadUrl=null}},close(){if(useBlobFallback){const blob=new Blob(chunks,{type:"application/octet-stream; charset=utf-8"});const link=document.createElement("a");link.href=URL.createObjectURL(blob);link.download=filename;link.click()}else{channel.port1.postMessage("end")}},abort(){chunks=[];channel.port1.postMessage("abort");channel.port1.onmessage=null;channel.port1.close();channel.port2.close();channel=null}},opts.writableStrategy)}return streamSaver2})})(StreamSaver);return StreamSaver.exports}var StreamSaverExports=requireStreamSaver();const streamSaver=getDefaultExportFromCjs(StreamSaverExports);
-var u8=Uint8Array,u16=Uint16Array,i32=Int32Array,fleb=new u8([0,0,0,0,0,0,0,0,1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,0,0,0,0]),fdeb=new u8([0,0,0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11,12,12,13,13,0,0]),clim=new u8([16,17,18,0,8,7,9,6,10,5,11,4,12,3,13,2,14,1,15]),freb=function(eb,start){for(var b=new u16(31),i2=0;i2<31;++i2)b[i2]=start+=1<<eb[i2-1];var r=new i32(b[30]);for(i2=1;i2<30;++i2)for(var j=b[i2];j<b[i2+1];++j)r[j]=j-b[i2]<<5|i2;return{b:b,r:r}},_a=freb(fleb,2),fl=_a.b,revfl=_a.r;fl[28]=258,revfl[258]=28;for(var _b=freb(fdeb,0),revfd=_b.r,rev=new u16(32768),i=0;i<32768;++i){var x=(43690&i)>>1|(21845&i)<<1;x=(61680&(x=(52428&x)>>2|(13107&x)<<2))>>4|(3855&x)<<4,rev[i]=((65280&x)>>8|(255&x)<<8)>>1}var hMap=function(cd,mb,r){for(var s=cd.length,i2=0,l2=new u16(mb);i2<s;++i2)cd[i2]&&++l2[cd[i2]-1];var co,le=new u16(mb);for(i2=1;i2<mb;++i2)le[i2]=le[i2-1]+l2[i2-1]<<1;if(r){co=new u16(1<<mb);var rvb=15-mb;for(i2=0;i2<s;++i2)if(cd[i2])for(var sv=i2<<4|cd[i2],r_1=mb-cd[i2],v2=le[cd[i2]-1]++<<r_1,m=v2|(1<<r_1)-1;v2<=m;++v2)co[rev[v2]>>rvb]=sv}else for(co=new u16(s),i2=0;i2<s;++i2)cd[i2]&&(co[i2]=rev[le[cd[i2]-1]++]>>15-cd[i2]);return co},flt=new u8(288);for(i=0;i<144;++i)flt[i]=8;for(i=144;i<256;++i)flt[i]=9;for(i=256;i<280;++i)flt[i]=7;for(i=280;i<288;++i)flt[i]=8;var fdt=new u8(32);for(i=0;i<32;++i)fdt[i]=5;var flm=hMap(flt,9,0),fdm=hMap(fdt,5,0),shft=function(p2){return(p2+7)/8|0},slc=function(v2,s,e){return(null==e||e>v2.length)&&(e=v2.length),new u8(v2.subarray(s,e))},ec=["unexpected EOF","invalid block type","invalid length/literal","invalid distance","stream finished","no stream handler",,"no callback","invalid UTF-8 data","extra field too long","date not in range 1980-2099","filename too long","stream finishing","invalid zip data"],err=function(ind,msg,nt){var e=new Error(msg||ec[ind]);if(e.code=ind,Error.captureStackTrace&&Error.captureStackTrace(e,err),!nt)throw e;return e},wbits=function(d,p2,v2){v2<<=7&p2;var o=p2/8|0;d[o]|=v2,d[o+1]|=v2>>8},wbits16=function(d,p2,v2){v2<<=7&p2;var o=p2/8|0;d[o]|=v2,d[o+1]|=v2>>8,d[o+2]|=v2>>16},hTree=function(d,mb){for(var t=[],i2=0;i2<d.length;++i2)d[i2]&&t.push({s:i2,f:d[i2]});var s=t.length,t2=t.slice();if(!s)return{t:et,l:0};if(1==s){var v2=new u8(t[0].s+1);return v2[t[0].s]=1,{t:v2,l:1}}t.sort((function(a2,b){return a2.f-b.f})),t.push({s:-1,f:25001});var l2=t[0],r=t[1],i0=0,i1=1,i22=2;for(t[0]={s:-1,f:l2.f+r.f,l:l2,r:r};i1!=s-1;)l2=t[t[i0].f<t[i22].f?i0++:i22++],r=t[i0!=i1&&t[i0].f<t[i22].f?i0++:i22++],t[i1++]={s:-1,f:l2.f+r.f,l:l2,r:r};var maxSym=t2[0].s;for(i2=1;i2<s;++i2)t2[i2].s>maxSym&&(maxSym=t2[i2].s);var tr=new u16(maxSym+1),mbt=ln(t[i1-1],tr,0);if(mbt>mb){i2=0;var dt=0,lft=mbt-mb,cst=1<<lft;for(t2.sort((function(a2,b){return tr[b.s]-tr[a2.s]||a2.f-b.f}));i2<s;++i2){var i2_1=t2[i2].s;if(!(tr[i2_1]>mb))break;dt+=cst-(1<<mbt-tr[i2_1]),tr[i2_1]=mb}for(dt>>=lft;dt>0;){var i2_2=t2[i2].s;tr[i2_2]<mb?dt-=1<<mb-tr[i2_2]++-1:++i2}for(;i2>=0&&dt;--i2){var i2_3=t2[i2].s;tr[i2_3]==mb&&(--tr[i2_3],++dt)}mbt=mb}return{t:new u8(tr),l:mbt}},ln=function(n,l2,d){return-1==n.s?Math.max(ln(n.l,l2,d+1),ln(n.r,l2,d+1)):l2[n.s]=d},lc=function(c){for(var s=c.length;s&&!c[--s];);for(var cl=new u16(++s),cli=0,cln=c[0],cls=1,w=function(v2){cl[cli++]=v2},i2=1;i2<=s;++i2)if(c[i2]==cln&&i2!=s)++cls;else{if(!cln&&cls>2){for(;cls>138;cls-=138)w(32754);cls>2&&(w(cls>10?cls-11<<5|28690:cls-3<<5|12305),cls=0)}else if(cls>3){for(w(cln),--cls;cls>6;cls-=6)w(8304);cls>2&&(w(cls-3<<5|8208),cls=0)}for(;cls--;)w(cln);cls=1,cln=c[i2]}return{c:cl.subarray(0,cli),n:s}},clen=function(cf,cl){for(var l2=0,i2=0;i2<cl.length;++i2)l2+=cf[i2]*cl[i2];return l2},wfblk=function(out,pos,dat){var s=dat.length,o=shft(pos+2);out[o]=255&s,out[o+1]=s>>8,out[o+2]=255^out[o],out[o+3]=255^out[o+1];for(var i2=0;i2<s;++i2)out[o+i2+4]=dat[i2];return 8*(o+4+s)},wblk=function(dat,out,final,syms,lf,df,eb,li,bs,bl,p2){wbits(out,p2++,final),++lf[256];for(var _a2=hTree(lf,15),dlt=_a2.t,mlb=_a2.l,_b2=hTree(df,15),ddt=_b2.t,mdb=_b2.l,_c=lc(dlt),lclt=_c.c,nlc=_c.n,_d=lc(ddt),lcdt=_d.c,ndc=_d.n,lcfreq=new u16(19),i2=0;i2<lclt.length;++i2)++lcfreq[31&lclt[i2]];for(i2=0;i2<lcdt.length;++i2)++lcfreq[31&lcdt[i2]];for(var _e=hTree(lcfreq,7),lct=_e.t,mlcb=_e.l,nlcc=19;nlcc>4&&!lct[clim[nlcc-1]];--nlcc);var lm,ll,dm,dl,flen=bl+5<<3,ftlen=clen(lf,flt)+clen(df,fdt)+eb,dtlen=clen(lf,dlt)+clen(df,ddt)+eb+14+3*nlcc+clen(lcfreq,lct)+2*lcfreq[16]+3*lcfreq[17]+7*lcfreq[18];if(bs>=0&&flen<=ftlen&&flen<=dtlen)return wfblk(out,p2,dat.subarray(bs,bs+bl));if(wbits(out,p2,1+(dtlen<ftlen)),p2+=2,dtlen<ftlen){lm=hMap(dlt,mlb,0),ll=dlt,dm=hMap(ddt,mdb,0),dl=ddt;var llm=hMap(lct,mlcb,0);wbits(out,p2,nlc-257),wbits(out,p2+5,ndc-1),wbits(out,p2+10,nlcc-4),p2+=14;for(i2=0;i2<nlcc;++i2)wbits(out,p2+3*i2,lct[clim[i2]]);p2+=3*nlcc;for(var lcts=[lclt,lcdt],it=0;it<2;++it){var clct=lcts[it];for(i2=0;i2<clct.length;++i2){var len=31&clct[i2];wbits(out,p2,llm[len]),p2+=lct[len],len>15&&(wbits(out,p2,clct[i2]>>5&127),p2+=clct[i2]>>12)}}}else lm=flm,ll=flt,dm=fdm,dl=fdt;for(i2=0;i2<li;++i2){var sym=syms[i2];if(sym>255){wbits16(out,p2,lm[(len=sym>>18&31)+257]),p2+=ll[len+257],len>7&&(wbits(out,p2,sym>>23&31),p2+=fleb[len]);var dst=31&sym;wbits16(out,p2,dm[dst]),p2+=dl[dst],dst>3&&(wbits16(out,p2,sym>>5&8191),p2+=fdeb[dst])}else wbits16(out,p2,lm[sym]),p2+=ll[sym]}return wbits16(out,p2,lm[256]),p2+ll[256]},deo=new i32([65540,131080,131088,131104,262176,1048704,1048832,2114560,2117632]),et=new u8(0),dflt=function(dat,lvl,plvl,pre,post,st){var s=st.z||dat.length,o=new u8(pre+s+5*(1+Math.ceil(s/7e3))+post),w=o.subarray(pre,o.length-post),lst=st.l,pos=7&(st.r||0);if(lvl){pos&&(w[0]=st.r>>3);for(var opt=deo[lvl-1],n=opt>>13,c=8191&opt,msk_1=(1<<plvl)-1,prev=st.p||new u16(32768),head=st.h||new u16(msk_1+1),bs1_1=Math.ceil(plvl/3),bs2_1=2*bs1_1,hsh=function(i3){return(dat[i3]^dat[i3+1]<<bs1_1^dat[i3+2]<<bs2_1)&msk_1},syms=new i32(25e3),lf=new u16(288),df=new u16(32),lc_1=0,eb=0,i2=st.i||0,li=0,wi=st.w||0,bs=0;i2+2<s;++i2){var hv=hsh(i2),imod=32767&i2,pimod=head[hv];if(prev[imod]=pimod,head[hv]=imod,wi<=i2){var rem=s-i2;if((lc_1>7e3||li>24576)&&(rem>423||!lst)){pos=wblk(dat,w,0,syms,lf,df,eb,li,bs,i2-bs,pos),li=lc_1=eb=0,bs=i2;for(var j=0;j<286;++j)lf[j]=0;for(j=0;j<30;++j)df[j]=0}var l2=2,d=0,ch_1=c,dif=imod-pimod&32767;if(rem>2&&hv==hsh(i2-dif))for(var maxn=Math.min(n,rem)-1,maxd=Math.min(32767,i2),ml=Math.min(258,rem);dif<=maxd&&--ch_1&&imod!=pimod;){if(dat[i2+l2]==dat[i2+l2-dif]){for(var nl=0;nl<ml&&dat[i2+nl]==dat[i2+nl-dif];++nl);if(nl>l2){if(l2=nl,d=dif,nl>maxn)break;var mmd=Math.min(dif,nl-2),md=0;for(j=0;j<mmd;++j){var ti=i2-dif+j&32767,cd=ti-prev[ti]&32767;cd>md&&(md=cd,pimod=ti)}}}dif+=(imod=pimod)-(pimod=prev[imod])&32767}if(d){syms[li++]=268435456|revfl[l2]<<18|revfd[d];var lin=31&revfl[l2],din=31&revfd[d];eb+=fleb[lin]+fdeb[din],++lf[257+lin],++df[din],wi=i2+l2,++lc_1}else syms[li++]=dat[i2],++lf[dat[i2]]}}for(i2=Math.max(i2,wi);i2<s;++i2)syms[li++]=dat[i2],++lf[dat[i2]];pos=wblk(dat,w,lst,syms,lf,df,eb,li,bs,i2-bs,pos),lst||(st.r=7&pos|w[pos/8|0]<<3,pos-=7,st.h=head,st.p=prev,st.i=i2,st.w=wi)}else{for(i2=st.w||0;i2<s+lst;i2+=65535){var e=i2+65535;e>=s&&(w[pos/8|0]=lst,e=s),pos=wfblk(w,pos+1,dat.subarray(i2,e))}st.i=s}return slc(o,0,pre+shft(pos)+post)},crct=function(){for(var t=new Int32Array(256),i2=0;i2<256;++i2){for(var c=i2,k=9;--k;)c=(1&c&&-306674912)^c>>>1;t[i2]=c}return t}(),crc=function(){var c=-1;return{p:function(d){for(var cr=c,i2=0;i2<d.length;++i2)cr=crct[255&cr^d[i2]]^cr>>>8;c=cr},d:function(){return~c}}},dopt=function(dat,opt,pre,post,st){if(!st&&(st={l:1},opt.dictionary)){var dict=opt.dictionary.subarray(-32768),newDat=new u8(dict.length+dat.length);newDat.set(dict),newDat.set(dat,dict.length),dat=newDat,st.w=dict.length}return dflt(dat,null==opt.level?6:opt.level,null==opt.mem?st.l?Math.ceil(1.5*Math.max(8,Math.min(13,Math.log(dat.length)))):20:12+opt.mem,pre,post,st)},mrg=function(a2,b){var o={};for(var k in a2)o[k]=a2[k];for(var k in b)o[k]=b[k];return o},wbytes=function(d,b,v2){for(;v2;++b)d[b]=v2,v2>>>=8},Deflate=function(){function Deflate2(opts,cb){if("function"==typeof opts&&(cb=opts,opts={}),this.ondata=cb,this.o=opts||{},this.s={l:0,i:32768,w:32768,z:32768},this.b=new u8(98304),this.o.dictionary){var dict=this.o.dictionary.subarray(-32768);this.b.set(dict,32768-dict.length),this.s.i=32768-dict.length}}return Deflate2.prototype.p=function(c,f){this.ondata(dopt(c,this.o,0,0,this.s),f)},Deflate2.prototype.push=function(chunk,final){this.ondata||err(5),this.s.l&&err(4);var endLen=chunk.length+this.s.z;if(endLen>this.b.length){if(endLen>2*this.b.length-32768){var newBuf=new u8(-32768&endLen);newBuf.set(this.b.subarray(0,this.s.z)),this.b=newBuf}var split=this.b.length-this.s.z;this.b.set(chunk.subarray(0,split),this.s.z),this.s.z=this.b.length,this.p(this.b,!1),this.b.set(this.b.subarray(-32768)),this.b.set(chunk.subarray(split),32768),this.s.z=chunk.length-split+32768,this.s.i=32766,this.s.w=32768}else this.b.set(chunk,this.s.z),this.s.z+=chunk.length;this.s.l=1&final,(this.s.z>this.s.w+8191||final)&&(this.p(this.b,final||!1),this.s.w=this.s.i,this.s.i-=2)},Deflate2.prototype.flush=function(){this.ondata||err(5),this.s.l&&err(4),this.p(this.b,!1),this.s.w=this.s.i,this.s.i-=2},Deflate2}(),te="undefined"!=typeof TextEncoder&&new TextEncoder,td="undefined"!=typeof TextDecoder&&new TextDecoder,tds=0;try{td.decode(et,{stream:!0}),tds=1}catch(e){}function strToU8(str,latin1){if(te)return te.encode(str);for(var l2=str.length,ar=new u8(str.length+(str.length>>1)),ai=0,w=function(v2){ar[ai++]=v2},i2=0;i2<l2;++i2){if(ai+5>ar.length){var n=new u8(ai+8+(l2-i2<<1));n.set(ar),ar=n}var c=str.charCodeAt(i2);c<128||latin1?w(c):c<2048?(w(192|c>>6),w(128|63&c)):c>55295&&c<57344?(w(240|(c=65536+(1047552&c)|1023&str.charCodeAt(++i2))>>18),w(128|c>>12&63),w(128|c>>6&63),w(128|63&c)):(w(224|c>>12),w(128|c>>6&63),w(128|63&c))}return slc(ar,0,ai)}var dbf=function(l2){return 1==l2?3:l2<6?2:9==l2?1:0},exfl=function(ex){var le=0;if(ex)for(var k in ex){var l2=ex[k].length;l2>65535&&err(9),le+=l2+4}return le},wzh=function(d,b,f,fn,u2,c,ce2,co){var fl2=fn.length,ex=f.extra,col=co&&co.length,exl=exfl(ex);wbytes(d,b,null!=ce2?33639248:67324752),b+=4,null!=ce2&&(d[b++]=20,d[b++]=f.os),d[b]=20,b+=2,d[b++]=f.flag<<1|(c<0&&8),d[b++]=u2&&8,d[b++]=255&f.compression,d[b++]=f.compression>>8;var dt=new Date(null==f.mtime?Date.now():f.mtime),y2=dt.getFullYear()-1980;if((y2<0||y2>119)&&err(10),wbytes(d,b,y2<<25|dt.getMonth()+1<<21|dt.getDate()<<16|dt.getHours()<<11|dt.getMinutes()<<5|dt.getSeconds()>>1),b+=4,-1!=c&&(wbytes(d,b,f.crc),wbytes(d,b+4,c<0?-c-2:c),wbytes(d,b+8,f.size)),wbytes(d,b+12,fl2),wbytes(d,b+14,exl),b+=16,null!=ce2&&(wbytes(d,b,col),wbytes(d,b+6,f.attrs),wbytes(d,b+10,ce2),b+=14),d.set(fn,b),b+=fl2,exl)for(var k in ex){var exf=ex[k],l2=exf.length;wbytes(d,b,+k),wbytes(d,b+2,l2),d.set(exf,b+4),b+=4+l2}return col&&(d.set(co,b),b+=col),b},wzf=function(o,b,c,d,e){wbytes(o,b,101010256),wbytes(o,b+8,c),wbytes(o,b+10,c),wbytes(o,b+12,d),wbytes(o,b+16,e)},ZipPassThrough=function(){function ZipPassThrough2(filename){this.filename=filename,this.c=crc(),this.size=0,this.compression=0}return ZipPassThrough2.prototype.process=function(chunk,final){this.ondata(null,chunk,final)},ZipPassThrough2.prototype.push=function(chunk,final){this.ondata||err(5),this.c.p(chunk),this.size+=chunk.length,final&&(this.crc=this.c.d()),this.process(chunk,final||!1)},ZipPassThrough2}(),ZipDeflate=function(){function ZipDeflate2(filename,opts){var _this=this;opts||(opts={}),ZipPassThrough.call(this,filename),this.d=new Deflate(opts,(function(dat,final){_this.ondata(null,dat,final)})),this.compression=8,this.flag=dbf(opts.level)}return ZipDeflate2.prototype.process=function(chunk,final){try{this.d.push(chunk,final)}catch(e){this.ondata(e,null,final)}},ZipDeflate2.prototype.push=function(chunk,final){ZipPassThrough.prototype.push.call(this,chunk,final)},ZipDeflate2}(),Zip=function(){function Zip2(cb){this.ondata=cb,this.u=[],this.d=1}return Zip2.prototype.add=function(file){var _this=this;if(this.ondata||err(5),2&this.d)this.ondata(err(4+8*(1&this.d),0,1),null,!1);else{var f=strToU8(file.filename),fl_1=f.length,com=file.comment,o=com&&strToU8(com),u2=fl_1!=file.filename.length||o&&com.length!=o.length,hl_1=fl_1+exfl(file.extra)+30;fl_1>65535&&this.ondata(err(11,0,1),null,!1);var header=new u8(hl_1);wzh(header,0,file,f,u2,-1);var chks_1=[header],pAll_1=function(){for(var _i=0,chks_2=chks_1;_i<chks_2.length;_i++){var chk=chks_2[_i];_this.ondata(null,chk,!1)}chks_1=[]},tr_1=this.d;this.d=0;var ind_1=this.u.length,uf_1=mrg(file,{f:f,u:u2,o:o,t:function(){file.terminate&&file.terminate()},r:function(){if(pAll_1(),tr_1){var nxt=_this.u[ind_1+1];nxt?nxt.r():_this.d=1}tr_1=1}}),cl_1=0;file.ondata=function(err2,dat,final){if(err2)_this.ondata(err2,dat,final),_this.terminate();else if(cl_1+=dat.length,chks_1.push(dat),final){var dd=new u8(16);wbytes(dd,0,134695760),wbytes(dd,4,file.crc),wbytes(dd,8,cl_1),wbytes(dd,12,file.size),chks_1.push(dd),uf_1.c=cl_1,uf_1.b=hl_1+cl_1+16,uf_1.crc=file.crc,uf_1.size=file.size,tr_1&&uf_1.r(),tr_1=1}else tr_1&&pAll_1()},this.u.push(uf_1)}},Zip2.prototype.end=function(){var _this=this;2&this.d?this.ondata(err(4+8*(1&this.d),0,1),null,!0):(this.d?this.e():this.u.push({r:function(){1&_this.d&&(_this.u.splice(-1,1),_this.e())},t:function(){}}),this.d=3)},Zip2.prototype.e=function(){for(var bt=0,l2=0,tl=0,_i=0,_a2=this.u;_i<_a2.length;_i++){tl+=46+(f=_a2[_i]).f.length+exfl(f.extra)+(f.o?f.o.length:0)}for(var out=new u8(tl+22),_b2=0,_c=this.u;_b2<_c.length;_b2++){var f=_c[_b2];wzh(out,bt,f,f.f,f.u,-f.c-2,l2,f.o),bt+=46+f.f.length+exfl(f.extra)+(f.o?f.o.length:0),l2+=f.b}wzf(out,bt,this.u.length,tl,l2),this.ondata(null,out,!0),this.d=2},Zip2.prototype.terminate=function(){for(var _i=0,_a2=this.u;_i<_a2.length;_i++){_a2[_i].t()}this.d=2},Zip2}();
+var StreamSaver = { exports: {} }; var hasRequiredStreamSaver; function requireStreamSaver() { if (hasRequiredStreamSaver) return StreamSaver.exports; hasRequiredStreamSaver = 1; (function (module) { ((name, definition) => { module.exports = definition() })("streamSaver", () => { const global = typeof window === "object" ? window : this; if (!global.HTMLElement) console.warn("streamsaver is meant to run on browsers main thread"); let mitmTransporter = null; let supportsTransferable = false; const test = (fn) => { try { fn() } catch (e) { } }; const ponyfill = global.WebStreamsPolyfill || {}; const isSecureContext = global.isSecureContext; let useBlobFallback = /constructor/i.test(global.HTMLElement) || !!global.safari || !!global.WebKitPoint; const downloadStrategy = isSecureContext || "MozAppearance" in document.documentElement.style ? "iframe" : "navigate"; const streamSaver2 = { createWriteStream, WritableStream: global.WritableStream || ponyfill.WritableStream, supported: true, version: { full: "2.0.5", major: 2, minor: 0, dot: 5 }, mitm: "https://jimmywarting.github.io/StreamSaver.js/mitm.html?version=2.0.0" }; function makeIframe(src) { if (!src) throw new Error("meh"); const iframe = document.createElement("iframe"); iframe.hidden = true; iframe.src = src; iframe.loaded = false; iframe.name = "iframe"; iframe.isIframe = true; iframe.postMessage = (...args) => iframe.contentWindow.postMessage(...args); iframe.addEventListener("load", () => { iframe.loaded = true }, { once: true }); document.body.appendChild(iframe); return iframe } function makePopup(src) { const options = "width=200,height=100"; const delegate2 = document.createDocumentFragment(); const popup = { frame: global.open(src, "popup", options), loaded: false, isIframe: false, isPopup: true, remove() { popup.frame.close() }, addEventListener(...args) { delegate2.addEventListener(...args) }, dispatchEvent(...args) { delegate2.dispatchEvent(...args) }, removeEventListener(...args) { delegate2.removeEventListener(...args) }, postMessage(...args) { popup.frame.postMessage(...args) } }; const onReady = (evt) => { if (evt.source === popup.frame) { popup.loaded = true; global.removeEventListener("message", onReady); popup.dispatchEvent(new Event("load")) } }; global.addEventListener("message", onReady); return popup } try { new Response(new ReadableStream()); if (isSecureContext && !("serviceWorker" in navigator)) { useBlobFallback = true } } catch (err2) { useBlobFallback = true } test(() => { const { readable } = new TransformStream(); const mc = new MessageChannel(); mc.port1.postMessage(readable, [readable]); mc.port1.close(); mc.port2.close(); supportsTransferable = true; Object.defineProperty(streamSaver2, "TransformStream", { configurable: false, writable: false, value: TransformStream }) }); function loadTransporter() { if (!mitmTransporter) { mitmTransporter = isSecureContext ? makeIframe(streamSaver2.mitm) : makePopup(streamSaver2.mitm) } } function createWriteStream(filename, options, size) { let opts = { size: null, pathname: null, writableStrategy: void 0, readableStrategy: void 0 }; let bytesWritten = 0; let downloadUrl = null; let channel = null; let ts = null; if (Number.isFinite(options)) { [size, options] = [options, size]; console.warn("[StreamSaver] Deprecated pass an object as 2nd argument when creating a write stream"); opts.size = size; opts.writableStrategy = options } else if (options && options.highWaterMark) { console.warn("[StreamSaver] Deprecated pass an object as 2nd argument when creating a write stream"); opts.size = size; opts.writableStrategy = options } else { opts = options || {} } if (!useBlobFallback) { loadTransporter(); channel = new MessageChannel(); filename = encodeURIComponent(filename.replace(/\//g, ":")).replace(/['()]/g, escape).replace(/\*/g, "%2A"); const response = { transferringReadable: supportsTransferable, pathname: opts.pathname || Math.random().toString().slice(-6) + "/" + filename, headers: { "Content-Type": "application/octet-stream; charset=utf-8", "Content-Disposition": "attachment; filename*=UTF-8''" + filename } }; if (opts.size) { response.headers["Content-Length"] = opts.size } const args = [response, "*", [channel.port2]]; if (supportsTransferable) { const transformer = downloadStrategy === "iframe" ? void 0 : { transform(chunk, controller) { if (!(chunk instanceof Uint8Array)) { throw new TypeError("Can only write Uint8Arrays") } bytesWritten += chunk.length; controller.enqueue(chunk); if (downloadUrl) { location.href = downloadUrl; downloadUrl = null } }, flush() { if (downloadUrl) { location.href = downloadUrl } } }; ts = new streamSaver2.TransformStream(transformer, opts.writableStrategy, opts.readableStrategy); const readableStream = ts.readable; channel.port1.postMessage({ readableStream }, [readableStream]) } channel.port1.onmessage = (evt) => { if (evt.data.download) { if (downloadStrategy === "navigate") { mitmTransporter.remove(); mitmTransporter = null; if (bytesWritten) { location.href = evt.data.download } else { downloadUrl = evt.data.download } } else { if (mitmTransporter.isPopup) { mitmTransporter.remove(); mitmTransporter = null; if (downloadStrategy === "iframe") { makeIframe(streamSaver2.mitm) } } makeIframe(evt.data.download) } } else if (evt.data.abort) { chunks = []; channel.port1.postMessage("abort"); channel.port1.onmessage = null; channel.port1.close(); channel.port2.close(); channel = null } }; if (mitmTransporter.loaded) { mitmTransporter.postMessage(...args) } else { mitmTransporter.addEventListener("load", () => { mitmTransporter.postMessage(...args) }, { once: true }) } } let chunks = []; return (!useBlobFallback && ts && ts.writable) || new streamSaver2.WritableStream({ write(chunk) { if (!(chunk instanceof Uint8Array)) { throw new TypeError("Can only write Uint8Arrays") } if (useBlobFallback) { chunks.push(chunk); return } channel.port1.postMessage(chunk); bytesWritten += chunk.length; if (downloadUrl) { location.href = downloadUrl; downloadUrl = null } }, close() { if (useBlobFallback) { const blob = new Blob(chunks, { type: "application/octet-stream; charset=utf-8" }); const link = document.createElement("a"); link.href = URL.createObjectURL(blob); link.download = filename; link.click() } else { channel.port1.postMessage("end") } }, abort() { chunks = []; channel.port1.postMessage("abort"); channel.port1.onmessage = null; channel.port1.close(); channel.port2.close(); channel = null } }, opts.writableStrategy) } return streamSaver2 }) })(StreamSaver); return StreamSaver.exports } var StreamSaverExports = requireStreamSaver(); const streamSaver = getDefaultExportFromCjs(StreamSaverExports);
+var u8 = Uint8Array, u16 = Uint16Array, i32 = Int32Array, fleb = new u8([0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 0, 0, 0, 0]), fdeb = new u8([0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, 0, 0]), clim = new u8([16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15]), freb = function (eb, start) { for (var b = new u16(31), i2 = 0; i2 < 31; ++i2)b[i2] = start += 1 << eb[i2 - 1]; var r = new i32(b[30]); for (i2 = 1; i2 < 30; ++i2)for (var j = b[i2]; j < b[i2 + 1]; ++j)r[j] = j - b[i2] << 5 | i2; return { b: b, r: r } }, _a = freb(fleb, 2), fl = _a.b, revfl = _a.r; fl[28] = 258, revfl[258] = 28; for (var _b = freb(fdeb, 0), revfd = _b.r, rev = new u16(32768), i = 0; i < 32768; ++i) { var x = (43690 & i) >> 1 | (21845 & i) << 1; x = (61680 & (x = (52428 & x) >> 2 | (13107 & x) << 2)) >> 4 | (3855 & x) << 4, rev[i] = ((65280 & x) >> 8 | (255 & x) << 8) >> 1 } var hMap = function (cd, mb, r) { for (var s = cd.length, i2 = 0, l2 = new u16(mb); i2 < s; ++i2)cd[i2] && ++l2[cd[i2] - 1]; var co, le = new u16(mb); for (i2 = 1; i2 < mb; ++i2)le[i2] = le[i2 - 1] + l2[i2 - 1] << 1; if (r) { co = new u16(1 << mb); var rvb = 15 - mb; for (i2 = 0; i2 < s; ++i2)if (cd[i2]) for (var sv = i2 << 4 | cd[i2], r_1 = mb - cd[i2], v2 = le[cd[i2] - 1]++ << r_1, m = v2 | (1 << r_1) - 1; v2 <= m; ++v2)co[rev[v2] >> rvb] = sv } else for (co = new u16(s), i2 = 0; i2 < s; ++i2)cd[i2] && (co[i2] = rev[le[cd[i2] - 1]++] >> 15 - cd[i2]); return co }, flt = new u8(288); for (i = 0; i < 144; ++i)flt[i] = 8; for (i = 144; i < 256; ++i)flt[i] = 9; for (i = 256; i < 280; ++i)flt[i] = 7; for (i = 280; i < 288; ++i)flt[i] = 8; var fdt = new u8(32); for (i = 0; i < 32; ++i)fdt[i] = 5; var flm = hMap(flt, 9, 0), fdm = hMap(fdt, 5, 0), shft = function (p2) { return (p2 + 7) / 8 | 0 }, slc = function (v2, s, e) { return (null == e || e > v2.length) && (e = v2.length), new u8(v2.subarray(s, e)) }, ec = ["unexpected EOF", "invalid block type", "invalid length/literal", "invalid distance", "stream finished", "no stream handler", , "no callback", "invalid UTF-8 data", "extra field too long", "date not in range 1980-2099", "filename too long", "stream finishing", "invalid zip data"], err = function (ind, msg, nt) { var e = new Error(msg || ec[ind]); if (e.code = ind, Error.captureStackTrace && Error.captureStackTrace(e, err), !nt) throw e; return e }, wbits = function (d, p2, v2) { v2 <<= 7 & p2; var o = p2 / 8 | 0; d[o] |= v2, d[o + 1] |= v2 >> 8 }, wbits16 = function (d, p2, v2) { v2 <<= 7 & p2; var o = p2 / 8 | 0; d[o] |= v2, d[o + 1] |= v2 >> 8, d[o + 2] |= v2 >> 16 }, hTree = function (d, mb) { for (var t = [], i2 = 0; i2 < d.length; ++i2)d[i2] && t.push({ s: i2, f: d[i2] }); var s = t.length, t2 = t.slice(); if (!s) return { t: et, l: 0 }; if (1 == s) { var v2 = new u8(t[0].s + 1); return v2[t[0].s] = 1, { t: v2, l: 1 } } t.sort((function (a2, b) { return a2.f - b.f })), t.push({ s: -1, f: 25001 }); var l2 = t[0], r = t[1], i0 = 0, i1 = 1, i22 = 2; for (t[0] = { s: -1, f: l2.f + r.f, l: l2, r: r }; i1 != s - 1;)l2 = t[t[i0].f < t[i22].f ? i0++ : i22++], r = t[i0 != i1 && t[i0].f < t[i22].f ? i0++ : i22++], t[i1++] = { s: -1, f: l2.f + r.f, l: l2, r: r }; var maxSym = t2[0].s; for (i2 = 1; i2 < s; ++i2)t2[i2].s > maxSym && (maxSym = t2[i2].s); var tr = new u16(maxSym + 1), mbt = ln(t[i1 - 1], tr, 0); if (mbt > mb) { i2 = 0; var dt = 0, lft = mbt - mb, cst = 1 << lft; for (t2.sort((function (a2, b) { return tr[b.s] - tr[a2.s] || a2.f - b.f })); i2 < s; ++i2) { var i2_1 = t2[i2].s; if (!(tr[i2_1] > mb)) break; dt += cst - (1 << mbt - tr[i2_1]), tr[i2_1] = mb } for (dt >>= lft; dt > 0;) { var i2_2 = t2[i2].s; tr[i2_2] < mb ? dt -= 1 << mb - tr[i2_2]++ - 1 : ++i2 } for (; i2 >= 0 && dt; --i2) { var i2_3 = t2[i2].s; tr[i2_3] == mb && (--tr[i2_3], ++dt) } mbt = mb } return { t: new u8(tr), l: mbt } }, ln = function (n, l2, d) { return -1 == n.s ? Math.max(ln(n.l, l2, d + 1), ln(n.r, l2, d + 1)) : l2[n.s] = d }, lc = function (c) { for (var s = c.length; s && !c[--s];); for (var cl = new u16(++s), cli = 0, cln = c[0], cls = 1, w = function (v2) { cl[cli++] = v2 }, i2 = 1; i2 <= s; ++i2)if (c[i2] == cln && i2 != s) ++cls; else { if (!cln && cls > 2) { for (; cls > 138; cls -= 138)w(32754); cls > 2 && (w(cls > 10 ? cls - 11 << 5 | 28690 : cls - 3 << 5 | 12305), cls = 0) } else if (cls > 3) { for (w(cln), --cls; cls > 6; cls -= 6)w(8304); cls > 2 && (w(cls - 3 << 5 | 8208), cls = 0) } for (; cls--;)w(cln); cls = 1, cln = c[i2] } return { c: cl.subarray(0, cli), n: s } }, clen = function (cf, cl) { for (var l2 = 0, i2 = 0; i2 < cl.length; ++i2)l2 += cf[i2] * cl[i2]; return l2 }, wfblk = function (out, pos, dat) { var s = dat.length, o = shft(pos + 2); out[o] = 255 & s, out[o + 1] = s >> 8, out[o + 2] = 255 ^ out[o], out[o + 3] = 255 ^ out[o + 1]; for (var i2 = 0; i2 < s; ++i2)out[o + i2 + 4] = dat[i2]; return 8 * (o + 4 + s) }, wblk = function (dat, out, final, syms, lf, df, eb, li, bs, bl, p2) { wbits(out, p2++, final), ++lf[256]; for (var _a2 = hTree(lf, 15), dlt = _a2.t, mlb = _a2.l, _b2 = hTree(df, 15), ddt = _b2.t, mdb = _b2.l, _c = lc(dlt), lclt = _c.c, nlc = _c.n, _d = lc(ddt), lcdt = _d.c, ndc = _d.n, lcfreq = new u16(19), i2 = 0; i2 < lclt.length; ++i2)++lcfreq[31 & lclt[i2]]; for (i2 = 0; i2 < lcdt.length; ++i2)++lcfreq[31 & lcdt[i2]]; for (var _e = hTree(lcfreq, 7), lct = _e.t, mlcb = _e.l, nlcc = 19; nlcc > 4 && !lct[clim[nlcc - 1]]; --nlcc); var lm, ll, dm, dl, flen = bl + 5 << 3, ftlen = clen(lf, flt) + clen(df, fdt) + eb, dtlen = clen(lf, dlt) + clen(df, ddt) + eb + 14 + 3 * nlcc + clen(lcfreq, lct) + 2 * lcfreq[16] + 3 * lcfreq[17] + 7 * lcfreq[18]; if (bs >= 0 && flen <= ftlen && flen <= dtlen) return wfblk(out, p2, dat.subarray(bs, bs + bl)); if (wbits(out, p2, 1 + (dtlen < ftlen)), p2 += 2, dtlen < ftlen) { lm = hMap(dlt, mlb, 0), ll = dlt, dm = hMap(ddt, mdb, 0), dl = ddt; var llm = hMap(lct, mlcb, 0); wbits(out, p2, nlc - 257), wbits(out, p2 + 5, ndc - 1), wbits(out, p2 + 10, nlcc - 4), p2 += 14; for (i2 = 0; i2 < nlcc; ++i2)wbits(out, p2 + 3 * i2, lct[clim[i2]]); p2 += 3 * nlcc; for (var lcts = [lclt, lcdt], it = 0; it < 2; ++it) { var clct = lcts[it]; for (i2 = 0; i2 < clct.length; ++i2) { var len = 31 & clct[i2]; wbits(out, p2, llm[len]), p2 += lct[len], len > 15 && (wbits(out, p2, clct[i2] >> 5 & 127), p2 += clct[i2] >> 12) } } } else lm = flm, ll = flt, dm = fdm, dl = fdt; for (i2 = 0; i2 < li; ++i2) { var sym = syms[i2]; if (sym > 255) { wbits16(out, p2, lm[(len = sym >> 18 & 31) + 257]), p2 += ll[len + 257], len > 7 && (wbits(out, p2, sym >> 23 & 31), p2 += fleb[len]); var dst = 31 & sym; wbits16(out, p2, dm[dst]), p2 += dl[dst], dst > 3 && (wbits16(out, p2, sym >> 5 & 8191), p2 += fdeb[dst]) } else wbits16(out, p2, lm[sym]), p2 += ll[sym] } return wbits16(out, p2, lm[256]), p2 + ll[256] }, deo = new i32([65540, 131080, 131088, 131104, 262176, 1048704, 1048832, 2114560, 2117632]), et = new u8(0), dflt = function (dat, lvl, plvl, pre, post, st) { var s = st.z || dat.length, o = new u8(pre + s + 5 * (1 + Math.ceil(s / 7e3)) + post), w = o.subarray(pre, o.length - post), lst = st.l, pos = 7 & (st.r || 0); if (lvl) { pos && (w[0] = st.r >> 3); for (var opt = deo[lvl - 1], n = opt >> 13, c = 8191 & opt, msk_1 = (1 << plvl) - 1, prev = st.p || new u16(32768), head = st.h || new u16(msk_1 + 1), bs1_1 = Math.ceil(plvl / 3), bs2_1 = 2 * bs1_1, hsh = function (i3) { return (dat[i3] ^ dat[i3 + 1] << bs1_1 ^ dat[i3 + 2] << bs2_1) & msk_1 }, syms = new i32(25e3), lf = new u16(288), df = new u16(32), lc_1 = 0, eb = 0, i2 = st.i || 0, li = 0, wi = st.w || 0, bs = 0; i2 + 2 < s; ++i2) { var hv = hsh(i2), imod = 32767 & i2, pimod = head[hv]; if (prev[imod] = pimod, head[hv] = imod, wi <= i2) { var rem = s - i2; if ((lc_1 > 7e3 || li > 24576) && (rem > 423 || !lst)) { pos = wblk(dat, w, 0, syms, lf, df, eb, li, bs, i2 - bs, pos), li = lc_1 = eb = 0, bs = i2; for (var j = 0; j < 286; ++j)lf[j] = 0; for (j = 0; j < 30; ++j)df[j] = 0 } var l2 = 2, d = 0, ch_1 = c, dif = imod - pimod & 32767; if (rem > 2 && hv == hsh(i2 - dif)) for (var maxn = Math.min(n, rem) - 1, maxd = Math.min(32767, i2), ml = Math.min(258, rem); dif <= maxd && --ch_1 && imod != pimod;) { if (dat[i2 + l2] == dat[i2 + l2 - dif]) { for (var nl = 0; nl < ml && dat[i2 + nl] == dat[i2 + nl - dif]; ++nl); if (nl > l2) { if (l2 = nl, d = dif, nl > maxn) break; var mmd = Math.min(dif, nl - 2), md = 0; for (j = 0; j < mmd; ++j) { var ti = i2 - dif + j & 32767, cd = ti - prev[ti] & 32767; cd > md && (md = cd, pimod = ti) } } } dif += (imod = pimod) - (pimod = prev[imod]) & 32767 } if (d) { syms[li++] = 268435456 | revfl[l2] << 18 | revfd[d]; var lin = 31 & revfl[l2], din = 31 & revfd[d]; eb += fleb[lin] + fdeb[din], ++lf[257 + lin], ++df[din], wi = i2 + l2, ++lc_1 } else syms[li++] = dat[i2], ++lf[dat[i2]] } } for (i2 = Math.max(i2, wi); i2 < s; ++i2)syms[li++] = dat[i2], ++lf[dat[i2]]; pos = wblk(dat, w, lst, syms, lf, df, eb, li, bs, i2 - bs, pos), lst || (st.r = 7 & pos | w[pos / 8 | 0] << 3, pos -= 7, st.h = head, st.p = prev, st.i = i2, st.w = wi) } else { for (i2 = st.w || 0; i2 < s + lst; i2 += 65535) { var e = i2 + 65535; e >= s && (w[pos / 8 | 0] = lst, e = s), pos = wfblk(w, pos + 1, dat.subarray(i2, e)) } st.i = s } return slc(o, 0, pre + shft(pos) + post) }, crct = function () { for (var t = new Int32Array(256), i2 = 0; i2 < 256; ++i2) { for (var c = i2, k = 9; --k;)c = (1 & c && -306674912) ^ c >>> 1; t[i2] = c } return t }(), crc = function () { var c = -1; return { p: function (d) { for (var cr = c, i2 = 0; i2 < d.length; ++i2)cr = crct[255 & cr ^ d[i2]] ^ cr >>> 8; c = cr }, d: function () { return ~c } } }, dopt = function (dat, opt, pre, post, st) { if (!st && (st = { l: 1 }, opt.dictionary)) { var dict = opt.dictionary.subarray(-32768), newDat = new u8(dict.length + dat.length); newDat.set(dict), newDat.set(dat, dict.length), dat = newDat, st.w = dict.length } return dflt(dat, null == opt.level ? 6 : opt.level, null == opt.mem ? st.l ? Math.ceil(1.5 * Math.max(8, Math.min(13, Math.log(dat.length)))) : 20 : 12 + opt.mem, pre, post, st) }, mrg = function (a2, b) { var o = {}; for (var k in a2) o[k] = a2[k]; for (var k in b) o[k] = b[k]; return o }, wbytes = function (d, b, v2) { for (; v2; ++b)d[b] = v2, v2 >>>= 8 }, Deflate = function () { function Deflate2(opts, cb) { if ("function" == typeof opts && (cb = opts, opts = {}), this.ondata = cb, this.o = opts || {}, this.s = { l: 0, i: 32768, w: 32768, z: 32768 }, this.b = new u8(98304), this.o.dictionary) { var dict = this.o.dictionary.subarray(-32768); this.b.set(dict, 32768 - dict.length), this.s.i = 32768 - dict.length } } return Deflate2.prototype.p = function (c, f) { this.ondata(dopt(c, this.o, 0, 0, this.s), f) }, Deflate2.prototype.push = function (chunk, final) { this.ondata || err(5), this.s.l && err(4); var endLen = chunk.length + this.s.z; if (endLen > this.b.length) { if (endLen > 2 * this.b.length - 32768) { var newBuf = new u8(-32768 & endLen); newBuf.set(this.b.subarray(0, this.s.z)), this.b = newBuf } var split = this.b.length - this.s.z; this.b.set(chunk.subarray(0, split), this.s.z), this.s.z = this.b.length, this.p(this.b, !1), this.b.set(this.b.subarray(-32768)), this.b.set(chunk.subarray(split), 32768), this.s.z = chunk.length - split + 32768, this.s.i = 32766, this.s.w = 32768 } else this.b.set(chunk, this.s.z), this.s.z += chunk.length; this.s.l = 1 & final, (this.s.z > this.s.w + 8191 || final) && (this.p(this.b, final || !1), this.s.w = this.s.i, this.s.i -= 2) }, Deflate2.prototype.flush = function () { this.ondata || err(5), this.s.l && err(4), this.p(this.b, !1), this.s.w = this.s.i, this.s.i -= 2 }, Deflate2 }(), te = "undefined" != typeof TextEncoder && new TextEncoder, td = "undefined" != typeof TextDecoder && new TextDecoder, tds = 0; try { td.decode(et, { stream: !0 }), tds = 1 } catch (e) { } function strToU8(str, latin1) { if (te) return te.encode(str); for (var l2 = str.length, ar = new u8(str.length + (str.length >> 1)), ai = 0, w = function (v2) { ar[ai++] = v2 }, i2 = 0; i2 < l2; ++i2) { if (ai + 5 > ar.length) { var n = new u8(ai + 8 + (l2 - i2 << 1)); n.set(ar), ar = n } var c = str.charCodeAt(i2); c < 128 || latin1 ? w(c) : c < 2048 ? (w(192 | c >> 6), w(128 | 63 & c)) : c > 55295 && c < 57344 ? (w(240 | (c = 65536 + (1047552 & c) | 1023 & str.charCodeAt(++i2)) >> 18), w(128 | c >> 12 & 63), w(128 | c >> 6 & 63), w(128 | 63 & c)) : (w(224 | c >> 12), w(128 | c >> 6 & 63), w(128 | 63 & c)) } return slc(ar, 0, ai) } var dbf = function (l2) { return 1 == l2 ? 3 : l2 < 6 ? 2 : 9 == l2 ? 1 : 0 }, exfl = function (ex) { var le = 0; if (ex) for (var k in ex) { var l2 = ex[k].length; l2 > 65535 && err(9), le += l2 + 4 } return le }, wzh = function (d, b, f, fn, u2, c, ce2, co) { var fl2 = fn.length, ex = f.extra, col = co && co.length, exl = exfl(ex); wbytes(d, b, null != ce2 ? 33639248 : 67324752), b += 4, null != ce2 && (d[b++] = 20, d[b++] = f.os), d[b] = 20, b += 2, d[b++] = f.flag << 1 | (c < 0 && 8), d[b++] = u2 && 8, d[b++] = 255 & f.compression, d[b++] = f.compression >> 8; var dt = new Date(null == f.mtime ? Date.now() : f.mtime), y2 = dt.getFullYear() - 1980; if ((y2 < 0 || y2 > 119) && err(10), wbytes(d, b, y2 << 25 | dt.getMonth() + 1 << 21 | dt.getDate() << 16 | dt.getHours() << 11 | dt.getMinutes() << 5 | dt.getSeconds() >> 1), b += 4, -1 != c && (wbytes(d, b, f.crc), wbytes(d, b + 4, c < 0 ? -c - 2 : c), wbytes(d, b + 8, f.size)), wbytes(d, b + 12, fl2), wbytes(d, b + 14, exl), b += 16, null != ce2 && (wbytes(d, b, col), wbytes(d, b + 6, f.attrs), wbytes(d, b + 10, ce2), b += 14), d.set(fn, b), b += fl2, exl) for (var k in ex) { var exf = ex[k], l2 = exf.length; wbytes(d, b, +k), wbytes(d, b + 2, l2), d.set(exf, b + 4), b += 4 + l2 } return col && (d.set(co, b), b += col), b }, wzf = function (o, b, c, d, e) { wbytes(o, b, 101010256), wbytes(o, b + 8, c), wbytes(o, b + 10, c), wbytes(o, b + 12, d), wbytes(o, b + 16, e) }, ZipPassThrough = function () { function ZipPassThrough2(filename) { this.filename = filename, this.c = crc(), this.size = 0, this.compression = 0 } return ZipPassThrough2.prototype.process = function (chunk, final) { this.ondata(null, chunk, final) }, ZipPassThrough2.prototype.push = function (chunk, final) { this.ondata || err(5), this.c.p(chunk), this.size += chunk.length, final && (this.crc = this.c.d()), this.process(chunk, final || !1) }, ZipPassThrough2 }(), ZipDeflate = function () { function ZipDeflate2(filename, opts) { var _this = this; opts || (opts = {}), ZipPassThrough.call(this, filename), this.d = new Deflate(opts, (function (dat, final) { _this.ondata(null, dat, final) })), this.compression = 8, this.flag = dbf(opts.level) } return ZipDeflate2.prototype.process = function (chunk, final) { try { this.d.push(chunk, final) } catch (e) { this.ondata(e, null, final) } }, ZipDeflate2.prototype.push = function (chunk, final) { ZipPassThrough.prototype.push.call(this, chunk, final) }, ZipDeflate2 }(), Zip = function () { function Zip2(cb) { this.ondata = cb, this.u = [], this.d = 1 } return Zip2.prototype.add = function (file) { var _this = this; if (this.ondata || err(5), 2 & this.d) this.ondata(err(4 + 8 * (1 & this.d), 0, 1), null, !1); else { var f = strToU8(file.filename), fl_1 = f.length, com = file.comment, o = com && strToU8(com), u2 = fl_1 != file.filename.length || o && com.length != o.length, hl_1 = fl_1 + exfl(file.extra) + 30; fl_1 > 65535 && this.ondata(err(11, 0, 1), null, !1); var header = new u8(hl_1); wzh(header, 0, file, f, u2, -1); var chks_1 = [header], pAll_1 = function () { for (var _i = 0, chks_2 = chks_1; _i < chks_2.length; _i++) { var chk = chks_2[_i]; _this.ondata(null, chk, !1) } chks_1 = [] }, tr_1 = this.d; this.d = 0; var ind_1 = this.u.length, uf_1 = mrg(file, { f: f, u: u2, o: o, t: function () { file.terminate && file.terminate() }, r: function () { if (pAll_1(), tr_1) { var nxt = _this.u[ind_1 + 1]; nxt ? nxt.r() : _this.d = 1 } tr_1 = 1 } }), cl_1 = 0; file.ondata = function (err2, dat, final) { if (err2) _this.ondata(err2, dat, final), _this.terminate(); else if (cl_1 += dat.length, chks_1.push(dat), final) { var dd = new u8(16); wbytes(dd, 0, 134695760), wbytes(dd, 4, file.crc), wbytes(dd, 8, cl_1), wbytes(dd, 12, file.size), chks_1.push(dd), uf_1.c = cl_1, uf_1.b = hl_1 + cl_1 + 16, uf_1.crc = file.crc, uf_1.size = file.size, tr_1 && uf_1.r(), tr_1 = 1 } else tr_1 && pAll_1() }, this.u.push(uf_1) } }, Zip2.prototype.end = function () { var _this = this; 2 & this.d ? this.ondata(err(4 + 8 * (1 & this.d), 0, 1), null, !0) : (this.d ? this.e() : this.u.push({ r: function () { 1 & _this.d && (_this.u.splice(-1, 1), _this.e()) }, t: function () { } }), this.d = 3) }, Zip2.prototype.e = function () { for (var bt = 0, l2 = 0, tl = 0, _i = 0, _a2 = this.u; _i < _a2.length; _i++) { tl += 46 + (f = _a2[_i]).f.length + exfl(f.extra) + (f.o ? f.o.length : 0) } for (var out = new u8(tl + 22), _b2 = 0, _c = this.u; _b2 < _c.length; _b2++) { var f = _c[_b2]; wzh(out, bt, f, f.f, f.u, -f.c - 2, l2, f.o), bt += 46 + f.f.length + exfl(f.extra) + (f.o ? f.o.length : 0), l2 += f.b } wzf(out, bt, this.u.length, tl, l2), this.ondata(null, out, !0), this.d = 2 }, Zip2.prototype.terminate = function () { for (var _i = 0, _a2 = this.u; _i < _a2.length; _i++) { _a2[_i].t() } this.d = 2 }, Zip2 }();
 /** @license MIT <https://opensource.org/licenses/MIT> @copyright Michael Hart 2024 */
-const encoder=new TextEncoder();const HOST_SERVICES={appstream2:"appstream",cloudhsmv2:"cloudhsm",email:"ses",marketplace:"aws-marketplace",mobile:"AWSMobileHubService",pinpoint:"mobiletargeting",queue:"sqs","git-codecommit":"codecommit","mturk-requester-sandbox":"mturk-requester","personalize-runtime":"personalize"};const UNSIGNABLE_HEADERS=new Set(["authorization","content-type","content-length","user-agent","presigned-expires","expect","x-amzn-trace-id","range","connection"]);class AwsV4Signer{constructor({method,url,headers,body,accessKeyId,secretAccessKey,sessionToken,service,region,cache,datetime,signQuery,appendSessionToken,allHeaders,singleEncode}){if(url==null)throw new TypeError("url is a required option");if(accessKeyId==null)throw new TypeError("accessKeyId is a required option");if(secretAccessKey==null)throw new TypeError("secretAccessKey is a required option");this.method=method||(body?"POST":"GET");this.url=new URL(url);this.headers=new Headers(headers||{});this.body=body;this.accessKeyId=accessKeyId;this.secretAccessKey=secretAccessKey;this.sessionToken=sessionToken;let guessedService,guessedRegion;if(!service||!region){[guessedService,guessedRegion]=guessServiceRegion(this.url,this.headers)}this.service=service||guessedService||"";this.region=region||guessedRegion||"us-east-1";this.cache=cache||new Map();this.datetime=datetime||new Date().toISOString().replace(/[:-]|\.\d{3}/g,"");this.signQuery=signQuery;this.appendSessionToken=appendSessionToken||this.service==="iotdevicegateway";this.headers.delete("Host");if(this.service==="s3"&&!this.signQuery&&!this.headers.has("X-Amz-Content-Sha256")){this.headers.set("X-Amz-Content-Sha256","UNSIGNED-PAYLOAD")}const params=this.signQuery?this.url.searchParams:this.headers;params.set("X-Amz-Date",this.datetime);if(this.sessionToken&&!this.appendSessionToken){params.set("X-Amz-Security-Token",this.sessionToken)}this.signableHeaders=["host",...this.headers.keys()].filter((header)=>allHeaders||!UNSIGNABLE_HEADERS.has(header)).sort();this.signedHeaders=this.signableHeaders.join(";");this.canonicalHeaders=this.signableHeaders.map((header)=>header+":"+(header==="host"?this.url.host:(this.headers.get(header)||"").replace(/\s+/g," "))).join("\n");this.credentialString=[this.datetime.slice(0,8),this.region,this.service,"aws4_request"].join("/");if(this.signQuery){if(this.service==="s3"&&!params.has("X-Amz-Expires")){params.set("X-Amz-Expires","86400")}params.set("X-Amz-Algorithm","AWS4-HMAC-SHA256");params.set("X-Amz-Credential",this.accessKeyId+"/"+this.credentialString);params.set("X-Amz-SignedHeaders",this.signedHeaders)}if(this.service==="s3"){try{this.encodedPath=decodeURIComponent(this.url.pathname.replace(/\+/g," "))}catch(e){this.encodedPath=this.url.pathname}}else{this.encodedPath=this.url.pathname.replace(/\/+/g,"/")}if(!singleEncode){this.encodedPath=encodeURIComponent(this.encodedPath).replace(/%2F/g,"/")}this.encodedPath=encodeRfc3986(this.encodedPath);const seenKeys=new Set();this.encodedSearch=[...this.url.searchParams].filter(([k])=>{if(!k)return false;if(this.service==="s3"){if(seenKeys.has(k))return false;seenKeys.add(k)}return true}).map((pair)=>pair.map((p2)=>encodeRfc3986(encodeURIComponent(p2)))).sort(([k1,v1],[k2,v2])=>k1<k2?-1:k1>k2?1:v1<v2?-1:v1>v2?1:0).map((pair)=>pair.join("=")).join("&")}async sign(){if(this.signQuery){this.url.searchParams.set("X-Amz-Signature",await this.signature());if(this.sessionToken&&this.appendSessionToken){this.url.searchParams.set("X-Amz-Security-Token",this.sessionToken)}}else{this.headers.set("Authorization",await this.authHeader())}return{method:this.method,url:this.url,headers:this.headers,body:this.body}}async authHeader(){return["AWS4-HMAC-SHA256 Credential="+this.accessKeyId+"/"+this.credentialString,"SignedHeaders="+this.signedHeaders,"Signature="+(await this.signature())].join(", ")}async signature(){const date=this.datetime.slice(0,8);const cacheKey=[this.secretAccessKey,date,this.region,this.service].join();let kCredentials=this.cache.get(cacheKey);if(!kCredentials){const kDate=await hmac("AWS4"+this.secretAccessKey,date);const kRegion=await hmac(kDate,this.region);const kService=await hmac(kRegion,this.service);kCredentials=await hmac(kService,"aws4_request");this.cache.set(cacheKey,kCredentials)}return buf2hex(await hmac(kCredentials,await this.stringToSign()))}async stringToSign(){return["AWS4-HMAC-SHA256",this.datetime,this.credentialString,buf2hex(await hash(await this.canonicalString()))].join("\n")}async canonicalString(){return[this.method.toUpperCase(),this.encodedPath,this.encodedSearch,this.canonicalHeaders+"\n",this.signedHeaders,await this.hexBodyHash()].join("\n")}async hexBodyHash(){let hashHeader=this.headers.get("X-Amz-Content-Sha256")||(this.service==="s3"&&this.signQuery?"UNSIGNED-PAYLOAD":null);if(hashHeader==null){if(this.body&&typeof this.body!=="string"&&!("byteLength" in this.body)){throw new Error("body must be a string, ArrayBuffer or ArrayBufferView, unless you include the X-Amz-Content-Sha256 header")}hashHeader=buf2hex(await hash(this.body||""))}return hashHeader}}async function hmac(key,string){const cryptoKey=await crypto.subtle.importKey("raw",typeof key==="string"?encoder.encode(key):key,{name:"HMAC",hash:{name:"SHA-256"}},false,["sign"]);return crypto.subtle.sign("HMAC",cryptoKey,encoder.encode(string))}async function hash(content){return crypto.subtle.digest("SHA-256",typeof content==="string"?encoder.encode(content):content)}const HEX_CHARS=["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"];function buf2hex(arrayBuffer){const buffer=new Uint8Array(arrayBuffer);let out="";for(let idx=0;idx<buffer.length;idx++){const n=buffer[idx];out+=HEX_CHARS[(n>>>4)&15];out+=HEX_CHARS[n&15]}return out}function encodeRfc3986(urlEncodedStr){return urlEncodedStr.replace(/[!'()*]/g,(c)=>"%"+c.charCodeAt(0).toString(16).toUpperCase())}function guessServiceRegion(url,headers){const{hostname,pathname}=url;if(hostname.endsWith(".on.aws")){const match2=hostname.match(/^[^.]{1,63}\.lambda-url\.([^.]{1,63})\.on\.aws$/);return match2!=null?["lambda",match2[1]||""]:["",""]}if(hostname.endsWith(".r2.cloudflarestorage.com")){return["s3","auto"]}if(hostname.endsWith(".backblazeb2.com")){const match2=hostname.match(/^(?:[^.]{1,63}\.)?s3\.([^.]{1,63})\.backblazeb2\.com$/);return match2!=null?["s3",match2[1]||""]:["",""]}const match=hostname.replace("dualstack.","").match(/([^.]{1,63})\.(?:([^.]{0,63})\.)?amazonaws\.com(?:\.cn)?$/);let service=(match&&match[1])||"";let region=match&&match[2];if(region==="us-gov"){region="us-gov-west-1"}else if(region==="s3"||region==="s3-accelerate"){region="us-east-1";service="s3"}else if(service==="iot"){if(hostname.startsWith("iot.")){service="execute-api"}else if(hostname.startsWith("data.jobs.iot.")){service="iot-jobs-data"}else{service=pathname==="/mqtt"?"iotdevicegateway":"iotdata"}}else if(service==="autoscaling"){const targetPrefix=(headers.get("X-Amz-Target")||"").split(".")[0];if(targetPrefix==="AnyScaleFrontendService"){service="application-autoscaling"}else if(targetPrefix==="AnyScaleScalingPlannerFrontendService"){service="autoscaling-plans"}}else if(region==null&&service.startsWith("s3-")){region=service.slice(3).replace(/^fips-|^external-1/,"");service="s3"}else if(service.endsWith("-fips")){service=service.slice(0,-5)}else if(region&&/-\d$/.test(service)&&!/-\d$/.test(region)){[service,region]=[region,service]}return[HOST_SERVICES[service]||service,region||""]}
-const byteToHex=[];for(let i2=0;i2<256;++i2){byteToHex.push((i2+256).toString(16).slice(1))}function unsafeStringify(arr,offset=0){return(byteToHex[arr[offset+0]]+byteToHex[arr[offset+1]]+byteToHex[arr[offset+2]]+byteToHex[arr[offset+3]]+"-"+byteToHex[arr[offset+4]]+byteToHex[arr[offset+5]]+"-"+byteToHex[arr[offset+6]]+byteToHex[arr[offset+7]]+"-"+byteToHex[arr[offset+8]]+byteToHex[arr[offset+9]]+"-"+byteToHex[arr[offset+10]]+byteToHex[arr[offset+11]]+byteToHex[arr[offset+12]]+byteToHex[arr[offset+13]]+byteToHex[arr[offset+14]]+byteToHex[arr[offset+15]]).toLowerCase()}let getRandomValues;const rnds8=new Uint8Array(16);function rng(){if(!getRandomValues){if(typeof crypto==="undefined"||!crypto.getRandomValues){throw new Error("crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported")}getRandomValues=crypto.getRandomValues.bind(crypto)}return getRandomValues(rnds8)}const randomUUID=typeof crypto!=="undefined"&&crypto.randomUUID&&crypto.randomUUID.bind(crypto);const native={randomUUID};function v4(options,buf,offset){if(native.randomUUID&&true&&!options){return native.randomUUID()}options=options||{};const rnds=options.random??options.rng?.()??rng();if(rnds.length<16){throw new Error("Random bytes length must be >= 16")}rnds[6]=(rnds[6]&15)|64;rnds[8]=(rnds[8]&63)|128;return unsafeStringify(rnds)}
+const encoder = new TextEncoder(); const HOST_SERVICES = { appstream2: "appstream", cloudhsmv2: "cloudhsm", email: "ses", marketplace: "aws-marketplace", mobile: "AWSMobileHubService", pinpoint: "mobiletargeting", queue: "sqs", "git-codecommit": "codecommit", "mturk-requester-sandbox": "mturk-requester", "personalize-runtime": "personalize" }; const UNSIGNABLE_HEADERS = new Set(["authorization", "content-type", "content-length", "user-agent", "presigned-expires", "expect", "x-amzn-trace-id", "range", "connection"]); class AwsV4Signer { constructor({ method, url, headers, body, accessKeyId, secretAccessKey, sessionToken, service, region, cache, datetime, signQuery, appendSessionToken, allHeaders, singleEncode }) { if (url == null) throw new TypeError("url is a required option"); if (accessKeyId == null) throw new TypeError("accessKeyId is a required option"); if (secretAccessKey == null) throw new TypeError("secretAccessKey is a required option"); this.method = method || (body ? "POST" : "GET"); this.url = new URL(url); this.headers = new Headers(headers || {}); this.body = body; this.accessKeyId = accessKeyId; this.secretAccessKey = secretAccessKey; this.sessionToken = sessionToken; let guessedService, guessedRegion; if (!service || !region) { [guessedService, guessedRegion] = guessServiceRegion(this.url, this.headers) } this.service = service || guessedService || ""; this.region = region || guessedRegion || "us-east-1"; this.cache = cache || new Map(); this.datetime = datetime || new Date().toISOString().replace(/[:-]|\.\d{3}/g, ""); this.signQuery = signQuery; this.appendSessionToken = appendSessionToken || this.service === "iotdevicegateway"; this.headers.delete("Host"); if (this.service === "s3" && !this.signQuery && !this.headers.has("X-Amz-Content-Sha256")) { this.headers.set("X-Amz-Content-Sha256", "UNSIGNED-PAYLOAD") } const params = this.signQuery ? this.url.searchParams : this.headers; params.set("X-Amz-Date", this.datetime); if (this.sessionToken && !this.appendSessionToken) { params.set("X-Amz-Security-Token", this.sessionToken) } this.signableHeaders = ["host", ...this.headers.keys()].filter((header) => allHeaders || !UNSIGNABLE_HEADERS.has(header)).sort(); this.signedHeaders = this.signableHeaders.join(";"); this.canonicalHeaders = this.signableHeaders.map((header) => header + ":" + (header === "host" ? this.url.host : (this.headers.get(header) || "").replace(/\s+/g, " "))).join("\n"); this.credentialString = [this.datetime.slice(0, 8), this.region, this.service, "aws4_request"].join("/"); if (this.signQuery) { if (this.service === "s3" && !params.has("X-Amz-Expires")) { params.set("X-Amz-Expires", "86400") } params.set("X-Amz-Algorithm", "AWS4-HMAC-SHA256"); params.set("X-Amz-Credential", this.accessKeyId + "/" + this.credentialString); params.set("X-Amz-SignedHeaders", this.signedHeaders) } if (this.service === "s3") { try { this.encodedPath = decodeURIComponent(this.url.pathname.replace(/\+/g, " ")) } catch (e) { this.encodedPath = this.url.pathname } } else { this.encodedPath = this.url.pathname.replace(/\/+/g, "/") } if (!singleEncode) { this.encodedPath = encodeURIComponent(this.encodedPath).replace(/%2F/g, "/") } this.encodedPath = encodeRfc3986(this.encodedPath); const seenKeys = new Set(); this.encodedSearch = [...this.url.searchParams].filter(([k]) => { if (!k) return false; if (this.service === "s3") { if (seenKeys.has(k)) return false; seenKeys.add(k) } return true }).map((pair) => pair.map((p2) => encodeRfc3986(encodeURIComponent(p2)))).sort(([k1, v1], [k2, v2]) => k1 < k2 ? -1 : k1 > k2 ? 1 : v1 < v2 ? -1 : v1 > v2 ? 1 : 0).map((pair) => pair.join("=")).join("&") } async sign() { if (this.signQuery) { this.url.searchParams.set("X-Amz-Signature", await this.signature()); if (this.sessionToken && this.appendSessionToken) { this.url.searchParams.set("X-Amz-Security-Token", this.sessionToken) } } else { this.headers.set("Authorization", await this.authHeader()) } return { method: this.method, url: this.url, headers: this.headers, body: this.body } } async authHeader() { return ["AWS4-HMAC-SHA256 Credential=" + this.accessKeyId + "/" + this.credentialString, "SignedHeaders=" + this.signedHeaders, "Signature=" + (await this.signature())].join(", ") } async signature() { const date = this.datetime.slice(0, 8); const cacheKey = [this.secretAccessKey, date, this.region, this.service].join(); let kCredentials = this.cache.get(cacheKey); if (!kCredentials) { const kDate = await hmac("AWS4" + this.secretAccessKey, date); const kRegion = await hmac(kDate, this.region); const kService = await hmac(kRegion, this.service); kCredentials = await hmac(kService, "aws4_request"); this.cache.set(cacheKey, kCredentials) } return buf2hex(await hmac(kCredentials, await this.stringToSign())) } async stringToSign() { return ["AWS4-HMAC-SHA256", this.datetime, this.credentialString, buf2hex(await hash(await this.canonicalString()))].join("\n") } async canonicalString() { return [this.method.toUpperCase(), this.encodedPath, this.encodedSearch, this.canonicalHeaders + "\n", this.signedHeaders, await this.hexBodyHash()].join("\n") } async hexBodyHash() { let hashHeader = this.headers.get("X-Amz-Content-Sha256") || (this.service === "s3" && this.signQuery ? "UNSIGNED-PAYLOAD" : null); if (hashHeader == null) { if (this.body && typeof this.body !== "string" && !("byteLength" in this.body)) { throw new Error("body must be a string, ArrayBuffer or ArrayBufferView, unless you include the X-Amz-Content-Sha256 header") } hashHeader = buf2hex(await hash(this.body || "")) } return hashHeader } } async function hmac(key, string) { const cryptoKey = await crypto.subtle.importKey("raw", typeof key === "string" ? encoder.encode(key) : key, { name: "HMAC", hash: { name: "SHA-256" } }, false, ["sign"]); return crypto.subtle.sign("HMAC", cryptoKey, encoder.encode(string)) } async function hash(content) { return crypto.subtle.digest("SHA-256", typeof content === "string" ? encoder.encode(content) : content) } const HEX_CHARS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"]; function buf2hex(arrayBuffer) { const buffer = new Uint8Array(arrayBuffer); let out = ""; for (let idx = 0; idx < buffer.length; idx++) { const n = buffer[idx]; out += HEX_CHARS[(n >>> 4) & 15]; out += HEX_CHARS[n & 15] } return out } function encodeRfc3986(urlEncodedStr) { return urlEncodedStr.replace(/[!'()*]/g, (c) => "%" + c.charCodeAt(0).toString(16).toUpperCase()) } function guessServiceRegion(url, headers) { const { hostname, pathname } = url; if (hostname.endsWith(".on.aws")) { const match2 = hostname.match(/^[^.]{1,63}\.lambda-url\.([^.]{1,63})\.on\.aws$/); return match2 != null ? ["lambda", match2[1] || ""] : ["", ""] } if (hostname.endsWith(".r2.cloudflarestorage.com")) { return ["s3", "auto"] } if (hostname.endsWith(".backblazeb2.com")) { const match2 = hostname.match(/^(?:[^.]{1,63}\.)?s3\.([^.]{1,63})\.backblazeb2\.com$/); return match2 != null ? ["s3", match2[1] || ""] : ["", ""] } const match = hostname.replace("dualstack.", "").match(/([^.]{1,63})\.(?:([^.]{0,63})\.)?amazonaws\.com(?:\.cn)?$/); let service = (match && match[1]) || ""; let region = match && match[2]; if (region === "us-gov") { region = "us-gov-west-1" } else if (region === "s3" || region === "s3-accelerate") { region = "us-east-1"; service = "s3" } else if (service === "iot") { if (hostname.startsWith("iot.")) { service = "execute-api" } else if (hostname.startsWith("data.jobs.iot.")) { service = "iot-jobs-data" } else { service = pathname === "/mqtt" ? "iotdevicegateway" : "iotdata" } } else if (service === "autoscaling") { const targetPrefix = (headers.get("X-Amz-Target") || "").split(".")[0]; if (targetPrefix === "AnyScaleFrontendService") { service = "application-autoscaling" } else if (targetPrefix === "AnyScaleScalingPlannerFrontendService") { service = "autoscaling-plans" } } else if (region == null && service.startsWith("s3-")) { region = service.slice(3).replace(/^fips-|^external-1/, ""); service = "s3" } else if (service.endsWith("-fips")) { service = service.slice(0, -5) } else if (region && /-\d$/.test(service) && !/-\d$/.test(region)) { [service, region] = [region, service] } return [HOST_SERVICES[service] || service, region || ""] }
+const byteToHex = []; for (let i2 = 0; i2 < 256; ++i2) { byteToHex.push((i2 + 256).toString(16).slice(1)) } function unsafeStringify(arr, offset = 0) { return (byteToHex[arr[offset + 0]] + byteToHex[arr[offset + 1]] + byteToHex[arr[offset + 2]] + byteToHex[arr[offset + 3]] + "-" + byteToHex[arr[offset + 4]] + byteToHex[arr[offset + 5]] + "-" + byteToHex[arr[offset + 6]] + byteToHex[arr[offset + 7]] + "-" + byteToHex[arr[offset + 8]] + byteToHex[arr[offset + 9]] + "-" + byteToHex[arr[offset + 10]] + byteToHex[arr[offset + 11]] + byteToHex[arr[offset + 12]] + byteToHex[arr[offset + 13]] + byteToHex[arr[offset + 14]] + byteToHex[arr[offset + 15]]).toLowerCase() } let getRandomValues; const rnds8 = new Uint8Array(16); function rng() { if (!getRandomValues) { if (typeof crypto === "undefined" || !crypto.getRandomValues) { throw new Error("crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported") } getRandomValues = crypto.getRandomValues.bind(crypto) } return getRandomValues(rnds8) } const randomUUID = typeof crypto !== "undefined" && crypto.randomUUID && crypto.randomUUID.bind(crypto); const native = { randomUUID }; function v4(options, buf, offset) { if (native.randomUUID && true && !options) { return native.randomUUID() } options = options || {}; const rnds = options.random ?? options.rng?.() ?? rng(); if (rnds.length < 16) { throw new Error("Random bytes length must be >= 16") } rnds[6] = (rnds[6] & 15) | 64; rnds[8] = (rnds[8] & 63) | 128; return unsafeStringify(rnds) }
 // ==================== CONFIG ====================
 const PLUGIN_TITLE = "LBI";
 const PLUGIN_VERSION = "pre26";
@@ -444,6 +453,7 @@ const OPENAI_COMPATIBLE_PROVIDER_TEMPLATE = {
   inputPrice: { displayName: "Input Price (per 1M tokens)", type: T.S, options: { placeholder: "0.0" } },
   outputPrice: { displayName: "Output Price (per 1M tokens)", type: T.S, options: { placeholder: "0.0" } },
   cachedInputPrice: { displayName: "Cached Input Price (per 1M tokens)", type: T.S, options: { placeholder: "0.0" } },
+  useThoughtSignature: { displayName: "Gemini 3 생각 서명 사용", type: T.B },
 };
 
 // [수정] 동적 슬롯 생성기 사용 (기존 키 패턴 유지: slot1은 접미사 없음)
@@ -767,7 +777,7 @@ const risuAPI = {
     console.log("[RisuAPI] callTool not available via eval:", error.message);
   }
 }
-class BaseProvider {}
+class BaseProvider { }
 
 // ==================== UTILS ====================
 class Utils {
@@ -994,56 +1004,56 @@ function createPresetHandlers(config) {
 
 // ############# DECLARATIVE UI BUILDER - START #############
 const UIB = (() => {
-    const esc = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+  const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
-    const C = {
-        preset: (prefix) => `<div class="uib-preset"><select data-action="preset-change"></select><div class="uib-btn-row"><button data-action="preset-save">저장</button><button data-action="preset-copy">복사</button><button data-action="preset-delete" class="danger">삭제</button></div></div>`,
+  const C = {
+    preset: (prefix) => `<div class="uib-preset"><select data-action="preset-change"></select><div class="uib-btn-row"><button data-action="preset-save">저장</button><button data-action="preset-copy">복사</button><button data-action="preset-delete" class="danger">삭제</button></div></div>`,
 
-        actionBar: (actions) => `<div class="uib-action-bar">${actions.map(a =>
-            `<button data-action="${a.action}"${a.danger ? ' class="danger"' : ''}>${a.label}</button>`
-        ).join('')}</div>`,
+    actionBar: (actions) => `<div class="uib-action-bar">${actions.map(a =>
+      `<button data-action="${a.action}"${a.danger ? ' class="danger"' : ''}>${a.label}</button>`
+    ).join('')}</div>`,
 
-        toggle: (id, checked) => `<label class="uib-toggle"><input type="checkbox" data-id="${id}" data-action="toggle" ${checked ? 'checked' : ''}><span class="uib-slider"></span></label>`,
+    toggle: (id, checked) => `<label class="uib-toggle"><input type="checkbox" data-id="${id}" data-action="toggle" ${checked ? 'checked' : ''}><span class="uib-slider"></span></label>`,
 
-        checkbox: (id, checked) => `<input type="checkbox" data-id="${id}" data-action="select" ${checked ? 'checked' : ''}>`,
+    checkbox: (id, checked) => `<input type="checkbox" data-id="${id}" data-action="select" ${checked ? 'checked' : ''}>`,
 
-        textarea: (opts) => `<div class="uib-form-group">${opts.label ? `<div class="uib-form-header"><label>${opts.label}</label>${opts.editor ? `<button data-action="open-editor" data-field="${opts.field}">↗️</button>` : ''}</div>` : ''}<textarea rows="${opts.rows || 3}" data-field="${opts.field}">${esc(opts.value || '')}</textarea></div>`,
+    textarea: (opts) => `<div class="uib-form-group">${opts.label ? `<div class="uib-form-header"><label>${opts.label}</label>${opts.editor ? `<button data-action="open-editor" data-field="${opts.field}">↗️</button>` : ''}</div>` : ''}<textarea rows="${opts.rows || 3}" data-field="${opts.field}">${esc(opts.value || '')}</textarea></div>`,
 
-        input: (opts) => `<div class="uib-form-group${opts.inline ? ' inline' : ''}"><label>${opts.label}</label><input type="text" data-field="${opts.field}" value="${esc(opts.value || '')}"></div>`,
+    input: (opts) => `<div class="uib-form-group${opts.inline ? ' inline' : ''}"><label>${opts.label}</label><input type="text" data-field="${opts.field}" value="${esc(opts.value || '')}"></div>`,
 
-        select: (opts) => `<div class="uib-form-group inline"><label>${opts.label}</label><select data-field="${opts.field}">${opts.options.map(o =>
-            `<option value="${o.value}"${o.value === opts.value ? ' selected' : ''}>${o.label}</option>`
-        ).join('')}</select></div>`,
+    select: (opts) => `<div class="uib-form-group inline"><label>${opts.label}</label><select data-field="${opts.field}">${opts.options.map(o =>
+      `<option value="${o.value}"${o.value === opts.value ? ' selected' : ''}>${o.label}</option>`
+    ).join('')}</select></div>`,
+  };
+
+  function renderPresetOptions(presets, activeId, isDirty) {
+    return `<option value="">프리셋 선택...</option>${presets.map(p => {
+      const name = esc(p.name) + (p.id === activeId && isDirty ? ' *' : '');
+      return `<option value="${p.id}"${p.id === activeId ? ' selected' : ''}>${name}</option>`;
+    }).join('')}`;
+  }
+
+  function bind(container, handlers) {
+    const handle = (e, type) => {
+      const el = e.target.closest('[data-action]');
+      if (!el) return;
+      const action = el.dataset.action;
+      const handler = handlers[action];
+      if (handler) handler(e, el);
     };
+    container.addEventListener('click', e => handle(e, 'click'));
+    container.addEventListener('change', e => handle(e, 'change'));
+    container.addEventListener('input', e => {
+      const el = e.target.closest('[data-field]');
+      if (el && handlers.onFieldChange) handlers.onFieldChange(el.dataset.field, el.value, e);
+    });
+  }
 
-    function renderPresetOptions(presets, activeId, isDirty) {
-        return `<option value="">프리셋 선택...</option>${presets.map(p => {
-            const name = esc(p.name) + (p.id === activeId && isDirty ? ' *' : '');
-            return `<option value="${p.id}"${p.id === activeId ? ' selected' : ''}>${name}</option>`;
-        }).join('')}`;
-    }
-
-    function bind(container, handlers) {
-        const handle = (e, type) => {
-            const el = e.target.closest('[data-action]');
-            if (!el) return;
-            const action = el.dataset.action;
-            const handler = handlers[action];
-            if (handler) handler(e, el);
-        };
-        container.addEventListener('click', e => handle(e, 'click'));
-        container.addEventListener('change', e => handle(e, 'change'));
-        container.addEventListener('input', e => {
-            const el = e.target.closest('[data-field]');
-            if (el && handlers.onFieldChange) handlers.onFieldChange(el.dataset.field, el.value, e);
-        });
-    }
-
-    function injectStyles() {
-        if (document.getElementById('uib-styles')) return;
-        const style = document.createElement('style');
-        style.id = 'uib-styles';
-        style.textContent = `
+  function injectStyles() {
+    if (document.getElementById('uib-styles')) return;
+    const style = document.createElement('style');
+    style.id = 'uib-styles';
+    style.textContent = `
 .uib-preset{margin-bottom:10px}.uib-preset select{width:100%;margin-bottom:5px;background:#222;border:1px solid #444;border-radius:4px;color:#eee;padding:6px}
 .uib-btn-row{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}.uib-btn-row button,.uib-action-bar button{padding:6px;font-size:11px;background:#444;color:#fff;border:none;border-radius:4px;cursor:pointer}
 .uib-btn-row button.danger,.uib-action-bar button.danger{background:#c82333}
@@ -1075,10 +1085,10 @@ const UIB = (() => {
 .uib-split-header{padding:10px;border-bottom:1px solid #444}
 .uib-split-right{flex:1;padding:15px;overflow-y:auto;min-width:0}
 .uib-log-list{flex:1 1 0;overflow-y:auto;min-height:0}`;
-        document.head.appendChild(style);
-    }
+    document.head.appendChild(style);
+  }
 
-    return { C, esc, bind, renderPresetOptions, injectStyles };
+  return { C, esc, bind, renderPresetOptions, injectStyles };
 })();
 // ############# DECLARATIVE UI BUILDER - END #############
 
@@ -1225,7 +1235,7 @@ class Logger {
       if (String(disabled).trim().toLowerCase() === "true" || String(disabled).trim() === "1") {
         return false;
       }
-    } catch (e) {}
+    } catch (e) { }
     return level >= Logger.defaultMinLevel;
   }
   static getCallerName() {
@@ -1276,6 +1286,7 @@ const GOOGLEAI_ONLY_MODELS = [
   { id: "gemini-2.5-flash-lite-preview-06-17", name: "Gemini 2.5 Flash Lite Preview (06/17)", flags: [LLM_FLAG.hasThinkingTokens, LLM_FLAG.isExperimentalModel, LLM_FLAG.hasGroundingSearch], price: { inputPrice: 0.1, outputPrice: 0.4, cachedInputPrice: 0.025 } },
   { id: "gemini-flash-latest", name: "Gemini Flash (Latest)", flags: [LLM_FLAG.hasThinkingTokens, LLM_FLAG.isExperimentalModel, LLM_FLAG.hasGroundingSearch], price: { inputPrice: 0.3, outputPrice: 2.5, cachedInputPrice: 0.03 } },
   { id: "gemini-flash-lite-latest", name: "Gemini Flash Lite (Latest)", flags: [LLM_FLAG.hasThinkingTokens, LLM_FLAG.isExperimentalModel, LLM_FLAG.hasGroundingSearch], price: { inputPrice: 0.1, outputPrice: 0.4, cachedInputPrice: 0.025 } },
+  { id: "gemini-3-pro-image-preview", name: "Gemini 3 Pro Image Preview", flags: [LLM_FLAG.isExperimentalModel, LLM_FLAG.hasGroundingSearch], price: { inputPrice: 2, outputPrice: 12.0, cachedInputPrice: 0.2 } },
 ];
 
 // VertexAI 전용 모델
@@ -1527,13 +1538,13 @@ function addCustomVertexAIModels() {
     let customModelsStr = "";
     // [수정] 순환 참조 방지: PLUGIN_SETTINGS_MANAGER 생성 전에도 getArgEx로 접근 가능하도록 수정
     try {
-        if (typeof PLUGIN_SETTINGS_MANAGER !== 'undefined') {
-            customModelsStr = PLUGIN_SETTINGS_MANAGER.get("common_vertexAIProvider_customModels");
-        } else {
-            customModelsStr = getArgEx(`${PLUGIN_NAME}::common_vertexAIProvider_customModels`);
-        }
+      if (typeof PLUGIN_SETTINGS_MANAGER !== 'undefined') {
+        customModelsStr = PLUGIN_SETTINGS_MANAGER.get("common_vertexAIProvider_customModels");
+      } else {
+        customModelsStr = getArgEx(`${PLUGIN_NAME}::common_vertexAIProvider_customModels`);
+      }
     } catch (e) {
-        // 무시 (아직 로드되지 않음)
+      // 무시 (아직 로드되지 않음)
     }
 
     if (!customModelsStr || typeof customModelsStr !== 'string' || customModelsStr.trim() === '' || customModelsStr === 'undefined') {
@@ -1627,8 +1638,8 @@ class PluginSettingsManager {
     switch (definition.type) {
       case PLUGIN_SETTING_TYPE.BOOLEAN: {
         if (raw === 'undefined' || raw === '') {
-            const defaultVal = definition.default ?? definition.options?.default;
-            return defaultVal === true || defaultVal === 'true' || defaultVal === '1';
+          const defaultVal = definition.default ?? definition.options?.default;
+          return defaultVal === true || defaultVal === 'true' || defaultVal === '1';
         }
         return Utils.isTrueString(raw);
       }
@@ -1639,11 +1650,11 @@ class PluginSettingsManager {
         if (!trimmed || trimmed === 'undefined') { // [수정] 'undefined' 문자열 체크 추가
           return definition.options?.default || null;
         }
-        
+
         const num = definition.type === PLUGIN_SETTING_TYPE.INTEGER
           ? parseInt(trimmed, 10)
           : parseFloat(trimmed);
-        
+
         if (isNaN(num)) {
           Logger.warn(`Value for ${key} ("${raw}") is not a valid number.`);
           return null;
@@ -1669,8 +1680,8 @@ class PluginSettingsManager {
       }
       default: {
         const trimmed = raw.trim();
-        if (!trimmed || trimmed === 'undefined') { 
-          return definition.default ?? definition.options?.default ?? ''; 
+        if (!trimmed || trimmed === 'undefined') {
+          return definition.default ?? definition.options?.default ?? '';
         }
         if (definition.options?.candidates) {
           // 객체 배열과 문자열 배열 모두 지원
@@ -1710,7 +1721,7 @@ class UsageMetricsManager {
     records: [],
     lastUpdated: new Date().toISOString(),
   });
-  
+
   static getDB() {
     try {
       const dbString = risuAPI.getArg(`${PLUGIN_NAME}::${this.DB_KEY}`);
@@ -1736,14 +1747,14 @@ class UsageMetricsManager {
     }
   }
 
-  static calculateCost (inputTokens, cachedInputTokens, outputTokens, price) {
+  static calculateCost(inputTokens, cachedInputTokens, outputTokens, price) {
     const normalInputTokens = Math.max(0, inputTokens - cachedInputTokens); // 음수 방지 추가
     const surchargeMultiplier = price.surcharge || 1.0;
     const surchargedInputPrice = (price.inputPrice || 0) * surchargeMultiplier;
     const inputCost = (normalInputTokens * surchargedInputPrice) / 1000000;
     const cachedInputCost = (cachedInputTokens * (price.cachedInputPrice || price.inputPrice || 0)) / 1000000;
     const outputCost = (outputTokens * (price.outputPrice || 0)) / 1000000;
-    
+
     return {
       inputCost: inputCost + cachedInputCost,
       outputCost: outputCost,
@@ -1757,7 +1768,7 @@ class UsageMetricsManager {
       const db = this.getDB();
       const price = this.getModelPrice(modelDef, settings);
       const costs = this.calculateCost(inputTokens, cachedInputTokens, outputTokens, price);
-      
+
       const record = {
         timestamp: new Date().toISOString(),
         modelId: modelDef.id,
@@ -1772,14 +1783,14 @@ class UsageMetricsManager {
         latency: latency,       // [추가]
         statusCode: statusCode  // [추가]
       };
-      
+
       db.records.push(record);
-      
+
       this.saveDB(db);
-      
+
       const statusLog = statusCode === 200 ? "Success" : `Error(${statusCode})`;
       Logger.info(`Usage recorded: ${modelDef.id} - Input: ${inputTokens}, Output: ${outputTokens}, Latency: ${latency}ms, ${statusLog}`);
-      
+
       return record;
     } catch (error) {
       Logger.error('Failed to add usage record:', error);
@@ -1796,19 +1807,19 @@ class UsageMetricsManager {
         surcharge: modelDef.price.surcharge || 1.0
       };
     }
-    
+
     if (settings && modelDef.provider.startsWith(LLM_PROVIDER.OPENAICOMPATIBLE)) {
       const inputPrice = parseFloat(settings.inputPrice) || 0;
       const outputPrice = parseFloat(settings.outputPrice) || 0;
       const cachedInputPrice = parseFloat(settings.cachedInputPrice) || inputPrice;
-    
+
       return {
         inputPrice,
         outputPrice,
         cachedInputPrice
       };
     }
-    
+
     return {
       inputPrice: 0,
       outputPrice: 0,
@@ -1820,7 +1831,7 @@ class UsageMetricsManager {
     try {
       const db = this.getDB();
       let records = db.records;
-      
+
       if (filter.modelId) {
         records = records.filter(r => r.modelId === filter.modelId);
       }
@@ -1828,17 +1839,17 @@ class UsageMetricsManager {
         records = records.filter(r => r.provider === filter.provider);
       }
       if (filter.startDate) {
-         records = records.filter(r => new Date(r.timestamp) >= new Date(filter.startDate));
+        records = records.filter(r => new Date(r.timestamp) >= new Date(filter.startDate));
       }
       if (filter.endDate) {
         records = records.filter(r => new Date(r.timestamp) <= new Date(filter.endDate));
       }
-      
+
       const totalCost = records.reduce((sum, r) => sum + r.totalCost, 0);
       const totalInputTokens = records.reduce((sum, r) => sum + r.inputTokens, 0);
       const totalCachedInputTokens = records.reduce((sum, r) => sum + r.cachedInputTokens, 0);
       const totalOutputTokens = records.reduce((sum, r) => sum + r.outputTokens, 0);
-      
+
       const byModel = {};
       records.forEach(r => {
         if (!byModel[r.modelId]) {
@@ -1856,7 +1867,7 @@ class UsageMetricsManager {
         byModel[r.modelId].outputTokens += r.outputTokens;
         byModel[r.modelId].totalCost += r.totalCost;
       });
-      
+
       return {
         totalRecords: records.length,
         totalCost,
@@ -1871,16 +1882,16 @@ class UsageMetricsManager {
       return null;
     }
   }
-  
+
   static exportCSV() {
     try {
       const db = this.getDB();
       let csv = 'Timestamp,Model ID,Provider,Input Tokens,Cached Input Tokens,Output Tokens,Input Cost,Output Cost,Total Cost\n';
-      
+
       db.records.forEach(r => {
         csv += `${r.timestamp},${r.modelId},${r.provider},${r.inputTokens},${r.cachedInputTokens},${r.outputTokens},${r.inputCost},${r.outputCost},${r.totalCost}\n`;
       });
-      
+
       return csv;
     } catch (error) {
       Logger.error('Failed to export CSV:', error);
@@ -1970,9 +1981,9 @@ async function risuFetchEx(pluginRequest, url, arg) {
 
   } catch (error) {
     if (error.name === 'AbortError' ||
-        error.message === 'Request was aborted' ||
-        error.message === 'aborted' ||
-        pluginRequest.abortSignal?.aborted) {
+      error.message === 'Request was aborted' ||
+      error.message === 'aborted' ||
+      pluginRequest.abortSignal?.aborted) {
 
       // 참고: 취소 시 usage 통계는 기록되지 않습니다
       // (abort signal로 인해 fetch가 중단되어 응답을 받을 수 없음)
@@ -2023,7 +2034,7 @@ function getCommonSettings() {
   const openaiProvider_apiKey = PLUGIN_SETTINGS_MANAGER.get(
     "common_openaiProvider_apiKey"
   );
-    const openaiProvider_reasoningEffort = PLUGIN_SETTINGS_MANAGER.get(
+  const openaiProvider_reasoningEffort = PLUGIN_SETTINGS_MANAGER.get(
     "common_openaiProvider_reasoningEffort"
   );
   const openaiProvider_verbosity = PLUGIN_SETTINGS_MANAGER.get(
@@ -2133,6 +2144,7 @@ function getOpenAICompatibleSettings(providerSuffix = "") {
   const suffix = providerSuffix ? `_${providerSuffix}` : "";
   const useStreamingRaw = PLUGIN_SETTINGS_MANAGER.get(`common_openaiCompatibleProvider${suffix}_useStreaming`);
   const useDecoupledStreamingRaw = PLUGIN_SETTINGS_MANAGER.get(`common_openaiCompatibleProvider${suffix}_useDecoupledStreaming`);
+  const useThoughtSignatureRaw = PLUGIN_SETTINGS_MANAGER.get(`common_openaiCompatibleProvider${suffix}_useThoughtSignature`);
   return {
     url: PLUGIN_SETTINGS_MANAGER.get(`common_openaiCompatibleProvider${suffix}_url`),
     apiKey: PLUGIN_SETTINGS_MANAGER.get(`common_openaiCompatibleProvider${suffix}_apiKey`),
@@ -2150,6 +2162,7 @@ function getOpenAICompatibleSettings(providerSuffix = "") {
     inputPrice: PLUGIN_SETTINGS_MANAGER.get(`common_openaiCompatibleProvider${suffix}_inputPrice`),
     outputPrice: PLUGIN_SETTINGS_MANAGER.get(`common_openaiCompatibleProvider${suffix}_outputPrice`),
     cachedInputPrice: PLUGIN_SETTINGS_MANAGER.get(`common_openaiCompatibleProvider${suffix}_cachedInputPrice`),
+    useThoughtSignature: typeof useThoughtSignatureRaw === "boolean" ? useThoughtSignatureRaw : Utils.isTrueString(useThoughtSignatureRaw),
   };
 }
 function getChatSettings() {
@@ -2499,31 +2512,31 @@ function getChecklistSettings() {
   };
 }
 function getLLMTokenizer(uniqueId) {
-try {
-// custom, custom2..custom8 → 해당 슬롯의 설정에서 토크나이저 읽기
-const m = /^custom(\d+)?$/.exec(String(uniqueId));
-if (m) {
-const idx = m[1] || ""; // custom → "", custom2 → "2"
-const s = getOpenAICompatibleSettings(idx);
-const tok = s.tokenizer && String(s.tokenizer).trim();
-return tok || LLM_TOKENIZER.O200K_BASE;
-}
-} catch (e) {
-// 절대 throw하지 말고 폴백
-}
-// 그 외 모델은 정의 기본값 사용
-const def = getLLMDefinition(uniqueId);
-return (def && def.tokenizer) || LLM_TOKENIZER.O200K_BASE;
+  try {
+    // custom, custom2..custom8 → 해당 슬롯의 설정에서 토크나이저 읽기
+    const m = /^custom(\d+)?$/.exec(String(uniqueId));
+    if (m) {
+      const idx = m[1] || ""; // custom → "", custom2 → "2"
+      const s = getOpenAICompatibleSettings(idx);
+      const tok = s.tokenizer && String(s.tokenizer).trim();
+      return tok || LLM_TOKENIZER.O200K_BASE;
+    }
+  } catch (e) {
+    // 절대 throw하지 말고 폴백
+  }
+  // 그 외 모델은 정의 기본값 사용
+  const def = getLLMDefinition(uniqueId);
+  return (def && def.tokenizer) || LLM_TOKENIZER.O200K_BASE;
 }
 function getModelCandidates() {
-  const candidates = [{value: "", label: ""}];
+  const candidates = [{ value: "", label: "" }];
   const seenIds = new Set(); // 중복 ID를 추적하기 위한 Set 추가
 
   const grouped = groupLLMDefinitionByProvider();
   Object.entries(grouped).forEach(([provider, definitions]) => {
     // 헤더 추가
-    candidates.push({value: `[${provider}]`, label: `[${provider}]`, isHeader: true});
-    
+    candidates.push({ value: `[${provider}]`, label: `[${provider}]`, isHeader: true });
+
     definitions.forEach((def) => {
       // [수정] 중복 방지 로직: 이미 추가된 모델 ID라면 건너뜁니다.
       if (seenIds.has(def.uniqueId)) {
@@ -2531,7 +2544,7 @@ function getModelCandidates() {
       }
       seenIds.add(def.uniqueId); // ID 기록
 
-      candidates.push({value: def.uniqueId, label: `${def.name}`, provider: provider});
+      candidates.push({ value: def.uniqueId, label: `${def.name}`, provider: provider });
     });
   });
   return candidates;
@@ -2567,7 +2580,7 @@ class AnthropicProvider extends BaseProvider {
     super();
     this.apiKey = apiKey;
   }
-  
+
   static validateApiParameters(body) {
     if (body.thinking) {
       delete body.temperature;
@@ -2624,14 +2637,14 @@ class AnthropicProvider extends BaseProvider {
           parsed += `<Thoughts>
 
 ${reasoningParts
-  .map((content) => {
-    if (content.type === "thinking") {
-      return content.thinking;
-    } else {
-      return "[REDACTED]";
-    }
-  })
-  .join("\n\n")}
+              .map((content) => {
+                if (content.type === "thinking") {
+                  return content.thinking;
+                } else {
+                  return "[REDACTED]";
+                }
+              })
+              .join("\n\n")}
 </Thoughts>
 
 `;
@@ -2644,14 +2657,14 @@ ${reasoningParts
           parsed += `<details><summary>생각의 사슬</summary>
 
 ${reasoningParts
-  .map((content) => {
-    if (content.type === "thinking") {
-      return content.thinking;
-    } else {
-      return "[REDACTED]";
-    }
-  })
-  .join("\n\n")}</details>
+              .map((content) => {
+                if (content.type === "thinking") {
+                  return content.thinking;
+                } else {
+                  return "[REDACTED]";
+                }
+              })
+              .join("\n\n")}</details>
 
 `;
         }
@@ -2840,15 +2853,15 @@ ${reasoningParts
     const startTime = Date.now(); // [추가] 시작 시간 측정
 
     const response = await risuFetchEx(pluginRequest, url, fetchArgs);
-    
+
     const latency = Date.now() - startTime; // [추가] 지연 시간 계산
 
     if (!response.ok) {
-       // [추가] 에러 발생 시 기록
-       UsageMetricsManager.addRecord(modelDef, 0, 0, 0, Utils.getRequestType(pluginRequest), null, latency, response.status || 500);
-       throw new Error(JSON.stringify(response.data));
+      // [추가] 에러 발생 시 기록
+      UsageMetricsManager.addRecord(modelDef, 0, 0, 0, Utils.getRequestType(pluginRequest), null, latency, response.status || 500);
+      throw new Error(JSON.stringify(response.data));
     }
-    
+
     const modelContent = AnthropicProvider.parseContent(
       pluginRequest,
       response
@@ -2858,12 +2871,12 @@ ${reasoningParts
     const cacheRead = usage?.cache_read_input_tokens;
     const outputTokens = usage?.output_tokens;
 
-        // Usage Tracking
+    // Usage Tracking
     try {
       const inputTokens = usage?.input_tokens || 0;
       const cachedInputTokens = cacheRead || 0;
       const requestType = Utils.getRequestType(pluginRequest);
-      
+
       UsageMetricsManager.addRecord(
         modelDef,
         inputTokens,
@@ -3027,7 +3040,7 @@ ${reasoningParts
         const cacheRead = usage?.cache_read_input_tokens;
         const outputTokens = usage?.output_tokens;
 
-          // Usage Tracking for streaming response
+        // Usage Tracking for streaming response
         try {
           const inputTokens = usage?.input_tokens || 0;
           const cachedInputTokens = cacheRead || 0;
@@ -3046,7 +3059,7 @@ ${reasoningParts
           );
         } catch (error) {
           Logger.warn('Failed to track usage:', error);
-        }  
+        }
 
         if (Number.isInteger(cacheWrite)) {
           Logger.info(
@@ -3076,7 +3089,7 @@ ${reasoningParts
           }
         }
       },
-      cancel() {},
+      cancel() { },
     });
     return stream;
   }
@@ -3161,11 +3174,11 @@ class AWSProvider extends BaseProvider {
   async getResponse(pluginRequest, modelDef) {
     const jsonBody = AWSProvider.buildClaudeBody(pluginRequest, modelDef);
     let finalModelId = modelDef.id;
-    
+
     if (finalModelId.startsWith("global.") || finalModelId.startsWith("arn:") || finalModelId.startsWith("us.") || finalModelId.startsWith("eu.")) {
-        finalModelId = modelDef.id;
+      finalModelId = modelDef.id;
     } else {
-        finalModelId = `${this.region.split("-")[0]}.${modelDef.id}`;
+      finalModelId = `${this.region.split("-")[0]}.${modelDef.id}`;
     }
 
     const signer = new AwsV4Signer({
@@ -3192,7 +3205,7 @@ class AWSProvider extends BaseProvider {
       plainFetchForce: true,
     };
     Logger.info("Calling AWS with model:", modelDef.id);
-    
+
     const startTime = Date.now();
     const response = await risuAPI.risuFetch(url.href, fetchArgs);
     const latency = Date.now() - startTime;
@@ -3234,11 +3247,11 @@ class AWSProvider extends BaseProvider {
       delete jsonBody.thinking;
     }
     let finalModelId = modelDef.id;
-    
+
     if (finalModelId.startsWith("global.") || finalModelId.startsWith("arn:") || finalModelId.startsWith("us.") || finalModelId.startsWith("eu.")) {
-        finalModelId = modelDef.id;
+      finalModelId = modelDef.id;
     } else {
-        finalModelId = `${this.region.split("-")[0]}.${modelDef.id}`;
+      finalModelId = `${this.region.split("-")[0]}.${modelDef.id}`;
     }
 
     const signer = new AwsV4Signer({
@@ -3307,113 +3320,113 @@ class AWSProvider extends BaseProvider {
   }
 }
 class NovelAIProvider extends BaseProvider {
-    apiKey;
+  apiKey;
 
-    constructor(apiKey) {
-        super();
-        this.apiKey = apiKey;
+  constructor(apiKey) {
+    super();
+    this.apiKey = apiKey;
+  }
+
+  // [핵심] Chat Completion API 형식으로, 내용은 깨끗하게 정제하여 전송
+  static buildNovelAIBody(pluginRequest, modelDef) {
+    const commonSettings = getCommonSettings();
+    const requestType = Utils.getRequestType(pluginRequest);
+
+    // [핵심 수정] 
+    // 각 메시지에서 불필요한 태그를 제거하고 순수 텍스트만 남깁니다.
+    // 이 과정을 통해 NovelAI의 컨텍스트 계산 오류를 방지합니다.
+    const messages = pluginRequest.prompt_chat.map(message => {
+      let textContent = message.content || '';
+      // 이미지 태그 및 기타 RisuAI 내부 태그를 제거합니다.
+      textContent = textContent.replace(/{{(inlayed|inlay)::.*?}}/g, '').trim();
+      // <qak> 같은 태그도 제거해봅니다.
+      textContent = textContent.replace(/<qak>|<\/qak>/g, '').trim();
+
+      return {
+        role: message.role,
+        content: textContent
+      };
+    }).filter(message => message.content !== ''); // 내용이 비어버린 메시지는 제외
+
+    const body = {
+      model: modelDef.id,
+      messages: messages,
+      max_tokens: pluginRequest.max_tokens || 8192,
+    };
+
+    if (pluginRequest.temperature != null) body.temperature = pluginRequest.temperature;
+    if (pluginRequest.top_p != null) body.top_p = pluginRequest.top_p;
+    if (pluginRequest.frequency_penalty != null) body.frequency_penalty = pluginRequest.frequency_penalty;
+    if (pluginRequest.presence_penalty != null) body.presence_penalty = pluginRequest.presence_penalty;
+
+    if (pluginRequest.stop_sequences && pluginRequest.stop_sequences.length > 0) {
+      body.stop = pluginRequest.stop_sequences;
     }
 
-    // [핵심] Chat Completion API 형식으로, 내용은 깨끗하게 정제하여 전송
-    static buildNovelAIBody(pluginRequest, modelDef) {
-        const commonSettings = getCommonSettings();
+    if (commonSettings.previewPrompt && (requestType === REQUEST_TYPE.CHAT || requestType === REQUEST_TYPE.TRANSLATION)) {
+      PluginTextEditorUI.showModal("프롬프트 미리보기 (NovelAI - Chat Completion)", JSON.stringify(body, null, 2));
+      throw new Error("Sending chat is interrupted because 'preview prompt' option is turned on.");
+    }
+
+    return body;
+  }
+
+  async getResponse(pluginRequest, modelDef) {
+    // [핵심 수정] Chat Completion API 엔드포인트로 복귀
+    const url = 'https://text.novelai.net/oa/v1/chat/completions';
+    const jsonBody = NovelAIProvider.buildNovelAIBody(pluginRequest, modelDef);
+
+    const fetchArgs = {
+      headers: {
+        'Authorization': `Bearer ${this.apiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: jsonBody,
+      rawResponse: false,
+    };
+
+    Logger.info("Calling NovelAI (Chat Completion) with model:", jsonBody.model);
+
+    const startTime = Date.now(); // [추가]
+    const response = await risuFetchEx(pluginRequest, url, fetchArgs);
+    const latency = Date.now() - startTime; // [추가]
+
+    if (!response.ok) {
+      UsageMetricsManager.addRecord(modelDef, 0, 0, 0, Utils.getRequestType(pluginRequest), null, latency, response.status || 500);
+      throw new Error(`NovelAI API Error: ${JSON.stringify(response.data)}`);
+    }
+    // Usage Tracking
+    try {
+      const usage = response?.data?.usage;
+      if (usage) {
+        const inputTokens = usage.prompt_tokens || 0;
+        const outputTokens = usage.completion_tokens || 0;
         const requestType = Utils.getRequestType(pluginRequest);
+        UsageMetricsManager.addRecord(
+          modelDef,
+          inputTokens,
+          0, // NovelAI는 cached token 정보를 제공하지 않음
+          outputTokens,
+          requestType,
+          null,    // settings
+          latency, // [추가됨]
+          200      // [추가됨]
+        );
+      }
+    } catch (error) {
+      Logger.warn('Failed to track usage for NovelAI:', error);
+    }
+    // [핵심 수정] Chat Completion API 응답 형식에 맞게 경로 복귀
+    const content = response?.data?.choices?.[0]?.message?.content;
 
-        // [핵심 수정] 
-        // 각 메시지에서 불필요한 태그를 제거하고 순수 텍스트만 남깁니다.
-        // 이 과정을 통해 NovelAI의 컨텍스트 계산 오류를 방지합니다.
-        const messages = pluginRequest.prompt_chat.map(message => {
-            let textContent = message.content || '';
-            // 이미지 태그 및 기타 RisuAI 내부 태그를 제거합니다.
-            textContent = textContent.replace(/{{(inlayed|inlay)::.*?}}/g, '').trim();
-            // <qak> 같은 태그도 제거해봅니다.
-            textContent = textContent.replace(/<qak>|<\/qak>/g, '').trim();
-
-            return {
-                role: message.role,
-                content: textContent
-            };
-        }).filter(message => message.content !== ''); // 내용이 비어버린 메시지는 제외
-
-        const body = {
-            model: modelDef.id,
-            messages: messages,
-            max_tokens: pluginRequest.max_tokens || 8192,
-        };
-
-        if (pluginRequest.temperature != null) body.temperature = pluginRequest.temperature;
-        if (pluginRequest.top_p != null) body.top_p = pluginRequest.top_p;
-        if (pluginRequest.frequency_penalty != null) body.frequency_penalty = pluginRequest.frequency_penalty;
-        if (pluginRequest.presence_penalty != null) body.presence_penalty = pluginRequest.presence_penalty;
-
-        if (pluginRequest.stop_sequences && pluginRequest.stop_sequences.length > 0) {
-            body.stop = pluginRequest.stop_sequences;
-        }
-
-        if (commonSettings.previewPrompt && (requestType === REQUEST_TYPE.CHAT || requestType === REQUEST_TYPE.TRANSLATION)) {
-            PluginTextEditorUI.showModal("프롬프트 미리보기 (NovelAI - Chat Completion)", JSON.stringify(body, null, 2));
-            throw new Error("Sending chat is interrupted because 'preview prompt' option is turned on.");
-        }
-
-        return body;
+    if (content === undefined || content === null) {
+      // 빈 응답이 올 경우, 재시도 대신 에러 메시지에 상세 정보를 포함하여 원인 파악을 돕습니다.
+      const finishReason = response?.data?.choices?.[0]?.finish_reason;
+      throw new Error(`NovelAI 응답이 비어있습니다. 종료 이유: ${finishReason || '알 수 없음'}. 전체 응답: ${JSON.stringify(response.data)}`);
     }
 
-    async getResponse(pluginRequest, modelDef) {
-        // [핵심 수정] Chat Completion API 엔드포인트로 복귀
-        const url = 'https://text.novelai.net/oa/v1/chat/completions';
-        const jsonBody = NovelAIProvider.buildNovelAIBody(pluginRequest, modelDef);
-
-        const fetchArgs = {
-            headers: {
-                'Authorization': `Bearer ${this.apiKey}`,
-                'Content-Type': 'application/json',
-            },
-            body: jsonBody,
-            rawResponse: false,
-        };
-
-        Logger.info("Calling NovelAI (Chat Completion) with model:", jsonBody.model);
-        
-        const startTime = Date.now(); // [추가]
-        const response = await risuFetchEx(pluginRequest, url, fetchArgs);
-        const latency = Date.now() - startTime; // [추가]
-
-        if (!response.ok) {
-            UsageMetricsManager.addRecord(modelDef, 0, 0, 0, Utils.getRequestType(pluginRequest), null, latency, response.status || 500);
-            throw new Error(`NovelAI API Error: ${JSON.stringify(response.data)}`);
-        }
-        // Usage Tracking
-        try {
-          const usage = response?.data?.usage;
-          if (usage) {
-            const inputTokens = usage.prompt_tokens || 0;
-            const outputTokens = usage.completion_tokens || 0;
-            const requestType = Utils.getRequestType(pluginRequest);
-            UsageMetricsManager.addRecord(
-              modelDef,
-              inputTokens,
-              0, // NovelAI는 cached token 정보를 제공하지 않음
-              outputTokens,
-              requestType,
-              null,    // settings
-              latency, // [추가됨]
-              200      // [추가됨]
-            );
-          }
-        } catch (error) {
-          Logger.warn('Failed to track usage for NovelAI:', error);
-        }
-        // [핵심 수정] Chat Completion API 응답 형식에 맞게 경로 복귀
-        const content = response?.data?.choices?.[0]?.message?.content;
-
-        if (content === undefined || content === null) {
-            // 빈 응답이 올 경우, 재시도 대신 에러 메시지에 상세 정보를 포함하여 원인 파악을 돕습니다.
-            const finishReason = response?.data?.choices?.[0]?.finish_reason;
-            throw new Error(`NovelAI 응답이 비어있습니다. 종료 이유: ${finishReason || '알 수 없음'}. 전체 응답: ${JSON.stringify(response.data)}`);
-        }
-        
-        return content.trim();
-    }
+    return content.trim();
+  }
 }
 class DeepseekProvider extends BaseProvider {
   static proxyModelAliasMap = {
@@ -3583,7 +3596,7 @@ class DeepseekProvider extends BaseProvider {
       rawResponse: false,
     };
     Logger.info("Calling Deepseek with model:", modelDef.id);
-    
+
     const startTime = Date.now(); // [추가]
     const response = await risuFetchEx(pluginRequest, url, fetchArgs);
     const latency = Date.now() - startTime; // [추가]
@@ -3678,46 +3691,46 @@ class GoogleAIProvider extends BaseProvider {
   }
   static saveSignatureToChat(text, signature) {
     try {
-        const char = risuAPI.getChar();
-        if (!char) return;
-        const chat = char.chats[char.chatPage];
-        if (!chat) return;
+      const char = risuAPI.getChar();
+      if (!char) return;
+      const chat = char.chats[char.chatPage];
+      if (!chat) return;
 
-        // [수정] 단일 저장이 아닌 캐시 맵 형태로 저장 (최근 30개 유지)
-        if (!chat.lbi_gemini_cache) chat.lbi_gemini_cache = {};
-        
-        const textHash = Utils.simpleHash(text.trim());
-        chat.lbi_gemini_cache[textHash] = {
-            signature: signature,
-            timestamp: Date.now()
-        };
+      // [수정] 단일 저장이 아닌 캐시 맵 형태로 저장 (최근 30개 유지)
+      if (!chat.lbi_gemini_cache) chat.lbi_gemini_cache = {};
 
-        // 캐시 정리 (너무 많이 쌓이면 구형 데이터 삭제)
-        const keys = Object.keys(chat.lbi_gemini_cache);
-        if (keys.length > 30) {
-            const sortedKeys = keys.sort((a, b) => chat.lbi_gemini_cache[a].timestamp - chat.lbi_gemini_cache[b].timestamp);
-            const keysToDelete = sortedKeys.slice(0, keys.length - 30);
-            keysToDelete.forEach(k => delete chat.lbi_gemini_cache[k]);
-        }
+      const textHash = Utils.simpleHash(text.trim());
+      chat.lbi_gemini_cache[textHash] = {
+        signature: signature,
+        timestamp: Date.now()
+      };
 
-        risuAPI.setChar(char);
-        Logger.info(`[GoogleAI] Saved thought signature to cache (Hash: ${textHash})`);
+      // 캐시 정리 (너무 많이 쌓이면 구형 데이터 삭제)
+      const keys = Object.keys(chat.lbi_gemini_cache);
+      if (keys.length > 30) {
+        const sortedKeys = keys.sort((a, b) => chat.lbi_gemini_cache[a].timestamp - chat.lbi_gemini_cache[b].timestamp);
+        const keysToDelete = sortedKeys.slice(0, keys.length - 30);
+        keysToDelete.forEach(k => delete chat.lbi_gemini_cache[k]);
+      }
+
+      risuAPI.setChar(char);
+      Logger.info(`[GoogleAI] Saved thought signature to cache (Hash: ${textHash})`);
     } catch (e) { Logger.error("Failed to save thought signature:", e); }
   }
 
   static getSignatureFromChat(text) {
     try {
-        const char = risuAPI.getChar();
-        const chat = char?.chats?.[char.chatPage];
-        if (!chat || !chat.lbi_gemini_cache) return null;
+      const char = risuAPI.getChar();
+      const chat = char?.chats?.[char.chatPage];
+      if (!chat || !chat.lbi_gemini_cache) return null;
 
-        const textHash = Utils.simpleHash(text.trim());
-        const data = chat.lbi_gemini_cache[textHash];
+      const textHash = Utils.simpleHash(text.trim());
+      const data = chat.lbi_gemini_cache[textHash];
 
-        if (data) {
-            Logger.info(`[GoogleAI] Found matching thought signature in cache (Hash: ${textHash})`);
-            return data.signature;
-        }
+      if (data) {
+        Logger.info(`[GoogleAI] Found matching thought signature in cache (Hash: ${textHash})`);
+        return data.signature;
+      }
     } catch (e) { Logger.error("Failed to load thought signature:", e); }
     return null;
   }
@@ -3748,29 +3761,29 @@ class GoogleAIProvider extends BaseProvider {
     for (let i2 = 0; i2 < openAIChats.length; i2++) {
       const message = openAIChats[i2];
       const geminiRole = GoogleAIProvider.toGeminiRole(message.role);
-      
+
       let trimedContent = message.content?.trim() || "";
       let thoughtSignature = null;
-      
+
       // [수정] 해시 계산 시 생각 태그와 기존 서명 태그를 제거하여 '순수 본문'끼리 비교
       if (chatSettings.gemini_useThoughtSignature && geminiRole === GEMINI_ROLE.MODEL) {
-          let contentForHash = trimedContent;
-          // <Thoughts> 제거
-          contentForHash = contentForHash.replace(/<Thoughts>[\s\S]*?<\/Thoughts>/g, "").trim();
-          // <details> 제거 (번역 모드 등)
-          contentForHash = contentForHash.replace(/<details><summary>[\s\S]*?<\/summary>[\s\S]*?<\/details>/g, "").trim();
-          // 구버전 서명 div 제거
-          contentForHash = contentForHash.replace(/<div style="display:none;" data-lbi-thought-signature="[^"]+"><\/div>/g, "").trim();
-          
-          thoughtSignature = GoogleAIProvider.getSignatureFromChat(contentForHash);
+        let contentForHash = trimedContent;
+        // <Thoughts> 제거
+        contentForHash = contentForHash.replace(/<Thoughts>[\s\S]*?<\/Thoughts>/g, "").trim();
+        // <details> 제거 (번역 모드 등)
+        contentForHash = contentForHash.replace(/<details><summary>[\s\S]*?<\/summary>[\s\S]*?<\/details>/g, "").trim();
+        // 구버전 서명 div 제거
+        contentForHash = contentForHash.replace(/<div style="display:none;" data-lbi-thought-signature="[^"]+"><\/div>/g, "").trim();
+
+        thoughtSignature = GoogleAIProvider.getSignatureFromChat(contentForHash);
       }
-      
+
       // 기존 구버전 태그 청소 (오염 방지)
       const signatureMatch = trimedContent.match(/<div style="display:none;" data-lbi-thought-signature="([^"]+)"><\/div>/);
       if (signatureMatch) {
         trimedContent = trimedContent.replace(signatureMatch[0], "").trim();
       }
-      
+
       const lastMessage = messages.length > 0 ? messages[messages.length - 1] : null;
       const prefix = "";
 
@@ -3781,11 +3794,11 @@ class GoogleAIProvider extends BaseProvider {
         geminiRole === GEMINI_ROLE.USER
       ) {
         if (trimedContent) {
-            if (lastMessage.parts[lastMessage.parts.length - 1].inlineData) {
-                lastMessage.parts.push({ text: trimedContent });
-            } else {
-                lastMessage.parts[lastMessage.parts.length - 1].text += "\n\n" + trimedContent;
-            }
+          if (lastMessage.parts[lastMessage.parts.length - 1].inlineData) {
+            lastMessage.parts.push({ text: trimedContent });
+          } else {
+            lastMessage.parts[lastMessage.parts.length - 1].text += "\n\n" + trimedContent;
+          }
         }
         for (const modal of message.multimodals) {
           if (
@@ -3806,13 +3819,13 @@ class GoogleAIProvider extends BaseProvider {
         }
         continue;
       }
-      
+
       if (message.multimodals && message.multimodals.length > 0) {
         const newParts = [];
         if (trimedContent) {
-            newParts.push({
-                text: trimedContent,
-            });
+          newParts.push({
+            text: trimedContent,
+          });
         }
         for (const modal of message.multimodals) {
           if (
@@ -3836,7 +3849,7 @@ class GoogleAIProvider extends BaseProvider {
             geminiRole === GEMINI_ROLE.SYSTEM ? GEMINI_ROLE.USER : geminiRole,
           parts: newParts,
         });
-      // *** 이미지 입력 처리 로직 끝 ***
+        // *** 이미지 입력 처리 로직 끝 ***
 
       } else if (
         geminiRole === GEMINI_ROLE.MODEL &&
@@ -3845,25 +3858,25 @@ class GoogleAIProvider extends BaseProvider {
         message.thoughts.length > 0
       ) {
         if (trimedContent === "") {
-           const part = {
-             text: message.thoughts.join("\n\n"),
-             thought: true,
-           };
-           if (chatSettings.gemini_useThoughtSignature && thoughtSignature) {
-             part.thought_signature = thoughtSignature;
-           }
-           messages.push({
+          const part = {
+            text: message.thoughts.join("\n\n"),
+            thought: true,
+          };
+          if (chatSettings.gemini_useThoughtSignature && thoughtSignature) {
+            part.thought_signature = thoughtSignature;
+          }
+          messages.push({
             role: geminiRole,
             parts: [part],
           });
         } else {
-           const part = {
-             text: trimedContent,
-           };
-           if (chatSettings.gemini_useThoughtSignature && thoughtSignature) {
-             part.thought_signature = thoughtSignature;
-           }
-           messages.push({
+          const part = {
+            text: trimedContent,
+          };
+          if (chatSettings.gemini_useThoughtSignature && thoughtSignature) {
+            part.thought_signature = thoughtSignature;
+          }
+          messages.push({
             role: geminiRole,
             parts: [part],
           });
@@ -3876,18 +3889,18 @@ class GoogleAIProvider extends BaseProvider {
         if (lastMessage.parts[lastMessage.parts.length - 1].inlineData) {
           const part = { text: trimedContent };
           if (chatSettings.gemini_useThoughtSignature && thoughtSignature) {
-             part.thought_signature = thoughtSignature;
+            part.thought_signature = thoughtSignature;
           }
           lastMessage.parts.push(part);
         } else {
           // 서명이 있는 경우 별도 파트로 분리 (안전성 확보)
           if (chatSettings.gemini_useThoughtSignature && thoughtSignature) {
-             lastMessage.parts.push({
-               text: trimedContent,
-               thought_signature: thoughtSignature
-             });
+            lastMessage.parts.push({
+              text: trimedContent,
+              thought_signature: thoughtSignature
+            });
           } else {
-             lastMessage.parts[lastMessage.parts.length - 1].text += "\n\n" + trimedContent;
+            lastMessage.parts[lastMessage.parts.length - 1].text += "\n\n" + trimedContent;
           }
         }
       } else if (geminiRole === GEMINI_ROLE.SYSTEM) {
@@ -3923,7 +3936,7 @@ class GoogleAIProvider extends BaseProvider {
         const part = { text: trimedContent };
         // 모델 역할일 때만 서명 추가
         if (geminiRole === GEMINI_ROLE.MODEL && chatSettings.gemini_useThoughtSignature && thoughtSignature) {
-            part.thought_signature = thoughtSignature;
+          part.thought_signature = thoughtSignature;
         }
         messages.push({
           role: geminiRole,
@@ -3978,20 +3991,20 @@ class GoogleAIProvider extends BaseProvider {
     if (pluginRequest.stop_sequences?.length > 0) {
       body.generationConfig.stopSequences = pluginRequest.stop_sequences;
     }
-    
+
     const thinkingLevel = chatSettings.gemini_thinkingLevel;
     const isGemini3 = modelDef.id.includes("gemini-3");
 
     if (isGemini3 && thinkingLevel && thinkingLevel !== "") {
       body.generationConfig.thinkingConfig = isVertexAI
         ? {
-            includeThoughts: true,
-            thinking_level: thinkingLevel
-          }
+          includeThoughts: true,
+          thinking_level: thinkingLevel
+        }
         : {
-            includeThoughts: true,
-            thinkingLevel: thinkingLevel.toLowerCase()
-          };
+          includeThoughts: true,
+          thinkingLevel: thinkingLevel.toLowerCase()
+        };
     } else {
       if (GoogleAIProvider.isGeminiThinkingModel(modelDef)) {
         body.generationConfig.thinkingConfig = {
@@ -4024,7 +4037,7 @@ class GoogleAIProvider extends BaseProvider {
         }
       }
     }
-    
+
     if (
       chatSettings.gemini_useGroundingSearch &&
       modelDef.flags.includes(LLM_FLAG.hasGroundingSearch) &&
@@ -4126,11 +4139,11 @@ class GoogleAIProvider extends BaseProvider {
     // ▼▼▼▼▼ [수정: 카멜케이스 지원 + 서명 추출] ▼▼▼▼▼
     let extractedSignature = null;
     if (chatSettings.gemini_useThoughtSignature) {
-        // thought_signature(언더바) 와 thoughtSignature(카멜케이스) 둘 다 확인
-        const signaturePart = parts.find(part => part.thought_signature || part.thoughtSignature);
-        if (signaturePart) {
-            extractedSignature = signaturePart.thought_signature || signaturePart.thoughtSignature;
-        }
+      // thought_signature(언더바) 와 thoughtSignature(카멜케이스) 둘 다 확인
+      const signaturePart = parts.find(part => part.thought_signature || part.thoughtSignature);
+      if (signaturePart) {
+        extractedSignature = signaturePart.thought_signature || signaturePart.thoughtSignature;
+      }
     }
     let parsed = "";
 
@@ -4629,39 +4642,39 @@ class OpenAICompatibleProvider extends BaseProvider {
     let finalUrl = this.url; // URL 처리를 위한 변수
 
     if (format === 'google') {
-        // 구글 포맷 Body 생성
-        jsonBody = GoogleAIProvider.buildGeminiBody(pluginRequest, modelDef);
-        
-        // --- 구글 URL 스마트 자동 완성 로직 ---
-        // 1. URL 끝의 슬래시 제거
-        finalUrl = finalUrl.replace(/\/+$/, "");
-        
-        // 2. 엔드포인트가 명시되지 않은 경우, 표준 형식(:generateContent) 자동 부착
-        if (!finalUrl.includes(":generateContent")) {
-            // 사용자가 모델 경로까지 포함했는지 확인 (예: .../models/gemini-pro)
-            if (!finalUrl.includes("/models/")) {
-                finalUrl += `/models/${modelDef.id}`;
-            }
-            finalUrl += ":generateContent";
-        }
+      // 구글 포맷 Body 생성
+      jsonBody = GoogleAIProvider.buildGeminiBody(pluginRequest, modelDef);
 
-        // 3. API 키가 URL 파라미터에 없으면 자동 부착 (구글은 헤더 대신 URL 파라미터 사용 가능)
-        if (!finalUrl.includes("key=")) {
-            const separator = finalUrl.includes("?") ? "&" : "?";
-            finalUrl += `${separator}key=${this.apiKey}`;
+      // --- 구글 URL 스마트 자동 완성 로직 ---
+      // 1. URL 끝의 슬래시 제거
+      finalUrl = finalUrl.replace(/\/+$/, "");
+
+      // 2. 엔드포인트가 명시되지 않은 경우, 표준 형식(:generateContent) 자동 부착
+      if (!finalUrl.includes(":generateContent")) {
+        // 사용자가 모델 경로까지 포함했는지 확인 (예: .../models/gemini-pro)
+        if (!finalUrl.includes("/models/")) {
+          finalUrl += `/models/${modelDef.id}`;
         }
-        // -------------------------------------
+        finalUrl += ":generateContent";
+      }
+
+      // 3. API 키가 URL 파라미터에 없으면 자동 부착 (구글은 헤더 대신 URL 파라미터 사용 가능)
+      if (!finalUrl.includes("key=")) {
+        const separator = finalUrl.includes("?") ? "&" : "?";
+        finalUrl += `${separator}key=${this.apiKey}`;
+      }
+      // -------------------------------------
 
     } else if (format === 'claude') {
-        // 클로드 포맷 Body 생성
-        jsonBody = AnthropicProvider.buildClaudeBody(pluginRequest, modelDef);
+      // 클로드 포맷 Body 생성
+      jsonBody = AnthropicProvider.buildClaudeBody(pluginRequest, modelDef);
     } else {
-        // 기본 (OpenAI) Body 생성
-        jsonBody = OpenAICompatibleProvider.buildGptBody(
-          pluginRequest,
-          modelDef,
-          this.providerSettings
-        );
+      // 기본 (OpenAI) Body 생성
+      jsonBody = OpenAICompatibleProvider.buildGptBody(
+        pluginRequest,
+        modelDef,
+        this.providerSettings
+      );
     }
 
     const fetchArgs = {
@@ -4674,11 +4687,11 @@ class OpenAICompatibleProvider extends BaseProvider {
 
     // 구글 외에는 Authorization 헤더 사용
     if (format !== 'google') {
-        fetchArgs.headers["Authorization"] = `Bearer ${this.apiKey}`;
+      fetchArgs.headers["Authorization"] = `Bearer ${this.apiKey}`;
     }
 
     Logger.info(`Calling OpenAICompatible (${format}) with model:`, modelDef.id);
-    
+
     const startTime = Date.now();
     const response = await risuFetchEx(pluginRequest, finalUrl, fetchArgs);
     const latency = Date.now() - startTime;
@@ -4690,35 +4703,35 @@ class OpenAICompatibleProvider extends BaseProvider {
 
     // 포맷별 응답 파싱
     if (format === 'google') {
-        try {
-            const usageMetadata = response?.data?.usageMetadata;
-            if (usageMetadata) {
-                const inputTokens = usageMetadata.promptTokenCount || 0;
-                const cachedInputTokens = usageMetadata.cachedContentTokenCount || 0;
-                const outputTokens = (usageMetadata.candidatesTokenCount || 0) + (usageMetadata.thoughtsTokenCount || 0);
-                UsageMetricsManager.addRecord(modelDef, inputTokens, cachedInputTokens, outputTokens, Utils.getRequestType(pluginRequest), this.providerSettings, latency, 200);
-            }
-        } catch (e) {
-            Logger.warn('[OpenAICompatible] Failed to track Google format usage:', e);
+      try {
+        const usageMetadata = response?.data?.usageMetadata;
+        if (usageMetadata) {
+          const inputTokens = usageMetadata.promptTokenCount || 0;
+          const cachedInputTokens = usageMetadata.cachedContentTokenCount || 0;
+          const outputTokens = (usageMetadata.candidatesTokenCount || 0) + (usageMetadata.thoughtsTokenCount || 0);
+          UsageMetricsManager.addRecord(modelDef, inputTokens, cachedInputTokens, outputTokens, Utils.getRequestType(pluginRequest), this.providerSettings, latency, 200);
         }
+      } catch (e) {
+        Logger.warn('[OpenAICompatible] Failed to track Google format usage:', e);
+      }
 
-        return (await GoogleAIProvider.parseContent(pluginRequest, response)).content;
-    } 
-    
+      return (await GoogleAIProvider.parseContent(pluginRequest, response)).content;
+    }
+
     if (format === 'claude') {
-        try {
-            const usage = response?.data?.usage;
-            if (usage) {
-                const inputTokens = usage.input_tokens || 0;
-                const cachedInputTokens = usage.cache_read_input_tokens || 0;
-                const outputTokens = usage.output_tokens || 0;
-                UsageMetricsManager.addRecord(modelDef, inputTokens, cachedInputTokens, outputTokens, Utils.getRequestType(pluginRequest), this.providerSettings, latency, 200);
-            }
-        } catch (e) {
-            Logger.warn('[OpenAICompatible] Failed to track Claude format usage:', e);
+      try {
+        const usage = response?.data?.usage;
+        if (usage) {
+          const inputTokens = usage.input_tokens || 0;
+          const cachedInputTokens = usage.cache_read_input_tokens || 0;
+          const outputTokens = usage.output_tokens || 0;
+          UsageMetricsManager.addRecord(modelDef, inputTokens, cachedInputTokens, outputTokens, Utils.getRequestType(pluginRequest), this.providerSettings, latency, 200);
         }
+      } catch (e) {
+        Logger.warn('[OpenAICompatible] Failed to track Claude format usage:', e);
+      }
 
-        return AnthropicProvider.parseContent(pluginRequest, response);
+      return AnthropicProvider.parseContent(pluginRequest, response);
     }
 
     // OpenAI (기본)
@@ -4735,7 +4748,7 @@ class OpenAICompatibleProvider extends BaseProvider {
           outputTokens,
           Utils.getRequestType(pluginRequest),
           this.providerSettings,
-          latency, 
+          latency,
           200
         );
       }
@@ -4756,62 +4769,62 @@ class OpenAICompatibleProvider extends BaseProvider {
 
     // ▼▼▼▼▼ [구글 포맷 스트리밍 지원] ▼▼▼▼▼
     if (format === 'google') {
-        const jsonBody = GoogleAIProvider.buildGeminiBody(pluginRequest, modelDef);
-        
-        // --- 구글 URL 스마트 자동 완성 로직 (스트리밍용) ---
-        finalUrl = finalUrl.replace(/\/+$/, ""); // 뒤쪽 슬래시 제거
+      const jsonBody = GoogleAIProvider.buildGeminiBody(pluginRequest, modelDef);
 
-        // 1. 스트리밍 엔드포인트 자동 부착
-        if (!finalUrl.includes(":streamGenerateContent")) {
-             if (!finalUrl.includes("/models/")) {
-                finalUrl += `/models/${modelDef.id}`;
-            }
-            finalUrl += ":streamGenerateContent";
+      // --- 구글 URL 스마트 자동 완성 로직 (스트리밍용) ---
+      finalUrl = finalUrl.replace(/\/+$/, ""); // 뒤쪽 슬래시 제거
+
+      // 1. 스트리밍 엔드포인트 자동 부착
+      if (!finalUrl.includes(":streamGenerateContent")) {
+        if (!finalUrl.includes("/models/")) {
+          finalUrl += `/models/${modelDef.id}`;
         }
+        finalUrl += ":streamGenerateContent";
+      }
 
-        // 2. API 키 자동 부착
-        if (!finalUrl.includes("key=")) {
-            const separator = finalUrl.includes("?") ? "&" : "?";
-            finalUrl += `${separator}key=${this.apiKey}`;
+      // 2. API 키 자동 부착
+      if (!finalUrl.includes("key=")) {
+        const separator = finalUrl.includes("?") ? "&" : "?";
+        finalUrl += `${separator}key=${this.apiKey}`;
+      }
+
+      // 3. alt=sse 파라미터 자동 부착 (스트리밍 필수)
+      if (!finalUrl.includes("alt=sse")) {
+        finalUrl += "&alt=sse";
+      }
+      // -------------------------------------------------
+
+      const fetchArgs = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(jsonBody),
+      };
+
+      Logger.info(`Calling Custom Google (Streaming): ${finalUrl}`);
+      const startTime = Date.now();
+      const response = await risuAPI.nativeFetch(finalUrl, fetchArgs);
+
+      if (response.status !== 200) {
+        throw new Error(await new Response(response.body).text());
+      }
+
+      const stream = new ReadableStream({
+        async start(controller) {
+          const reader = response.body.getReader();
+          try {
+            await parseGeminiStream(reader, controller, {
+              logger: console,
+              useDecoupledStreaming: false
+            });
+          } catch (error) {
+            controller.error(error);
+          }
+          controller.close();
         }
-
-        // 3. alt=sse 파라미터 자동 부착 (스트리밍 필수)
-        if (!finalUrl.includes("alt=sse")) {
-            finalUrl += "&alt=sse";
-        }
-        // -------------------------------------------------
-        
-        const fetchArgs = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(jsonBody),
-        };
-
-        Logger.info(`Calling Custom Google (Streaming): ${finalUrl}`);
-        const startTime = Date.now();
-        const response = await risuAPI.nativeFetch(finalUrl, fetchArgs);
-        
-        if (response.status !== 200) {
-            throw new Error(await new Response(response.body).text());
-        }
-
-        const stream = new ReadableStream({
-            async start(controller) {
-                const reader = response.body.getReader();
-                try {
-                    await parseGeminiStream(reader, controller, {
-                        logger: console,
-                        useDecoupledStreaming: false 
-                    });
-                } catch (error) {
-                    controller.error(error);
-                }
-                controller.close();
-            }
-        });
-        return stream;
+      });
+      return stream;
     }
     // ▲▲▲▲▲ [구글 스트리밍 로직 끝] ▲▲▲▲▲
 
@@ -4910,8 +4923,8 @@ class OpenAICompatibleProvider extends BaseProvider {
               outputTokens,
               requestType,
               provider.providerSettings,
-              latency,         
-              response.status  
+              latency,
+              response.status
             );
           }
         } catch (error) {
@@ -4920,7 +4933,7 @@ class OpenAICompatibleProvider extends BaseProvider {
 
         controller.close();
       },
-      cancel() {},
+      cancel() { },
     });
     return stream;
   }
@@ -5559,7 +5572,7 @@ async function parseGeminiStream(
   }
   if (capturedSignature) {
     if (onSignatureCaptured) {
-        onSignatureCaptured(fullTextForHash, capturedSignature);
+      onSignatureCaptured(fullTextForHash, capturedSignature);
     }
   }
   if (useDecoupledStreaming && bufferedContent) {
@@ -5795,10 +5808,10 @@ class VertexAIProvider extends BaseProvider {
       Logger.info("Calling Vertex AI with model:", modelDef.id);
 
       // [추가] 시간 측정 시작
-      const startTime = Date.now(); 
+      const startTime = Date.now();
 
       let response = await risuFetchEx(pluginRequest, url, fetchArgs);
-      
+
       // [추가] 지연 시간 계산
       let latency = Date.now() - startTime;
 
@@ -5813,7 +5826,7 @@ class VertexAIProvider extends BaseProvider {
           Authorization: `Bearer ${newAccessToken}`,
         };
         Logger.info("Retrying Vertex AI with new token.");
-        
+
         // [추가] 재시도 시 시간 초기화 (선택 사항이지만 정확도를 위해 추천)
         const retryStartTime = Date.now();
         response = await risuFetchEx(pluginRequest, url, fetchArgs);
@@ -5873,7 +5886,7 @@ class VertexAIProvider extends BaseProvider {
         // *** 변경점: await 추가 ***
         return await VertexAIProvider.parseContent(pluginRequest, modelDef, response);
       }
-      
+
       // [추가] 에러 발생 시 기록
       UsageMetricsManager.addRecord(modelDef, 0, 0, 0, Utils.getRequestType(pluginRequest), null, latency, response?.status || 500);
 
@@ -5952,12 +5965,12 @@ class VertexAIProvider extends BaseProvider {
     const availableLocations =
       customLocation && customLocation.trim()
         ? customLocation
-            .split(",")
-            .map((loc) => loc.trim())
-            .filter((loc) => loc.length > 0)
+          .split(",")
+          .map((loc) => loc.trim())
+          .filter((loc) => loc.length > 0)
         : (modelDef?.locations && modelDef.locations.length > 0
-            ? modelDef.locations
-            : ["us-central1"]);
+          ? modelDef.locations
+          : ["us-central1"]);
 
     const streamingErrors = [];
     for (const location2 of availableLocations) {
@@ -6146,10 +6159,10 @@ class AutoProvider {
       const provider = AutoProvider.getProvider(modelDef);
       try {
         const response = await provider.getResponse(pluginRequest, modelDef);
-        
+
         // 문자열로 반환된 경우 (OpenAI, Claude 등) 객체로 감싸줌
         if (typeof response === 'string') {
-            return { content: response, signature: null };
+          return { content: response, signature: null };
         }
         // 이미 객체인 경우 (수정된 Gemini/Vertex) 그대로 반환
         return response;
@@ -6264,13 +6277,13 @@ class AutoProvider {
       return new AnthropicProvider(apiKey);
     }
     if (modelDef.provider === LLM_PROVIDER.NOVELAI) {
-    if (AutoProvider.novelaiProvider.lastApiKeys !== commonSettings.novelaiProvider_apiKey || AutoProvider.novelaiProvider.parsedApiKeys.length === 0) {
-      AutoProvider.novelaiProvider.parsedApiKeys = commonSettings.novelaiProvider_apiKey.trim().split(/\s+/).filter(key => key.length > 0);
-      AutoProvider.novelaiProvider.lastApiKeys = commonSettings.novelaiProvider_apiKey;
-    }
-    const apiKey = Utils.pickElement(AutoProvider.novelaiProvider.parsedApiKeys);
-    if (!apiKey) throw new Error("NovelAI 키가 없음: API 키 칸에 유효한 키를 넣으세요.");
-    return new NovelAIProvider(apiKey);
+      if (AutoProvider.novelaiProvider.lastApiKeys !== commonSettings.novelaiProvider_apiKey || AutoProvider.novelaiProvider.parsedApiKeys.length === 0) {
+        AutoProvider.novelaiProvider.parsedApiKeys = commonSettings.novelaiProvider_apiKey.trim().split(/\s+/).filter(key => key.length > 0);
+        AutoProvider.novelaiProvider.lastApiKeys = commonSettings.novelaiProvider_apiKey;
+      }
+      const apiKey = Utils.pickElement(AutoProvider.novelaiProvider.parsedApiKeys);
+      if (!apiKey) throw new Error("NovelAI 키가 없음: API 키 칸에 유효한 키를 넣으세요.");
+      return new NovelAIProvider(apiKey);
     }
     if (modelDef.provider === LLM_PROVIDER.DEEPSEEK) {
       if (AutoProvider.deepseekProvider.lastApiKeys !== commonSettings.deepseekProvider_apiKey || AutoProvider.deepseekProvider.parsedApiKeys.length === 0) {
@@ -6296,7 +6309,7 @@ class AutoProvider {
     if (modelDef.provider.startsWith(LLM_PROVIDER.OPENAICOMPATIBLE)) {
       const providerIndex = modelDef.provider.replace(LLM_PROVIDER.OPENAICOMPATIBLE, "");
       const settings = getOpenAICompatibleSettings(providerIndex);
-      
+
       // --- START: URL 자동 완성 로직 ---
       let finalUrl = settings.url.trim();
       const chatCompletionsSuffix = "/chat/completions";
@@ -6320,7 +6333,7 @@ class AutoProvider {
       if (keyPool.length === 0) throw new Error(`${modelDef.name}에 사용할 키가 없습니다. 설정에서 키를 확인하세요.`);
       const pickedApiKey = Utils.pickElement(keyPool);
       modelDef.id = settings.model;
-      
+
       // 수정된 finalUrl을 사용
       return new OpenAICompatibleProvider(finalUrl, pickedApiKey, settings);
     }
@@ -6535,350 +6548,352 @@ class HTMLTextSeparator {
 
 // ############# POLISH MANAGER (v6 - UIB Refactored) - START #############
 const PolishManager = (() => {
-    const POLISH_DATA_KEY = `polish_data_v6`;
-    let state = { rules: [], logs: [], selectedRuleId: null, selectedRuleIds: new Set(), presets: [], activePresetId: null };
+  const POLISH_DATA_KEY = `polish_data_v6`;
+  let state = { rules: [], logs: [], selectedRuleId: null, selectedRuleIds: new Set(), presets: [], activePresetId: null };
 
-    function saveState() {
-        try {
-            setArgEx(`${PLUGIN_NAME}::${POLISH_DATA_KEY}`, JSON.stringify({
-                rules: state.rules, selectedRuleId: state.selectedRuleId, presets: state.presets, activePresetId: state.activePresetId
-            }));
-        } catch (e) { console.error(`[PolishManager] 저장 실패:`, e); }
+  function saveState() {
+    try {
+      setArgEx(`${PLUGIN_NAME}::${POLISH_DATA_KEY}`, JSON.stringify({
+        rules: state.rules, selectedRuleId: state.selectedRuleId, presets: state.presets, activePresetId: state.activePresetId
+      }));
+    } catch (e) { console.error(`[PolishManager] 저장 실패:`, e); }
+  }
+
+  function loadState() {
+    try {
+      const raw = getArgEx(`${PLUGIN_NAME}::${POLISH_DATA_KEY}`);
+      if (raw && raw !== 'undefined' && raw !== 'null') {
+        const d = JSON.parse(raw);
+        state.rules = (d.rules || []).map(r => ({ ...r, isActive: r.isActive ?? true }));
+        state.selectedRuleId = d.selectedRuleId || null;
+        state.presets = d.presets || [];
+        state.activePresetId = d.activePresetId || null;
+      }
+      state.selectedRuleIds = new Set();
+    } catch (e) { console.error(`[PolishManager] 로드 실패:`, e); }
+  }
+
+  function exportData() {
+    try {
+      const raw = getArgEx(`${PLUGIN_NAME}::${POLISH_DATA_KEY}`);
+      if (raw && raw !== 'undefined' && raw !== 'null') return JSON.parse(raw);
+    } catch (e) { console.error(`[PolishManager] exportData 실패:`, e); }
+    return { rules: [], presets: [], activePresetId: null };
+  }
+
+  function importData(data) {
+    if (!data || typeof data !== 'object') return;
+    try {
+      setArgEx(`${PLUGIN_NAME}::${POLISH_DATA_KEY}`, JSON.stringify(data));
+      loadState();
+      const c = document.querySelector('#polish-content');
+      if (c) renderUI(c);
+    } catch (e) {
+      console.error(`[PolishManager] importData 오류:`, e);
+      alert('폴리쉬 데이터 가져오기 중 오류 발생');
     }
+  }
 
-    function loadState() {
-        try {
-            const raw = getArgEx(`${PLUGIN_NAME}::${POLISH_DATA_KEY}`);
-            if (raw && raw !== 'undefined' && raw !== 'null') {
-                const d = JSON.parse(raw);
-                state.rules = (d.rules || []).map(r => ({ ...r, isActive: r.isActive ?? true }));
-                state.selectedRuleId = d.selectedRuleId || null;
-                state.presets = d.presets || [];
-                state.activePresetId = d.activePresetId || null;
-            }
-            state.selectedRuleIds = new Set();
-        } catch (e) { console.error(`[PolishManager] 로드 실패:`, e); }
+  function diffStrings(orig, pol) {
+    const ow = orig.split(/(\s+)/), pw = pol.split(/(\s+)/);
+    const dp = Array(ow.length + 1).fill(null).map(() => Array(pw.length + 1).fill(0));
+    for (let i = 1; i <= ow.length; i++) for (let j = 1; j <= pw.length; j++)
+      dp[i][j] = ow[i - 1] === pw[j - 1] ? dp[i - 1][j - 1] + 1 : Math.max(dp[i - 1][j], dp[i][j - 1]);
+    let i = ow.length, j = pw.length; const res = [];
+    while (i > 0 || j > 0) {
+      if (i > 0 && j > 0 && ow[i - 1] === pw[j - 1]) { res.unshift({ t: 'c', v: pw[j - 1] }); i--; j--; }
+      else if (j > 0 && (i === 0 || dp[i][j - 1] >= dp[i - 1][j])) { res.unshift({ t: 'a', v: pw[j - 1] }); j--; }
+      else if (i > 0) i--; else break;
     }
+    return res;
+  }
 
-    function exportData() {
-        try {
-            const raw = getArgEx(`${PLUGIN_NAME}::${POLISH_DATA_KEY}`);
-            if (raw && raw !== 'undefined' && raw !== 'null') return JSON.parse(raw);
-        } catch (e) { console.error(`[PolishManager] exportData 실패:`, e); }
-        return { rules: [], presets: [], activePresetId: null };
-    }
+  const presetHandlers = createPresetHandlers({
+    state, dataKey: 'rules', emptyMessage: '규칙이 없어 프리셋을 저장할 수 없습니다.',
+    saveState, renderPresetsUI, afterDelete: c => { renderRulesList(c); renderRuleDetails(c); }
+  });
 
-    function importData(data) {
-        if (!data || typeof data !== 'object') return;
-        try {
-            setArgEx(`${PLUGIN_NAME}::${POLISH_DATA_KEY}`, JSON.stringify(data));
-            loadState();
-            const c = document.querySelector('#polish-content');
-            if (c) renderUI(c);
-        } catch (e) {
-            console.error(`[PolishManager] importData 오류:`, e);
-            alert('폴리쉬 데이터 가져오기 중 오류 발생');
-        }
-    }
+  function isDirty() {
+    if (!state.activePresetId) return false;
+    const p = state.presets.find(p => p.id === state.activePresetId);
+    return p?.rules ? JSON.stringify(state.rules) !== JSON.stringify(p.rules) : false;
+  }
 
-    function diffStrings(orig, pol) {
-        const ow = orig.split(/(\s+)/), pw = pol.split(/(\s+)/);
-        const dp = Array(ow.length + 1).fill(null).map(() => Array(pw.length + 1).fill(0));
-        for (let i = 1; i <= ow.length; i++) for (let j = 1; j <= pw.length; j++)
-            dp[i][j] = ow[i-1] === pw[j-1] ? dp[i-1][j-1] + 1 : Math.max(dp[i-1][j], dp[i][j-1]);
-        let i = ow.length, j = pw.length; const res = [];
-        while (i > 0 || j > 0) {
-            if (i > 0 && j > 0 && ow[i-1] === pw[j-1]) { res.unshift({ t: 'c', v: pw[j-1] }); i--; j--; }
-            else if (j > 0 && (i === 0 || dp[i][j-1] >= dp[i-1][j])) { res.unshift({ t: 'a', v: pw[j-1] }); j--; }
-            else if (i > 0) i--; else break;
-        }
-        return res;
-    }
+  function renderPresetsUI(c) {
+    const sel = c.querySelector('.uib-preset select');
+    if (sel) sel.innerHTML = UIB.renderPresetOptions(state.presets, state.activePresetId, isDirty());
+  }
 
-    const presetHandlers = createPresetHandlers({
-        state, dataKey: 'rules', emptyMessage: '규칙이 없어 프리셋을 저장할 수 없습니다.',
-        saveState, renderPresetsUI, afterDelete: c => { renderRulesList(c); renderRuleDetails(c); }
-    });
-
-    function isDirty() {
-        if (!state.activePresetId) return false;
-        const p = state.presets.find(p => p.id === state.activePresetId);
-        return p?.rules ? JSON.stringify(state.rules) !== JSON.stringify(p.rules) : false;
-    }
-
-    function renderPresetsUI(c) {
-        const sel = c.querySelector('.uib-preset select');
-        if (sel) sel.innerHTML = UIB.renderPresetOptions(state.presets, state.activePresetId, isDirty());
-    }
-
-    function renderRulesList(c) {
-        const list = c.querySelector('.uib-list');
-        if (!list) return;
-        list.innerHTML = state.rules.map(r => `<li data-id="${r.id}" class="${r.id === state.selectedRuleId ? 'active' : ''}">
+  function renderRulesList(c) {
+    const list = c.querySelector('.uib-list');
+    if (!list) return;
+    list.innerHTML = state.rules.map(r => `<li data-id="${r.id}" class="${r.id === state.selectedRuleId ? 'active' : ''}">
             ${UIB.C.checkbox(r.id, state.selectedRuleIds.has(r.id))}
             ${UIB.C.toggle(r.id, r.isActive)}
             <span class="title">${UIB.esc(r.title || 'Untitled')}</span>
         </li>`).join('');
-    }
+  }
 
-    function renderRuleDetails(c) {
-        const pane = c.querySelector('.uib-split-right');
-        if (!pane) return;
-        const r = state.rules.find(x => x.id === state.selectedRuleId);
-        if (!r) { pane.innerHTML = '<div class="uib-placeholder">왼쪽 목록에서 규칙을 선택하거나 새 규칙을 추가하세요.</div>'; return; }
-        pane.innerHTML = `
+  function renderRuleDetails(c) {
+    const pane = c.querySelector('.uib-split-right');
+    if (!pane) return;
+    const r = state.rules.find(x => x.id === state.selectedRuleId);
+    if (!r) { pane.innerHTML = '<div class="uib-placeholder">왼쪽 목록에서 규칙을 선택하거나 새 규칙을 추가하세요.</div>'; return; }
+    pane.innerHTML = `
             ${UIB.C.input({ label: '제목', field: 'title', value: r.title })}
-            ${UIB.C.select({ label: '조건', field: 'condition', value: r.condition, options: [
-                { value: 'OR', label: 'OR (하나라도 포함)' }, { value: 'AND', label: 'AND (모두 포함)' }
-            ]})}
+            ${UIB.C.select({
+      label: '조건', field: 'condition', value: r.condition, options: [
+        { value: 'OR', label: 'OR (하나라도 포함)' }, { value: 'AND', label: 'AND (모두 포함)' }
+      ]
+    })}
             ${UIB.C.textarea({ label: '키워드 (쉼표 구분)', field: 'keywords', rows: 3, value: r.keywords.join(', '), editor: true })}
             ${UIB.C.textarea({ label: '추가 가이드라인', field: 'prompt', rows: 8, value: r.prompt, editor: true })}`;
-    }
+  }
 
-    function renderLogs(c) {
-        const list = c.querySelector('.uib-log-list');
-        if (!list) return;
-        list.innerHTML = state.logs.length === 0 ? '<p class="uib-placeholder">수정된 내역이 없습니다.</p>'
-            : state.logs.map(log => {
-                const diff = diffStrings(log.original, log.polished);
-                const hl = diff.map(p => p.t === 'a' ? `<strong style="color:#60a5fa">${UIB.esc(p.v)}</strong>` : UIB.esc(p.v)).join('');
-                return `<div class="uib-log" data-id="${log.id}"><div class="uib-log-content"><p class="original"><strong>원본:</strong> ${UIB.esc(log.original)}</p><p class="polished"><strong>수정:</strong> ${hl}</p></div><button class="uib-log-del" data-action="del-log" data-id="${log.id}">×</button></div>`;
-            }).join('');
-    }
+  function renderLogs(c) {
+    const list = c.querySelector('.uib-log-list');
+    if (!list) return;
+    list.innerHTML = state.logs.length === 0 ? '<p class="uib-placeholder">수정된 내역이 없습니다.</p>'
+      : state.logs.map(log => {
+        const diff = diffStrings(log.original, log.polished);
+        const hl = diff.map(p => p.t === 'a' ? `<strong style="color:#60a5fa">${UIB.esc(p.v)}</strong>` : UIB.esc(p.v)).join('');
+        return `<div class="uib-log" data-id="${log.id}"><div class="uib-log-content"><p class="original"><strong>원본:</strong> ${UIB.esc(log.original)}</p><p class="polished"><strong>수정:</strong> ${hl}</p></div><button class="uib-log-del" data-action="del-log" data-id="${log.id}">×</button></div>`;
+      }).join('');
+  }
 
-    function renderLogsUI(c) {
-        if (!c) return;
-        c.innerHTML = `<div class="uib-log-list"></div><button data-action="clear-logs" style="margin-top:10px;padding:8px;background:#444;border:none;color:#fff;border-radius:4px;cursor:pointer">모든 로그 지우기</button>`;
-        renderLogs(c);
-        UIB.bind(c, {
-            'clear-logs': () => { state.logs = []; renderLogs(c); },
-            'del-log': (e, el) => { state.logs = state.logs.filter(l => l.id != el.dataset.id); renderLogs(c); }
-        });
-    }
+  function renderLogsUI(c) {
+    if (!c) return;
+    c.innerHTML = `<div class="uib-log-list"></div><button data-action="clear-logs" style="margin-top:10px;padding:8px;background:#444;border:none;color:#fff;border-radius:4px;cursor:pointer">모든 로그 지우기</button>`;
+    renderLogs(c);
+    UIB.bind(c, {
+      'clear-logs': () => { state.logs = []; renderLogs(c); },
+      'del-log': (e, el) => { state.logs = state.logs.filter(l => l.id != el.dataset.id); renderLogs(c); }
+    });
+  }
 
-    async function openEditor(field, c) {
-        const r = state.rules.find(x => x.id === state.selectedRuleId);
-        if (!r) return;
-        const val = Array.isArray(r[field]) ? r[field].join(', ') : r[field];
-        const res = await PluginTextEditorUI.showModal(`${r.title} - ${field} 편집`, val);
-        if (res.confirmed && res.value != null) {
-            const newVal = field === 'keywords' ? res.value.split(',').map(k => k.trim()).filter(Boolean) : res.value;
-            r[field] = newVal; saveState(); renderRuleDetails(c); renderPresetsUI(c);
-        }
+  async function openEditor(field, c) {
+    const r = state.rules.find(x => x.id === state.selectedRuleId);
+    if (!r) return;
+    const val = Array.isArray(r[field]) ? r[field].join(', ') : r[field];
+    const res = await PluginTextEditorUI.showModal(`${r.title} - ${field} 편집`, val);
+    if (res.confirmed && res.value != null) {
+      const newVal = field === 'keywords' ? res.value.split(',').map(k => k.trim()).filter(Boolean) : res.value;
+      r[field] = newVal; saveState(); renderRuleDetails(c); renderPresetsUI(c);
     }
+  }
 
-    function renderUI(c) {
-        if (!c) return;
-        UIB.injectStyles();
-        c.innerHTML = `<div class="uib-split-left"><div class="uib-split-header">
+  function renderUI(c) {
+    if (!c) return;
+    UIB.injectStyles();
+    c.innerHTML = `<div class="uib-split-left"><div class="uib-split-header">
             ${UIB.C.preset()}
             <button data-action="add" class="uib-primary" style="width:100%;padding:8px;margin-bottom:10px">➕ 새 규칙 추가</button>
             ${UIB.C.actionBar([
-                { action: 'sel-all', label: '모두 선택' }, { action: 'desel-all', label: '모두 해제' },
-                { action: 'del-sel', label: '선택 삭제' }, { action: 'del-all', label: '모두 삭제', danger: true }
-            ])}
+      { action: 'sel-all', label: '모두 선택' }, { action: 'desel-all', label: '모두 해제' },
+      { action: 'del-sel', label: '선택 삭제' }, { action: 'del-all', label: '모두 삭제', danger: true }
+    ])}
         </div><ul class="uib-list"></ul></div><div class="uib-split-right"></div>`;
 
-        renderPresetsUI(c); renderRulesList(c); renderRuleDetails(c);
+    renderPresetsUI(c); renderRulesList(c); renderRuleDetails(c);
 
-        UIB.bind(c, {
-            'preset-change': e => {
-                state.activePresetId = e.target.value;
-                if (state.activePresetId) {
-                    const p = state.presets.find(x => x.id === state.activePresetId);
-                    if (p?.rules) { state.rules = structuredClone(p.rules); state.selectedRuleId = state.rules[0]?.id || null; }
-                }
-                saveState(); renderRulesList(c); renderRuleDetails(c); renderPresetsUI(c);
-            },
-            'preset-save': () => presetHandlers.handleSave(c),
-            'preset-copy': () => presetHandlers.handleCopy(c),
-            'preset-delete': () => presetHandlers.handleDelete(c),
-            'add': () => {
-                const nr = { id: `rule_${Date.now()}_${Math.random()}`, title: `새 규칙 ${state.rules.length + 1}`, condition: 'OR', keywords: [], prompt: '', isActive: true };
-                state.rules.push(nr); state.selectedRuleId = nr.id; saveState(); renderRulesList(c); renderRuleDetails(c); renderPresetsUI(c);
-            },
-            'sel-all': () => { state.rules.forEach(r => state.selectedRuleIds.add(r.id)); renderRulesList(c); },
-            'desel-all': () => { state.selectedRuleIds.clear(); renderRulesList(c); },
-            'del-sel': () => {
-                if (state.selectedRuleIds.size === 0) return alert("삭제할 규칙을 선택하세요.");
-                if (!confirm(`${state.selectedRuleIds.size}개 규칙을 삭제하시겠습니까?`)) return;
-                state.rules = state.rules.filter(r => !state.selectedRuleIds.has(r.id));
-                if (state.selectedRuleIds.has(state.selectedRuleId)) state.selectedRuleId = state.rules[0]?.id || null;
-                state.selectedRuleIds.clear(); saveState(); renderRulesList(c); renderRuleDetails(c); renderPresetsUI(c);
-            },
-            'del-all': () => {
-                if (state.rules.length === 0) return alert("삭제할 규칙이 없습니다.");
-                if (!confirm("모든 규칙을 삭제하시겠습니까?")) return;
-                state.rules = []; state.selectedRuleIds.clear(); state.selectedRuleId = null;
-                saveState(); renderRulesList(c); renderRuleDetails(c); renderPresetsUI(c);
-            },
-            'select': (e, el) => { const id = el.dataset.id; e.target.checked ? state.selectedRuleIds.add(id) : state.selectedRuleIds.delete(id); },
-            'toggle': (e, el) => {
-                const r = state.rules.find(x => x.id === el.dataset.id);
-                if (r) { r.isActive = e.target.checked; saveState(); renderPresetsUI(c); }
-            },
-            'open-editor': (e, el) => openEditor(el.dataset.field, c),
-            onFieldChange: (field, val) => {
-                const r = state.rules.find(x => x.id === state.selectedRuleId);
-                if (!r) return;
-                r[field] = field === 'keywords' ? val.split(',').map(k => k.trim()).filter(Boolean) : val;
-                saveState(); if (field === 'title') renderRulesList(c); renderPresetsUI(c);
-            }
-        });
+    UIB.bind(c, {
+      'preset-change': e => {
+        state.activePresetId = e.target.value;
+        if (state.activePresetId) {
+          const p = state.presets.find(x => x.id === state.activePresetId);
+          if (p?.rules) { state.rules = structuredClone(p.rules); state.selectedRuleId = state.rules[0]?.id || null; }
+        }
+        saveState(); renderRulesList(c); renderRuleDetails(c); renderPresetsUI(c);
+      },
+      'preset-save': () => presetHandlers.handleSave(c),
+      'preset-copy': () => presetHandlers.handleCopy(c),
+      'preset-delete': () => presetHandlers.handleDelete(c),
+      'add': () => {
+        const nr = { id: `rule_${Date.now()}_${Math.random()}`, title: `새 규칙 ${state.rules.length + 1}`, condition: 'OR', keywords: [], prompt: '', isActive: true };
+        state.rules.push(nr); state.selectedRuleId = nr.id; saveState(); renderRulesList(c); renderRuleDetails(c); renderPresetsUI(c);
+      },
+      'sel-all': () => { state.rules.forEach(r => state.selectedRuleIds.add(r.id)); renderRulesList(c); },
+      'desel-all': () => { state.selectedRuleIds.clear(); renderRulesList(c); },
+      'del-sel': () => {
+        if (state.selectedRuleIds.size === 0) return alert("삭제할 규칙을 선택하세요.");
+        if (!confirm(`${state.selectedRuleIds.size}개 규칙을 삭제하시겠습니까?`)) return;
+        state.rules = state.rules.filter(r => !state.selectedRuleIds.has(r.id));
+        if (state.selectedRuleIds.has(state.selectedRuleId)) state.selectedRuleId = state.rules[0]?.id || null;
+        state.selectedRuleIds.clear(); saveState(); renderRulesList(c); renderRuleDetails(c); renderPresetsUI(c);
+      },
+      'del-all': () => {
+        if (state.rules.length === 0) return alert("삭제할 규칙이 없습니다.");
+        if (!confirm("모든 규칙을 삭제하시겠습니까?")) return;
+        state.rules = []; state.selectedRuleIds.clear(); state.selectedRuleId = null;
+        saveState(); renderRulesList(c); renderRuleDetails(c); renderPresetsUI(c);
+      },
+      'select': (e, el) => { const id = el.dataset.id; e.target.checked ? state.selectedRuleIds.add(id) : state.selectedRuleIds.delete(id); },
+      'toggle': (e, el) => {
+        const r = state.rules.find(x => x.id === el.dataset.id);
+        if (r) { r.isActive = e.target.checked; saveState(); renderPresetsUI(c); }
+      },
+      'open-editor': (e, el) => openEditor(el.dataset.field, c),
+      onFieldChange: (field, val) => {
+        const r = state.rules.find(x => x.id === state.selectedRuleId);
+        if (!r) return;
+        r[field] = field === 'keywords' ? val.split(',').map(k => k.trim()).filter(Boolean) : val;
+        saveState(); if (field === 'title') renderRulesList(c); renderPresetsUI(c);
+      }
+    });
 
-        c.querySelector('.uib-list').addEventListener('click', e => {
-            if (e.target.closest('[data-action]')) return;
-            const li = e.target.closest('li[data-id]');
-            if (li) { state.selectedRuleId = li.dataset.id; saveState(); renderRulesList(c); renderRuleDetails(c); }
-        });
-    }
+    c.querySelector('.uib-list').addEventListener('click', e => {
+      if (e.target.closest('[data-action]')) return;
+      const li = e.target.closest('li[data-id]');
+      if (li) { state.selectedRuleId = li.dataset.id; saveState(); renderRulesList(c); renderRuleDetails(c); }
+    });
+  }
 
-    return {
-        initialize: loadState,
-        isEnabled: () => PLUGIN_SETTINGS_MANAGER.get('chat_polish_enabled'),
-        getParsedRules: () => state.rules.filter(r => r.isActive),
-        addLog: (orig, pol) => {
-            state.logs.unshift({ id: Date.now(), original: orig, polished: pol });
-            if (state.logs.length > 50) state.logs.pop();
-            const lc = document.querySelector('#logs-content');
-            if (lc) renderLogs(lc);
-        },
-        renderUI, renderLogsUI, exportData, importData
-    };
+  return {
+    initialize: loadState,
+    isEnabled: () => PLUGIN_SETTINGS_MANAGER.get('chat_polish_enabled'),
+    getParsedRules: () => state.rules.filter(r => r.isActive),
+    addLog: (orig, pol) => {
+      state.logs.unshift({ id: Date.now(), original: orig, polished: pol });
+      if (state.logs.length > 50) state.logs.pop();
+      const lc = document.querySelector('#logs-content');
+      if (lc) renderLogs(lc);
+    },
+    renderUI, renderLogsUI, exportData, importData
+  };
 })();
 // ############# POLISH MANAGER (v6 - UIB Refactored) - END #############
 // ############# CHECKLIST MANAGER (v7 - UIB Refactored) - START #############
 const ChecklistManager = (() => {
-    const CHECKLIST_DATA_KEY = `checklist_data_v6`;
-    let state = { userRules: "", checklist: [], selectedIds: new Set(), editingId: null, presets: [], activePresetId: null };
+  const CHECKLIST_DATA_KEY = `checklist_data_v6`;
+  let state = { userRules: "", checklist: [], selectedIds: new Set(), editingId: null, presets: [], activePresetId: null };
 
-    function saveState() {
-        try {
-            setArgEx(`${PLUGIN_NAME}::${CHECKLIST_DATA_KEY}`, JSON.stringify({
-                userRules: state.userRules, checklist: state.checklist, presets: state.presets, activePresetId: state.activePresetId
-            }));
-        } catch (e) { console.error(`[ChecklistManager] 저장 실패:`, e); }
+  function saveState() {
+    try {
+      setArgEx(`${PLUGIN_NAME}::${CHECKLIST_DATA_KEY}`, JSON.stringify({
+        userRules: state.userRules, checklist: state.checklist, presets: state.presets, activePresetId: state.activePresetId
+      }));
+    } catch (e) { console.error(`[ChecklistManager] 저장 실패:`, e); }
+  }
+
+  function loadState() {
+    try {
+      const raw = getArgEx(`${PLUGIN_NAME}::${CHECKLIST_DATA_KEY}`);
+      if (raw && raw !== 'undefined' && raw !== 'null') {
+        const d = JSON.parse(raw);
+        state.userRules = d.userRules || "";
+        state.checklist = d.checklist || [];
+        if (typeof state.checklist[0] === 'string') state.checklist = state.checklist.map(t => ({ id: `item_${Date.now()}_${Math.random()}`, text: t, isActive: true }));
+        state.presets = d.presets || [];
+        state.activePresetId = d.activePresetId || null;
+      }
+      state.selectedIds = new Set(); state.editingId = null;
+    } catch (e) { console.error(`[ChecklistManager] 로드 실패:`, e); }
+  }
+
+  function exportData() {
+    try {
+      const raw = getArgEx(`${PLUGIN_NAME}::${CHECKLIST_DATA_KEY}`);
+      if (raw && raw !== 'undefined' && raw !== 'null') return JSON.parse(raw);
+    } catch (e) { console.error(`[ChecklistManager] exportData 실패:`, e); }
+    return { userRules: "", checklist: [], presets: [], activePresetId: null };
+  }
+
+  function importData(data) {
+    if (!data || typeof data !== 'object') return;
+    try {
+      setArgEx(`${PLUGIN_NAME}::${CHECKLIST_DATA_KEY}`, JSON.stringify(data));
+      loadState();
+      const c = document.querySelector('#checklist-content');
+      if (c) renderUI(c);
+    } catch (e) {
+      console.error(`[ChecklistManager] importData 오류:`, e);
+      alert('체크리스트 데이터 가져오기 중 오류 발생');
     }
+  }
 
-    function loadState() {
-        try {
-            const raw = getArgEx(`${PLUGIN_NAME}::${CHECKLIST_DATA_KEY}`);
-            if (raw && raw !== 'undefined' && raw !== 'null') {
-                const d = JSON.parse(raw);
-                state.userRules = d.userRules || "";
-                state.checklist = d.checklist || [];
-                if (typeof state.checklist[0] === 'string') state.checklist = state.checklist.map(t => ({ id: `item_${Date.now()}_${Math.random()}`, text: t, isActive: true }));
-                state.presets = d.presets || [];
-                state.activePresetId = d.activePresetId || null;
-            }
-            state.selectedIds = new Set(); state.editingId = null;
-        } catch (e) { console.error(`[ChecklistManager] 로드 실패:`, e); }
+  const presetHandlers = createPresetHandlers({
+    state, dataKey: 'checklist', emptyMessage: '항목이 없어 프리셋을 저장할 수 없습니다.',
+    saveState, renderPresetsUI, afterDelete: c => renderChecklist(c)
+  });
+
+  function isDirty() {
+    if (!state.activePresetId) return false;
+    const p = state.presets.find(p => p.id === state.activePresetId);
+    return p?.checklist ? JSON.stringify(state.checklist) !== JSON.stringify(p.checklist) : false;
+  }
+
+  function renderPresetsUI(c) {
+    const sel = c.querySelector('.uib-preset select');
+    if (sel) sel.innerHTML = UIB.renderPresetOptions(state.presets, state.activePresetId, isDirty());
+  }
+
+  function renderChecklist(c) {
+    const list = c.querySelector('.uib-checklist');
+    if (!list) return;
+    if (state.checklist.length === 0) {
+      list.innerHTML = '<p class="uib-placeholder">규칙을 입력하고 버튼을 눌러주세요.</p>';
+      return;
     }
-
-    function exportData() {
-        try {
-            const raw = getArgEx(`${PLUGIN_NAME}::${CHECKLIST_DATA_KEY}`);
-            if (raw && raw !== 'undefined' && raw !== 'null') return JSON.parse(raw);
-        } catch (e) { console.error(`[ChecklistManager] exportData 실패:`, e); }
-        return { userRules: "", checklist: [], presets: [], activePresetId: null };
-    }
-
-    function importData(data) {
-        if (!data || typeof data !== 'object') return;
-        try {
-            setArgEx(`${PLUGIN_NAME}::${CHECKLIST_DATA_KEY}`, JSON.stringify(data));
-            loadState();
-            const c = document.querySelector('#checklist-content');
-            if (c) renderUI(c);
-        } catch (e) {
-            console.error(`[ChecklistManager] importData 오류:`, e);
-            alert('체크리스트 데이터 가져오기 중 오류 발생');
-        }
-    }
-
-    const presetHandlers = createPresetHandlers({
-        state, dataKey: 'checklist', emptyMessage: '항목이 없어 프리셋을 저장할 수 없습니다.',
-        saveState, renderPresetsUI, afterDelete: c => renderChecklist(c)
-    });
-
-    function isDirty() {
-        if (!state.activePresetId) return false;
-        const p = state.presets.find(p => p.id === state.activePresetId);
-        return p?.checklist ? JSON.stringify(state.checklist) !== JSON.stringify(p.checklist) : false;
-    }
-
-    function renderPresetsUI(c) {
-        const sel = c.querySelector('.uib-preset select');
-        if (sel) sel.innerHTML = UIB.renderPresetOptions(state.presets, state.activePresetId, isDirty());
-    }
-
-    function renderChecklist(c) {
-        const list = c.querySelector('.uib-checklist');
-        if (!list) return;
-        if (state.checklist.length === 0) {
-            list.innerHTML = '<p class="uib-placeholder">규칙을 입력하고 버튼을 눌러주세요.</p>';
-            return;
-        }
-        list.innerHTML = state.checklist.map(item => {
-            if (item.id === state.editingId) {
-                return `<div class="uib-editing" data-id="${item.id}"><textarea>${UIB.esc(item.text)}</textarea><div class="actions"><button class="cancel" data-action="edit-cancel">취소</button><button class="save" data-action="edit-save" data-id="${item.id}">저장</button></div></div>`;
-            }
-            const lines = item.text.split('\n').map(l => `<p>${UIB.esc(l)}</p>`).join('');
-            return `<div class="uib-item" data-id="${item.id}">
+    list.innerHTML = state.checklist.map(item => {
+      if (item.id === state.editingId) {
+        return `<div class="uib-editing" data-id="${item.id}"><textarea>${UIB.esc(item.text)}</textarea><div class="actions"><button class="cancel" data-action="edit-cancel">취소</button><button class="save" data-action="edit-save" data-id="${item.id}">저장</button></div></div>`;
+      }
+      const lines = item.text.split('\n').map(l => `<p>${UIB.esc(l)}</p>`).join('');
+      return `<div class="uib-item" data-id="${item.id}">
                 ${UIB.C.checkbox(item.id, state.selectedIds.has(item.id))}
                 ${UIB.C.toggle(item.id, item.isActive)}
                 <div class="uib-item-text">${lines}</div>
                 <button class="uib-item-edit" data-action="edit" data-id="${item.id}">✏️</button>
             </div>`;
-        }).join('');
-    }
+    }).join('');
+  }
 
-    async function generateChecklist(isAppend, c) {
-        const input = c.querySelector('[data-field="rules"]');
-        const rules = input.value.trim();
-        if (!rules) {
-            const ni = { id: `item_${Date.now()}_${Math.random()}`, text: '새 항목\n설명', isActive: true };
-            if (isAppend) state.checklist.push(ni); else { state.checklist = [ni]; state.selectedIds.clear(); }
-            state.editingId = ni.id; saveState(); renderChecklist(c); renderPresetsUI(c);
-            return;
-        }
-        if (!isAppend && state.checklist.length > 0) {
-            if (!await Utils.confirmEx('기존 규칙이 삭제됩니다. 진행하시겠습니까?')) return;
-        }
-        const btns = c.querySelectorAll('button');
-        btns.forEach(b => b.disabled = true);
-        try {
-            const prompt = PLUGIN_SETTINGS_MANAGER.get('chat_checklist_generation_prompt').replace("{{USER_RULES}}", rules);
-            const content = await RequestHandler.handleRequest({ prompt_chat: [{ role: 'user', content: prompt }], mode: 'checklist' }, getChecklistSettings().model, new AbortController().signal);
-            const lines = content.split('\n').map(l => l.trim()).filter(Boolean);
-            const items = [];
-            for (let i = 0; i < lines.length; i += 2) {
-                items.push({ id: `item_${Date.now()}_${Math.random()}`, text: lines[i+1] ? lines[i]+'\n'+lines[i+1] : lines[i], isActive: true });
-            }
-            if (isAppend) state.checklist.push(...items); else state.checklist = items;
-            input.value = ''; state.userRules = ''; state.selectedIds.clear();
-            saveState(); renderChecklist(c); renderPresetsUI(c);
-        } catch (e) { alert(`생성 실패: ${e.message}`); }
-        finally { btns.forEach(b => b.disabled = false); }
+  async function generateChecklist(isAppend, c) {
+    const input = c.querySelector('[data-field="rules"]');
+    const rules = input.value.trim();
+    if (!rules) {
+      const ni = { id: `item_${Date.now()}_${Math.random()}`, text: '새 항목\n설명', isActive: true };
+      if (isAppend) state.checklist.push(ni); else { state.checklist = [ni]; state.selectedIds.clear(); }
+      state.editingId = ni.id; saveState(); renderChecklist(c); renderPresetsUI(c);
+      return;
     }
-
-    async function openEditor(c) {
-        const input = c.querySelector('[data-field="rules"]');
-        const res = await PluginTextEditorUI.showModal("규칙 편집기", input.value);
-        if (res.confirmed && res.value != null) { input.value = res.value; state.userRules = res.value; saveState(); }
+    if (!isAppend && state.checklist.length > 0) {
+      if (!await Utils.confirmEx('기존 규칙이 삭제됩니다. 진행하시겠습니까?')) return;
     }
+    const btns = c.querySelectorAll('button');
+    btns.forEach(b => b.disabled = true);
+    try {
+      const prompt = PLUGIN_SETTINGS_MANAGER.get('chat_checklist_generation_prompt').replace("{{USER_RULES}}", rules);
+      const content = await RequestHandler.handleRequest({ prompt_chat: [{ role: 'user', content: prompt }], mode: 'checklist' }, getChecklistSettings().model, new AbortController().signal);
+      const lines = content.split('\n').map(l => l.trim()).filter(Boolean);
+      const items = [];
+      for (let i = 0; i < lines.length; i += 2) {
+        items.push({ id: `item_${Date.now()}_${Math.random()}`, text: lines[i + 1] ? lines[i] + '\n' + lines[i + 1] : lines[i], isActive: true });
+      }
+      if (isAppend) state.checklist.push(...items); else state.checklist = items;
+      input.value = ''; state.userRules = ''; state.selectedIds.clear();
+      saveState(); renderChecklist(c); renderPresetsUI(c);
+    } catch (e) { alert(`생성 실패: ${e.message}`); }
+    finally { btns.forEach(b => b.disabled = false); }
+  }
 
-    function renderUI(c) {
-        if (!c) return;
-        UIB.injectStyles();
-        c.innerHTML = `
+  async function openEditor(c) {
+    const input = c.querySelector('[data-field="rules"]');
+    const res = await PluginTextEditorUI.showModal("규칙 편집기", input.value);
+    if (res.confirmed && res.value != null) { input.value = res.value; state.userRules = res.value; saveState(); }
+  }
+
+  function renderUI(c) {
+    if (!c) return;
+    UIB.injectStyles();
+    c.innerHTML = `
             <div style="padding:0 15px 15px;border-bottom:1px solid #444;margin-bottom:15px">
                 ${UIB.C.preset()}
             </div>
             ${UIB.C.actionBar([
-                { action: 'sel-all', label: '모두 선택' }, { action: 'desel-all', label: '모두 해제' },
-                { action: 'del-sel', label: '선택 삭제' }, { action: 'del-all', label: '모두 삭제', danger: true }
-            ])}
+      { action: 'sel-all', label: '모두 선택' }, { action: 'desel-all', label: '모두 해제' },
+      { action: 'del-sel', label: '선택 삭제' }, { action: 'del-all', label: '모두 삭제', danger: true }
+    ])}
             <div class="uib-checklist" style="flex:1;overflow-y:auto;padding:15px;min-height:0"></div>
             <div class="uib-input-area">
                 <div class="uib-textarea-wrap">
@@ -6891,68 +6906,68 @@ const ChecklistManager = (() => {
                 </div>
             </div>`;
 
-        const rulesInput = c.querySelector('[data-field="rules"]');
-        rulesInput.value = state.userRules;
+    const rulesInput = c.querySelector('[data-field="rules"]');
+    rulesInput.value = state.userRules;
 
-        renderPresetsUI(c); renderChecklist(c);
+    renderPresetsUI(c); renderChecklist(c);
 
-        UIB.bind(c, {
-            'preset-change': e => {
-                state.activePresetId = e.target.value;
-                if (state.activePresetId) {
-                    const p = state.presets.find(x => x.id === state.activePresetId);
-                    if (p?.checklist) state.checklist = structuredClone(p.checklist);
-                }
-                saveState(); renderChecklist(c); renderPresetsUI(c);
-            },
-            'preset-save': () => presetHandlers.handleSave(c),
-            'preset-copy': () => presetHandlers.handleCopy(c),
-            'preset-delete': () => presetHandlers.handleDelete(c),
-            'sel-all': () => { state.checklist.forEach(i => state.selectedIds.add(i.id)); renderChecklist(c); },
-            'desel-all': () => { state.selectedIds.clear(); renderChecklist(c); },
-            'del-sel': () => {
-                if (state.selectedIds.size === 0) return alert("삭제할 항목을 선택하세요.");
-                if (!confirm(`${state.selectedIds.size}개 항목을 삭제하시겠습니까?`)) return;
-                state.checklist = state.checklist.filter(i => !state.selectedIds.has(i.id));
-                state.selectedIds.clear(); saveState(); renderChecklist(c); renderPresetsUI(c);
-            },
-            'del-all': () => {
-                if (state.checklist.length === 0) return alert("삭제할 항목이 없습니다.");
-                if (!confirm("모든 항목을 삭제하시겠습니까?")) return;
-                state.checklist = []; state.selectedIds.clear(); saveState(); renderChecklist(c); renderPresetsUI(c);
-            },
-            'select': (e, el) => { const id = el.dataset.id; e.target.checked ? state.selectedIds.add(id) : state.selectedIds.delete(id); },
-            'toggle': (e, el) => {
-                const item = state.checklist.find(i => i.id === el.dataset.id);
-                if (item) { item.isActive = e.target.checked; saveState(); renderPresetsUI(c); }
-            },
-            'edit': (e, el) => { state.editingId = el.dataset.id; renderChecklist(c); },
-            'edit-save': (e, el) => {
-                const ta = c.querySelector('.uib-editing textarea');
-                const item = state.checklist.find(i => i.id === el.dataset.id);
-                if (item && ta) item.text = ta.value;
-                state.editingId = null; saveState(); renderChecklist(c); renderPresetsUI(c);
-            },
-            'edit-cancel': () => { state.editingId = null; renderChecklist(c); },
-            'add': () => generateChecklist(true, c),
-            'generate': () => generateChecklist(false, c),
-            'open-editor': () => openEditor(c)
-        });
+    UIB.bind(c, {
+      'preset-change': e => {
+        state.activePresetId = e.target.value;
+        if (state.activePresetId) {
+          const p = state.presets.find(x => x.id === state.activePresetId);
+          if (p?.checklist) state.checklist = structuredClone(p.checklist);
+        }
+        saveState(); renderChecklist(c); renderPresetsUI(c);
+      },
+      'preset-save': () => presetHandlers.handleSave(c),
+      'preset-copy': () => presetHandlers.handleCopy(c),
+      'preset-delete': () => presetHandlers.handleDelete(c),
+      'sel-all': () => { state.checklist.forEach(i => state.selectedIds.add(i.id)); renderChecklist(c); },
+      'desel-all': () => { state.selectedIds.clear(); renderChecklist(c); },
+      'del-sel': () => {
+        if (state.selectedIds.size === 0) return alert("삭제할 항목을 선택하세요.");
+        if (!confirm(`${state.selectedIds.size}개 항목을 삭제하시겠습니까?`)) return;
+        state.checklist = state.checklist.filter(i => !state.selectedIds.has(i.id));
+        state.selectedIds.clear(); saveState(); renderChecklist(c); renderPresetsUI(c);
+      },
+      'del-all': () => {
+        if (state.checklist.length === 0) return alert("삭제할 항목이 없습니다.");
+        if (!confirm("모든 항목을 삭제하시겠습니까?")) return;
+        state.checklist = []; state.selectedIds.clear(); saveState(); renderChecklist(c); renderPresetsUI(c);
+      },
+      'select': (e, el) => { const id = el.dataset.id; e.target.checked ? state.selectedIds.add(id) : state.selectedIds.delete(id); },
+      'toggle': (e, el) => {
+        const item = state.checklist.find(i => i.id === el.dataset.id);
+        if (item) { item.isActive = e.target.checked; saveState(); renderPresetsUI(c); }
+      },
+      'edit': (e, el) => { state.editingId = el.dataset.id; renderChecklist(c); },
+      'edit-save': (e, el) => {
+        const ta = c.querySelector('.uib-editing textarea');
+        const item = state.checklist.find(i => i.id === el.dataset.id);
+        if (item && ta) item.text = ta.value;
+        state.editingId = null; saveState(); renderChecklist(c); renderPresetsUI(c);
+      },
+      'edit-cancel': () => { state.editingId = null; renderChecklist(c); },
+      'add': () => generateChecklist(true, c),
+      'generate': () => generateChecklist(false, c),
+      'open-editor': () => openEditor(c)
+    });
 
-        rulesInput.addEventListener('input', e => { state.userRules = e.target.value; saveState(); });
-    }
+    rulesInput.addEventListener('input', e => { state.userRules = e.target.value; saveState(); });
+  }
 
-    return {
-        initialize: loadState,
-        isEnabled: () => PLUGIN_SETTINGS_MANAGER.get('chat_checklist_enabled'),
-        getChecklist: () => {
-            const active = state.checklist.filter(i => i.isActive).map(i => i.text);
-            const ch = risuAPI.getChar();
-            const cn = ch?.name || '{{char}}', un = ch?.userName || '{{user}}';
-            return active.map(t => t.replace(/{{char}}/g, cn).replace(/{{user}}/g, un));
-        },
-        renderUI, exportData, importData
-    };
+  return {
+    initialize: loadState,
+    isEnabled: () => PLUGIN_SETTINGS_MANAGER.get('chat_checklist_enabled'),
+    getChecklist: () => {
+      const active = state.checklist.filter(i => i.isActive).map(i => i.text);
+      const ch = risuAPI.getChar();
+      const cn = ch?.name || '{{char}}', un = ch?.userName || '{{user}}';
+      return active.map(t => t.replace(/{{char}}/g, cn).replace(/{{user}}/g, un));
+    },
+    renderUI, exportData, importData
+  };
 })();
 // ############# CHECKLIST MANAGER (v7 - UIB Refactored) - END #############
 class RequestHandler {
@@ -7004,42 +7019,42 @@ class RequestHandler {
       processedRequest.max_tokens || DEFAULT.MAX_TOKENS;
     switch (requestType) {
       case REQUEST_TYPE.CHAT: {
-                // --- AI Checklist Enforcer Injection START ---
+        // --- AI Checklist Enforcer Injection START ---
         if (ChecklistManager.isEnabled() && ChecklistManager.getChecklist().length > 0) {
-            // 1. 저장된 체크리스트(플레이스홀더 포함)를 가져옵니다.
-            const checklist = ChecklistManager.getChecklist();
+          // 1. 저장된 체크리스트(플레이스홀더 포함)를 가져옵니다.
+          const checklist = ChecklistManager.getChecklist();
 
-            // 2. 현재 캐릭터와 사용자 이름을 가져옵니다.
-            const currentChar = risuAPI.getChar();
-            const charName = currentChar?.name || '캐릭터';
-            const userName = currentChar?.userName || '유저';
+          // 2. 현재 캐릭터와 사용자 이름을 가져옵니다.
+          const currentChar = risuAPI.getChar();
+          const charName = currentChar?.name || '캐릭터';
+          const userName = currentChar?.userName || '유저';
 
-            // 3. 각 체크리스트 항목의 플레이스홀더를 실시간으로 교체합니다.
-            const replacedChecklist = checklist.map(item => {
-                return item.replace(/{{char}}/g, charName).replace(/{{user}}/g, userName);
-            });
-            
-            // 4. 교체된 텍스트로 최종 지시문을 만듭니다.
-            const checklistText = replacedChecklist.map(item => `- ${item}`).join('\n');
-            const checklistInstruction = `
+          // 3. 각 체크리스트 항목의 플레이스홀더를 실시간으로 교체합니다.
+          const replacedChecklist = checklist.map(item => {
+            return item.replace(/{{char}}/g, charName).replace(/{{user}}/g, userName);
+          });
+
+          // 4. 교체된 텍스트로 최종 지시문을 만듭니다.
+          const checklistText = replacedChecklist.map(item => `- ${item}`).join('\n');
+          const checklistInstruction = `
 [System Note: Before generating your response, you MUST strictly adhere to the following checklist. Review each item carefully.]
 
 --- CHECKLIST ---
 ${checklistText}
 ---
 `;
-            // 5. 가장 마지막 사용자 메시지 끝에 주입합니다.
-            const lastMessageIndex = processedRequest.prompt_chat.length - 1;
-            if (lastMessageIndex >= 0) {
-                const lastMessage = processedRequest.prompt_chat[lastMessageIndex];
-                if (lastMessage.role === 'user') {
-                    lastMessage.content = (lastMessage.content || '') + '\n\n' + checklistInstruction;
-                } else {
-                    processedRequest.prompt_chat.push({ role: 'user', content: checklistInstruction });
-                }
+          // 5. 가장 마지막 사용자 메시지 끝에 주입합니다.
+          const lastMessageIndex = processedRequest.prompt_chat.length - 1;
+          if (lastMessageIndex >= 0) {
+            const lastMessage = processedRequest.prompt_chat[lastMessageIndex];
+            if (lastMessage.role === 'user') {
+              lastMessage.content = (lastMessage.content || '') + '\n\n' + checklistInstruction;
             } else {
-                processedRequest.prompt_chat.push({ role: 'user', content: checklistInstruction });
+              processedRequest.prompt_chat.push({ role: 'user', content: checklistInstruction });
             }
+          } else {
+            processedRequest.prompt_chat.push({ role: 'user', content: checklistInstruction });
+          }
         }
         // --- AI Checklist Enforcer Injection END ---
         const modelDef = getLLMDefinition(defaultUniqueId);
@@ -7068,8 +7083,7 @@ ${checklistText}
         ) {
           const providerIndex = modelDef.provider.replace(LLM_PROVIDER.OPENAICOMPATIBLE, "");
           const settings = getOpenAICompatibleSettings(providerIndex);
-          if (settings.useStreaming)
-          {
+          if (settings.useStreaming) {
             return AutoProvider.getStreamedResponse(processedRequest, modelDef);
           }
         }
@@ -7085,22 +7099,22 @@ ${checklistText}
           processedRequest,
           modelDef
         );
-        
+
         let finalContent = responseObj.content; // 초기값
 
         // 2. Polish 적용 (내용 변경 가능성 있음)
         if (PolishManager.isEnabled()) {
-            try {
-                const polishResult = await RequestHandler.applyPolish(finalContent, pluginRequest); 
-                finalContent = polishResult.polishedText; 
-                
-                if (polishResult.logs && polishResult.logs.length > 0) {
-                    polishResult.logs.forEach(log => PolishManager.addLog(log.original, log.polished));
-                }
-            } catch (e) {
-                console.error("폴리싱 중 에러 발생:", e);
-                PolishManager.addLog("폴리싱 에러", e.message);
+          try {
+            const polishResult = await RequestHandler.applyPolish(finalContent, pluginRequest);
+            finalContent = polishResult.polishedText;
+
+            if (polishResult.logs && polishResult.logs.length > 0) {
+              polishResult.logs.forEach(log => PolishManager.addLog(log.original, log.polished));
             }
+          } catch (e) {
+            console.error("폴리싱 중 에러 발생:", e);
+            PolishManager.addLog("폴리싱 에러", e.message);
+          }
         }
 
         // 3. Chat Post Processing 적용 (외국어 제거, CoT 분리 등 - 내용 변경 가능성 있음)
@@ -7113,7 +7127,7 @@ ${checklistText}
 
         // 4. 최종 확정된 텍스트로 서명 저장 (해시 매칭 문제 해결)
         if (responseObj.signature) {
-            GoogleAIProvider.saveSignatureToChat(finalContent, responseObj.signature);
+          GoogleAIProvider.saveSignatureToChat(finalContent, responseObj.signature);
         }
 
         return finalContent;
@@ -7134,7 +7148,7 @@ ${checklistText}
         }
         if (
           GoogleAIProvider.getGeminiThinkingMode(pluginRequest, modelDef) ===
-            "manual" &&
+          "manual" &&
           processedRequest.max_tokens < processedRequest.thinking_tokens + 1024
         ) {
           processedRequest.max_tokens = processedRequest.thinking_tokens + 1024;
@@ -7223,41 +7237,41 @@ ${checklistText}
         // RISU_CONFIG 파싱 로직
         const configRegex = /<!--\s*RISU_CONFIG\s*({[\s\S]*?})\s*-->/;
         const firstMessage = processedRequest.prompt_chat[0];
-        
+
         if (firstMessage && firstMessage.content) {
-            const match = firstMessage.content.match(configRegex);
-            if (match && match[1]) {
-                try {
-                    const inlineConfig = JSON.parse(match[1]);
-                    Logger.info("RISU_CONFIG 발견, 인라인 설정 적용:", inlineConfig);
+          const match = firstMessage.content.match(configRegex);
+          if (match && match[1]) {
+            try {
+              const inlineConfig = JSON.parse(match[1]);
+              Logger.info("RISU_CONFIG 발견, 인라인 설정 적용:", inlineConfig);
 
-                    // 설정 오버라이드
-                    if (inlineConfig.provider) {
-                        uniqueId = inlineConfig.provider;
-                    }
-                    finalSettings.sampling_maxTokens = inlineConfig.max_tokens ?? finalSettings.sampling_maxTokens;
-                    finalSettings.sampling_temperature = inlineConfig.temperature ?? finalSettings.sampling_temperature;
-                    finalSettings.sampling_topP = inlineConfig.top_p ?? finalSettings.sampling_topP;
-                    finalSettings.sampling_topK = inlineConfig.top_k ?? finalSettings.sampling_topK;
-                    finalSettings.sampling_frequencyPenalty = inlineConfig.frequency_penalty ?? finalSettings.sampling_frequencyPenalty;
-                    finalSettings.sampling_presencePenalty = inlineConfig.presence_penalty ?? finalSettings.sampling_presencePenalty;
-                    finalSettings.sampling_thinkingTokens = inlineConfig.thinking_tokens ?? finalSettings.sampling_thinkingTokens;
-                    finalSettings.sampling_stopSequences = inlineConfig.stop_sequences ?? finalSettings.sampling_stopSequences;
-                    
-                    // 프롬프트에서 RISU_CONFIG 주석 제거
-                    firstMessage.content = firstMessage.content.replace(configRegex, '').trim();
+              // 설정 오버라이드
+              if (inlineConfig.provider) {
+                uniqueId = inlineConfig.provider;
+              }
+              finalSettings.sampling_maxTokens = inlineConfig.max_tokens ?? finalSettings.sampling_maxTokens;
+              finalSettings.sampling_temperature = inlineConfig.temperature ?? finalSettings.sampling_temperature;
+              finalSettings.sampling_topP = inlineConfig.top_p ?? finalSettings.sampling_topP;
+              finalSettings.sampling_topK = inlineConfig.top_k ?? finalSettings.sampling_topK;
+              finalSettings.sampling_frequencyPenalty = inlineConfig.frequency_penalty ?? finalSettings.sampling_frequencyPenalty;
+              finalSettings.sampling_presencePenalty = inlineConfig.presence_penalty ?? finalSettings.sampling_presencePenalty;
+              finalSettings.sampling_thinkingTokens = inlineConfig.thinking_tokens ?? finalSettings.sampling_thinkingTokens;
+              finalSettings.sampling_stopSequences = inlineConfig.stop_sequences ?? finalSettings.sampling_stopSequences;
 
-                } catch (e) {
-                    Logger.error("RISU_CONFIG 파싱 실패. 기본 설정을 사용합니다.", e);
-                }
+              // 프롬프트에서 RISU_CONFIG 주석 제거
+              firstMessage.content = firstMessage.content.replace(configRegex, '').trim();
+
+            } catch (e) {
+              Logger.error("RISU_CONFIG 파싱 실패. 기본 설정을 사용합니다.", e);
             }
+          }
         }
 
         const modelDef = getLLMDefinition(uniqueId);
         if (!modelDef) {
           throw new Error(`Unknown model id: ${uniqueId}`);
         }
-        
+
         processedRequest.max_tokens = finalSettings.sampling_maxTokens ?? processedRequest.max_tokens;
         Utils.applySamplingParameters(processedRequest, finalSettings);
         RequestHandler.applyCommonPreProcessing(
@@ -7516,78 +7530,78 @@ ${checklistText}
 
     const specialTags = {};
     let mainContent = originalContent.replace(/<(Thoughts|Metatron|memo)>([\s\S]*?)<\/\1>|(\《[\s\S]*?》)/g, (match, tag, content, focalization) => {
-        if (focalization) {
-            specialTags.focalization = (specialTags.focalization || '') + match + '\n';
-        } else {
-            specialTags[tag] = (specialTags[tag] || '') + match + '\n';
-        }
-        return '';
+      if (focalization) {
+        specialTags.focalization = (specialTags.focalization || '') + match + '\n';
+      } else {
+        specialTags[tag] = (specialTags[tag] || '') + match + '\n';
+      }
+      return '';
     }).trim();
 
     const sentences = mainContent.split('\n');
     const polishedSentences = [];
-    
+
     const matchAll = (target, words) => words.every(word => target.includes(word));
     const matchAnything = (target, words) => words.some(word => target.includes(word));
 
     for (let i = 0; i < sentences.length; i++) {
-        const sentence = sentences[i];
-        if (sentence.trim() === '') {
-            polishedSentences.push('');
-            continue;
+      const sentence = sentences[i];
+      if (sentence.trim() === '') {
+        polishedSentences.push('');
+        continue;
+      }
+
+      const getContextSentence = (startIndex, direction) => {
+        for (let j = startIndex; j >= 0 && j < sentences.length; j += direction) {
+          if (sentences[j] && sentences[j].trim() !== '') return sentences[j];
         }
+        return '';
+      };
+      const frontContext = getContextSentence(i - 1, -1);
+      const backContext = getContextSentence(i + 1, 1);
 
-        const getContextSentence = (startIndex, direction) => {
-            for (let j = startIndex; j >= 0 && j < sentences.length; j += direction) {
-                if (sentences[j] && sentences[j].trim() !== '') return sentences[j];
-            }
-            return '';
-        };
-        const frontContext = getContextSentence(i - 1, -1);
-        const backContext = getContextSentence(i + 1, 1);
-        
-        let guideline = '';
-        for (const rule of rules) {
-            const isMatch = rule.condition === 'AND' ? matchAll(sentence, rule.keywords) : matchAnything(sentence, rule.keywords);
-            if (isMatch) {
-                guideline += `\n${rule.prompt}`;
-            }
+      let guideline = '';
+      for (const rule of rules) {
+        const isMatch = rule.condition === 'AND' ? matchAll(sentence, rule.keywords) : matchAnything(sentence, rule.keywords);
+        if (isMatch) {
+          guideline += `\n${rule.prompt}`;
         }
-        
-        if (guideline.trim() !== '') {
-            // [수정] 설정에서 불러온 메인 프롬프트를 사용합니다.
-            const polishBasePrompt = polishSettings.main_prompt
-                .replace('{{guideline}}', guideline.trim())
-                .replace('{{frontContext}}', frontContext)
-                .replace('{{backContext}}', backContext)
-                .replace('{{sentence}}', sentence);
+      }
 
-            try {
-                const request = { prompt_chat: [{ role: 'user', content: polishBasePrompt.trim() }], mode: 'polish' };
-                const modelDef = getLLMDefinition(polishSettings.model);
-                if (!modelDef) throw new Error(`Polish 모델을 찾을 수 없습니다: ${polishSettings.model}`);
+      if (guideline.trim() !== '') {
+        // [수정] 설정에서 불러온 메인 프롬프트를 사용합니다.
+        const polishBasePrompt = polishSettings.main_prompt
+          .replace('{{guideline}}', guideline.trim())
+          .replace('{{frontContext}}', frontContext)
+          .replace('{{backContext}}', backContext)
+          .replace('{{sentence}}', sentence);
 
-                const processedRequest = structuredClone(request);
-                processedRequest.max_tokens = polishSettings.sampling_maxTokens;
-                Utils.applySamplingParameters(processedRequest, polishSettings);
-                
-                const polishedSentence = (await AutoProvider.getResponse(processedRequest, modelDef)).content.trim();
-                
-                polishedSentences.push(polishedSentence);
-                if (sentence.trim() !== polishedSentence.trim()) {
-                    logs.push({ original: sentence, polished: polishedSentence });
-                }
+        try {
+          const request = { prompt_chat: [{ role: 'user', content: polishBasePrompt.trim() }], mode: 'polish' };
+          const modelDef = getLLMDefinition(polishSettings.model);
+          if (!modelDef) throw new Error(`Polish 모델을 찾을 수 없습니다: ${polishSettings.model}`);
 
-            } catch (e) {
-                console.error(`문장 폴리싱 중 에러 발생 (원본 유지): "${sentence}"`, e);
-                polishedSentences.push(sentence);
-                logs.push({ original: sentence, polished: `[에러: ${e.message}]` });
-            }
-        } else {
-            polishedSentences.push(sentence);
+          const processedRequest = structuredClone(request);
+          processedRequest.max_tokens = polishSettings.sampling_maxTokens;
+          Utils.applySamplingParameters(processedRequest, polishSettings);
+
+          const polishedSentence = (await AutoProvider.getResponse(processedRequest, modelDef)).content.trim();
+
+          polishedSentences.push(polishedSentence);
+          if (sentence.trim() !== polishedSentence.trim()) {
+            logs.push({ original: sentence, polished: polishedSentence });
+          }
+
+        } catch (e) {
+          console.error(`문장 폴리싱 중 에러 발생 (원본 유지): "${sentence}"`, e);
+          polishedSentences.push(sentence);
+          logs.push({ original: sentence, polished: `[에러: ${e.message}]` });
         }
+      } else {
+        polishedSentences.push(sentence);
+      }
     }
-    
+
     const polishedMainContent = polishedSentences.join('\n');
     const polishedText = (specialTags.Thoughts || '') + (specialTags.Metatron || '') + (specialTags.focalization || '') + (specialTags.memo || '') + polishedMainContent;
 
@@ -7709,7 +7723,7 @@ ${checklistText}
   static normalizeThoughts(originalContent) {
     // 이미 <Thoughts> 태그가 올바르게 적용된 경우, 원본을 그대로 반환합니다.
     if (/<Thoughts>[\s\S]*?<\/Thoughts>/i.test(originalContent)) {
-        return originalContent;
+      return originalContent;
     }
 
     const paragraphs = originalContent.split('\n\n');
@@ -7717,72 +7731,72 @@ ${checklistText}
 
     // 한 문단(청크)이 '생각의 사슬'의 일부인지 판별하는 함수입니다.
     const isThoughtParagraph = (paragraph) => {
-        const p = paragraph.trim();
-        if (p.length === 0) return true; // 빈 문단은 연속성을 위해 생각으로 간주
+      const p = paragraph.trim();
+      if (p.length === 0) return true; // 빈 문단은 연속성을 위해 생각으로 간주
 
-        const lowerParagraph = p.toLowerCase();
+      const lowerParagraph = p.toLowerCase();
 
-        // 1. '생각'임을 나타내는 명백한 키워드나 패턴 (가장 강력한 신호)
-        const strongThoughtIndicators = [
-            'thought process', 'checking guidelines', 'user has selected', 'must begin a new chapter',
-            'plan:', 'intent:', 'pacing:', 'length:', 'note to self',
-            'i will', "i'll", 'i must', 'i need to', 'the scene should', 'i should',
-            'finally,', 'first,', 'next,', 'ensure response', 'avoid melodrama',
-            'pov', 'point of view', 'narrator', 'user chose', 'guideline', 'character:'
-        ];
-        if (strongThoughtIndicators.some(kw => lowerParagraph.includes(kw))) return true;
+      // 1. '생각'임을 나타내는 명백한 키워드나 패턴 (가장 강력한 신호)
+      const strongThoughtIndicators = [
+        'thought process', 'checking guidelines', 'user has selected', 'must begin a new chapter',
+        'plan:', 'intent:', 'pacing:', 'length:', 'note to self',
+        'i will', "i'll", 'i must', 'i need to', 'the scene should', 'i should',
+        'finally,', 'first,', 'next,', 'ensure response', 'avoid melodrama',
+        'pov', 'point of view', 'narrator', 'user chose', 'guideline', 'character:'
+      ];
+      if (strongThoughtIndicators.some(kw => lowerParagraph.includes(kw))) return true;
 
-        // 2. 목록 형식 (매우 강력한 신호)
-        const lines = p.split('\n').map(line => line.trim());
-        if (lines.some(line => /^\s*(\*|-|\d+\.)\s+/.test(line))) {
-            return true;
-        }
-        
-        // 3. '본문'임을 나타내는 강력한 신호 (이런게 있으면 '생각'이 아님)
-        // 캐릭터의 행동이나 감각에 대한 직접적인 묘사는 본문일 가능성이 높습니다.
-        const narrativeStarters = [
-            /^\s*['"“‘]/, // 따옴표로 시작하는 대사/독백
-            /^\s*[A-Z][a-z'’]+(\s+[A-Z][a-z'’]+)*:/, // 영어 이름: (Hae-in's character:)는 제외
-            /^\s*[가-힣]+:/ // 한국어 이름:
-        ];
-        // Hae-in's character: 같은 소제목 형식은 생각의 사슬로 남겨두기 위해,
-        // narrativeStarters의 영어 이름 패턴에서 제외합니다.
-        if (!lowerParagraph.endsWith(':') && narrativeStarters.some(pattern => pattern.test(p))) {
-            return false;
-        }
+      // 2. 목록 형식 (매우 강력한 신호)
+      const lines = p.split('\n').map(line => line.trim());
+      if (lines.some(line => /^\s*(\*|-|\d+\.)\s+/.test(line))) {
+        return true;
+      }
 
-        // 'Hae-in's character:' 같은 소제목 형식은 생각으로 간주합니다.
-        if (p.endsWith(':')) return true;
-
-        // 위의 어떤 조건에도 해당하지 않으면, 본문으로 간주합니다.
+      // 3. '본문'임을 나타내는 강력한 신호 (이런게 있으면 '생각'이 아님)
+      // 캐릭터의 행동이나 감각에 대한 직접적인 묘사는 본문일 가능성이 높습니다.
+      const narrativeStarters = [
+        /^\s*['"“‘]/, // 따옴표로 시작하는 대사/독백
+        /^\s*[A-Z][a-z'’]+(\s+[A-Z][a-z'’]+)*:/, // 영어 이름: (Hae-in's character:)는 제외
+        /^\s*[가-힣]+:/ // 한국어 이름:
+      ];
+      // Hae-in's character: 같은 소제목 형식은 생각의 사슬로 남겨두기 위해,
+      // narrativeStarters의 영어 이름 패턴에서 제외합니다.
+      if (!lowerParagraph.endsWith(':') && narrativeStarters.some(pattern => pattern.test(p))) {
         return false;
+      }
+
+      // 'Hae-in's character:' 같은 소제목 형식은 생각으로 간주합니다.
+      if (p.endsWith(':')) return true;
+
+      // 위의 어떤 조건에도 해당하지 않으면, 본문으로 간주합니다.
+      return false;
     };
 
     // 위에서부터 한 문단(청크)씩 '생각의 사슬'인지 확인합니다.
     for (let i = 0; i < paragraphs.length; i++) {
-        if (isThoughtParagraph(paragraphs[i])) {
-            thoughtBoundaryIndex = i;
-        } else {
-            // '생각의 사슬'이 아닌 첫 문단을 만나면, 거기서 멈춥니다.
-            break;
-        }
+      if (isThoughtParagraph(paragraphs[i])) {
+        thoughtBoundaryIndex = i;
+      } else {
+        // '생각의 사슬'이 아닌 첫 문단을 만나면, 거기서 멈춥니다.
+        break;
+      }
     }
 
     // '생각의 사슬'로 판단된 문단이 하나라도 있다면
     if (thoughtBoundaryIndex > -1) {
-        const thoughts = paragraphs.slice(0, thoughtBoundaryIndex + 1).join('\n\n').trim();
-        const mainContent = paragraphs.slice(thoughtBoundaryIndex + 1).join('\n\n').trim();
-        
-        if (mainContent) {
-            return `<Thoughts>${thoughts}</Thoughts>\n\n${mainContent}`;
-        } else {
-            return `<Thoughts>${thoughts}</Thoughts>`;
-        }
+      const thoughts = paragraphs.slice(0, thoughtBoundaryIndex + 1).join('\n\n').trim();
+      const mainContent = paragraphs.slice(thoughtBoundaryIndex + 1).join('\n\n').trim();
+
+      if (mainContent) {
+        return `<Thoughts>${thoughts}</Thoughts>\n\n${mainContent}`;
+      } else {
+        return `<Thoughts>${thoughts}</Thoughts>`;
+      }
     }
 
     // 어떤 조건에도 해당하지 않으면 원본을 그대로 반환합니다.
     return originalContent;
-}
+  }
   static async applyChatPostProcessing(
     pluginRequest,
     modelDef,
@@ -7792,7 +7806,7 @@ ${checklistText}
     Logger.debug("Model content:", modelContent);
     let processed = modelContent;
     if (chatSettings.normalizeThoughts) { // 이렇게 수정합니다.
-        processed = RequestHandler.normalizeThoughts(processed);
+      processed = RequestHandler.normalizeThoughts(processed);
     }
     if (chatSettings.gemini_separateCot) {
       const thinkingMode = GoogleAIProvider.getGeminiThinkingMode(
@@ -8194,15 +8208,15 @@ function addProviderEx(displayName, defaultUniqueId) {
   );
   let options = {};
   if (!doNotSetTokenizer) {
-try {
-  const tokenizer = getLLMTokenizer(defaultUniqueId);
-  options = { tokenizer };
-  Logger.debug(`Setting tokenizer for ${defaultUniqueId}: ${tokenizer}`);
-} catch (e) {
-// 예외 삼키고 계속 진행 (버튼 안 뜨는 상황 방지)
-Logger.warn("Tokenizer resolve failed; falling back.", e);
-} 
-} else {
+    try {
+      const tokenizer = getLLMTokenizer(defaultUniqueId);
+      options = { tokenizer };
+      Logger.debug(`Setting tokenizer for ${defaultUniqueId}: ${tokenizer}`);
+    } catch (e) {
+      // 예외 삼키고 계속 진행 (버튼 안 뜨는 상황 방지)
+      Logger.warn("Tokenizer resolve failed; falling back.", e);
+    }
+  } else {
     Logger.debug(
       `Skipping tokenizer setting for ${defaultUniqueId} (compatibility mode)`
     );
@@ -8225,8 +8239,8 @@ Logger.warn("Tokenizer resolve failed; falling back.", e);
         };
       } catch (error) {
         if (error.message === 'Request was aborted' ||
-            error.message === 'Request was aborted before starting' ||
-            error.name === 'AbortError') {
+          error.message === 'Request was aborted before starting' ||
+          error.name === 'AbortError') {
           PluginToastUI.show(
             '요청이 취소되었습니다. (API 비용은 발생, LBI 통계 제외)',
             4000
@@ -8265,123 +8279,123 @@ class RisuPluginCollapseManager {
   static initialize() {
     const observer = new MutationObserver(() => {
       const candidates = document.evaluate(
-        "//*[starts-with(text(), 'LBI-')]", 
-        document.body, 
-        null, 
-        XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, 
+        "//*[starts-with(text(), 'LBI-')]",
+        document.body,
+        null,
+        XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
         null
       );
 
       for (let i = 0; i < candidates.snapshotLength; i++) {
         const el = candidates.snapshotItem(i);
-        
+
         if (el.dataset.lbiProcessed || el.closest(`#${CSS.escape(PluginSettingsUI.MODAL_ID)}`)) continue;
 
         const textContent = el.textContent.trim();
         if (!/^LBI-pre\d+/.test(textContent)) {
-            continue;
+          continue;
         }
 
         let headerRow = el;
         let foundHeader = false;
-        
-        for(let k=0; k<5; k++) {
-            if (!headerRow || headerRow.tagName === 'BODY') break;
-            if (headerRow.tagName === 'BUTTON' && headerRow.classList.contains('rs-setting-cont-3')) {
-                headerRow = null; 
-                break;
-            }
 
-            const style = window.getComputedStyle(headerRow);
-            const hasButton = headerRow.querySelector('button, svg');
-            const hasInput = headerRow.querySelector('input, textarea, select');
-            
-            if (hasButton && !hasInput && (style.display === 'flex' || style.display === 'grid' || style.display === 'block')) {
-                foundHeader = true;
-                break;
-            }
-            headerRow = headerRow.parentElement;
+        for (let k = 0; k < 5; k++) {
+          if (!headerRow || headerRow.tagName === 'BODY') break;
+          if (headerRow.tagName === 'BUTTON' && headerRow.classList.contains('rs-setting-cont-3')) {
+            headerRow = null;
+            break;
+          }
+
+          const style = window.getComputedStyle(headerRow);
+          const hasButton = headerRow.querySelector('button, svg');
+          const hasInput = headerRow.querySelector('input, textarea, select');
+
+          if (hasButton && !hasInput && (style.display === 'flex' || style.display === 'grid' || style.display === 'block')) {
+            foundHeader = true;
+            break;
+          }
+          headerRow = headerRow.parentElement;
         }
 
         if (foundHeader && headerRow) {
-            const parent = headerRow.parentElement;
-            if (!parent) continue;
+          const parent = headerRow.parentElement;
+          if (!parent) continue;
 
-            const hasSettingsFields = Array.from(parent.children).some(child => 
-                child !== headerRow && child.querySelector('input, textarea, select')
-            );
+          const hasSettingsFields = Array.from(parent.children).some(child =>
+            child !== headerRow && child.querySelector('input, textarea, select')
+          );
 
-            if (hasSettingsFields) {
-                this.setupCollapse(headerRow, el);
-                el.dataset.lbiProcessed = "true"; 
-            }
+          if (hasSettingsFields) {
+            this.setupCollapse(headerRow, el);
+            el.dataset.lbiProcessed = "true";
+          }
         }
       }
     });
-    
+
     observer.observe(document.body, { childList: true, subtree: true });
   }
 
   static setupCollapse(headerRow, titleEl) {
     headerRow.style.cursor = "pointer";
     headerRow.title = "클릭하여 설정 펼치기/접기";
-    
+
     if (!headerRow.querySelector('.lbi-collapse-arrow')) {
-        const arrow = document.createElement("span");
-        arrow.className = "lbi-collapse-arrow";
-        arrow.innerHTML = "▶";
-        arrow.style.marginRight = "8px";
-        arrow.style.display = "inline-block";
-        arrow.style.transition = "transform 0.2s";
-        arrow.style.color = "var(--textcolor, #ccc)";
-        
-        titleEl.prepend(arrow);
+      const arrow = document.createElement("span");
+      arrow.className = "lbi-collapse-arrow";
+      arrow.innerHTML = "▶";
+      arrow.style.marginRight = "8px";
+      arrow.style.display = "inline-block";
+      arrow.style.transition = "transform 0.2s";
+      arrow.style.color = "var(--textcolor, #ccc)";
+
+      titleEl.prepend(arrow);
     }
 
     let isCollapsed = true;
 
     const toggleVisibility = () => {
-        let sibling = headerRow.nextElementSibling;
-        
-        while (sibling) {
-            if (sibling.tagName === 'SCRIPT' || (sibling.style.display === 'none' && !isCollapsed)) {
-                 // pass
-            }
+      let sibling = headerRow.nextElementSibling;
 
-            const isEndMarker = sibling.textContent && sibling.textContent.includes("checklist_sampling_stopSequences");
-
-            if (sibling.tagName !== 'SCRIPT') {
-                sibling.style.display = isCollapsed ? "none" : "";
-            }
-
-            if (isEndMarker) {
-                break;
-            }
-
-            if (sibling.nextElementSibling) {
-                const nextSib = sibling.nextElementSibling;
-                const nextHasInput = nextSib.querySelector('input, textarea, select');
-                const nextHasButton = nextSib.querySelector('button, svg');
-                
-                if (!nextHasInput && nextHasButton) {
-                    break;
-                }
-            }
-            sibling = sibling.nextElementSibling;
+      while (sibling) {
+        if (sibling.tagName === 'SCRIPT' || (sibling.style.display === 'none' && !isCollapsed)) {
+          // pass
         }
-        
-        const arrow = headerRow.querySelector('.lbi-collapse-arrow');
-        if(arrow) arrow.style.transform = isCollapsed ? "rotate(0deg)" : "rotate(90deg)";
+
+        const isEndMarker = sibling.textContent && sibling.textContent.includes("checklist_sampling_stopSequences");
+
+        if (sibling.tagName !== 'SCRIPT') {
+          sibling.style.display = isCollapsed ? "none" : "";
+        }
+
+        if (isEndMarker) {
+          break;
+        }
+
+        if (sibling.nextElementSibling) {
+          const nextSib = sibling.nextElementSibling;
+          const nextHasInput = nextSib.querySelector('input, textarea, select');
+          const nextHasButton = nextSib.querySelector('button, svg');
+
+          if (!nextHasInput && nextHasButton) {
+            break;
+          }
+        }
+        sibling = sibling.nextElementSibling;
+      }
+
+      const arrow = headerRow.querySelector('.lbi-collapse-arrow');
+      if (arrow) arrow.style.transform = isCollapsed ? "rotate(0deg)" : "rotate(90deg)";
     };
 
     setTimeout(toggleVisibility, 50);
 
     headerRow.addEventListener("click", (e) => {
-        if (e.target.closest('button') || e.target.closest('svg') || e.target.closest('input')) return;
-        e.preventDefault();
-        e.stopPropagation();
-        isCollapsed = !isCollapsed;
-        toggleVisibility();
+      if (e.target.closest('button') || e.target.closest('svg') || e.target.closest('input')) return;
+      e.preventDefault();
+      e.stopPropagation();
+      isCollapsed = !isCollapsed;
+      toggleVisibility();
     });
   }
 }
@@ -8526,9 +8540,9 @@ class PluginTextEditorUI {
               >${Utils.escapeHTML(content)}</textarea>
             </div>
             ${BaseModalUI.generateFooter([
-              { action: 'cancel', label: '취소', class: 'bg-zinc-800 hover:bg-red-500' },
-              { action: 'save', label: '저장', class: 'bg-zinc-800 hover:bg-blue-500' }
-            ])}
+        { action: 'cancel', label: '취소', class: 'bg-zinc-800 hover:bg-red-500' },
+        { action: 'save', label: '저장', class: 'bg-zinc-800 hover:bg-blue-500' }
+      ])}
           </div>
         </div>
       `;
@@ -8784,30 +8798,26 @@ class PluginSettingsUI {
           <div class="flex justify-between items-center w-full mb-4 flex-shrink-0">
             <h2 class="${BaseModalUI.MODAL_TITLE_CLASS}">${PLUGIN_NAME} 설정</h2>
             <div class="flex items-center gap-2">
-              <button id="${
-                PluginSettingsUI.USAGE_METRICS_BUTTON_ID
-              }" class="${BaseModalUI.ICON_BUTTON_CLASS}">
+              <button id="${PluginSettingsUI.USAGE_METRICS_BUTTON_ID
+      }" class="${BaseModalUI.ICON_BUTTON_CLASS}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/>
                 </svg>
               </button>
-              <button id="${
-                PluginSettingsUI.TOOLS_BUTTON_ID
-              }" class="${BaseModalUI.ICON_BUTTON_CLASS}">
+              <button id="${PluginSettingsUI.TOOLS_BUTTON_ID
+      }" class="${BaseModalUI.ICON_BUTTON_CLASS}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
                 </svg>
               </button>
-              <button id="${
-                PluginSettingsUI.EXPORT_SETTINGS_BUTTON_ID
-              }" class="${BaseModalUI.ICON_BUTTON_CLASS}">
+              <button id="${PluginSettingsUI.EXPORT_SETTINGS_BUTTON_ID
+      }" class="${BaseModalUI.ICON_BUTTON_CLASS}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
                 </svg>
               </button>
-              <button id="${
-                PluginSettingsUI.IMPORT_SETTINGS_BUTTON_ID
-              }" class="${BaseModalUI.ICON_BUTTON_CLASS}">
+              <button id="${PluginSettingsUI.IMPORT_SETTINGS_BUTTON_ID
+      }" class="${BaseModalUI.ICON_BUTTON_CLASS}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
                 </svg>
@@ -8817,9 +8827,8 @@ class PluginSettingsUI {
 
           <!-- Category Tabs -->
           <div class="w-full mb-3 mt-2 flex-shrink-0 z-10 relative">
-            <div id="${
-              PluginSettingsUI.CATEGORY_TABS_ID
-            }" class="flex flex-wrap pb-2 gap-2">
+            <div id="${PluginSettingsUI.CATEGORY_TABS_ID
+      }" class="flex flex-wrap pb-2 gap-2">
               ${this.generateCategoryTabs()}
             </div>
             <div class="border-b border-zinc-700 mt-1 mb-3"></div>
@@ -8832,12 +8841,10 @@ class PluginSettingsUI {
 
           <!-- Buttons -->
           <div class="${BaseModalUI.FOOTER_CLASS}">
-            <button id="${
-              PluginSettingsUI.CANCEL_SETTINGS_BUTTON_ID
-            }" class="${BaseModalUI.CANCEL_BUTTON_CLASS}">취소</button>
-            <button id="${
-              PluginSettingsUI.SAVE_SETTINGS_BUTTON_ID
-            }" class="${BaseModalUI.CONFIRM_BUTTON_CLASS}">저장</button>
+            <button id="${PluginSettingsUI.CANCEL_SETTINGS_BUTTON_ID
+      }" class="${BaseModalUI.CANCEL_BUTTON_CLASS}">취소</button>
+            <button id="${PluginSettingsUI.SAVE_SETTINGS_BUTTON_ID
+      }" class="${BaseModalUI.CONFIRM_BUTTON_CLASS}">저장</button>
           </div>
         </div>
       </div>
@@ -8860,7 +8867,7 @@ class PluginSettingsUI {
           .filter(def => def.category[0] === '공통 설정')
           .map(def => def.category.join(' > '))
         )];
-        
+
         // '공통 설정'의 최상단으로 이동하는 옵션 추가
         dropdownItems += `<li><button class="block w-full text-left px-4 py-2 text-sm text-zinc-200 hover:bg-zinc-600" data-scroll-to="${commonSubCategories.find(c => c.split(' > ').length === 2) || ''}">공통 설정 (상단)</button></li>`;
 
@@ -8871,14 +8878,13 @@ class PluginSettingsUI {
             dropdownItems += `<li><button class="block w-full text-left px-4 py-2 text-sm text-zinc-200 hover:bg-zinc-600" data-scroll-to="${customCategoryName}">커스텀 ${i}</button></li>`;
           }
         }
-        
+
         tabsHtml += `
           <div class="relative inline-block text-left" id="common-settings-dropdown-container">
-            <button type="button" class="px-3 py-2 mr-2 whitespace-nowrap rounded-full text-sm font-medium flex-shrink-0 transition-colors flex items-center ${
-              isActive
-                ? "bg-blue-500 text-zinc-100"
-                : "bg-zinc-800 hover:bg-zinc-700 text-zinc-100"
-            }" data-category="${category}" id="common-settings-dropdown-trigger">
+            <button type="button" class="px-3 py-2 mr-2 whitespace-nowrap rounded-full text-sm font-medium flex-shrink-0 transition-colors flex items-center ${isActive
+            ? "bg-blue-500 text-zinc-100"
+            : "bg-zinc-800 hover:bg-zinc-700 text-zinc-100"
+          }" data-category="${category}" id="common-settings-dropdown-trigger">
               ${category}
               <svg class="w-4 h-4 ml-1 -mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -8893,10 +8899,9 @@ class PluginSettingsUI {
         `;
       } else {
         tabsHtml += `
-          <button class="px-3 py-2 mr-2 whitespace-nowrap rounded-full text-sm font-medium flex-shrink-0 transition-colors ${
-            isActive
-              ? "bg-blue-500 text-zinc-100"
-              : "bg-zinc-800 hover:bg-zinc-700 text-zinc-100"
+          <button class="px-3 py-2 mr-2 whitespace-nowrap rounded-full text-sm font-medium flex-shrink-0 transition-colors ${isActive
+            ? "bg-blue-500 text-zinc-100"
+            : "bg-zinc-800 hover:bg-zinc-700 text-zinc-100"
           }" data-category="${category}">
             ${category}
           </button>
@@ -8911,7 +8916,7 @@ class PluginSettingsUI {
     for (const [category, settings] of Object.entries(categories)) {
       const isOpen = !category.includes("커스텀");
       const categoryName = Object.values(this.definitions).find(def => def.category[0] === category.split(" > ")[0])?.category[0] || category;
-      
+
       content += `
        <details class="mb-2" data-full-category="${category}" data-category-content="${categoryName}" ${isOpen ? "open" : ""}>
          <summary class="text-lg text-zinc-100 font-semibold mb-2 cursor-pointer hover:text-blue-400 transition-colors list-none">
@@ -8924,8 +8929,8 @@ class PluginSettingsUI {
          </summary>
          <div class="pl-6 pt-2">
            ${settings
-             .map(([key, setting]) => this.generateSettingField(key, setting))
-             .join("")}
+          .map(([key, setting]) => this.generateSettingField(key, setting))
+          .join("")}
          </div>
        </details>
      `;
@@ -8993,12 +8998,11 @@ class PluginSettingsUI {
       return `
           <div class="mb-2">
             <label class="block">
-              <span class="mb-1 block text-zinc-200">${
-                setting.displayName
-              }</span>
+              <span class="mb-1 block text-zinc-200">${setting.displayName
+        }</span>
               <input type="number" class="${BaseModalUI.INPUT_CLASS}" placeholder="${Utils.escapeHTML(
-                setting.options?.placeholder || ""
-              )}" data-key="${key}" value="${value}" step="${step}" ${minAttr} ${maxAttr}>
+          setting.options?.placeholder || ""
+        )}" data-key="${key}" value="${value}" step="${step}" ${minAttr} ${maxAttr}>
             </label>
           </div>
         `;
@@ -9017,13 +9021,13 @@ class PluginSettingsUI {
         )}" list="${key}-options">
             <datalist id="${key}-options">
             ${setting.options.candidates
-              .map(
-                (candidate) => {
-                  const candidateValue = typeof candidate === 'object' ? candidate.value : candidate;
-                  return `<option value="${Utils.escapeHTML(candidateValue)}"></option>`;
-                }
-              )
-              .join("")}
+            .map(
+              (candidate) => {
+                const candidateValue = typeof candidate === 'object' ? candidate.value : candidate;
+                return `<option value="${Utils.escapeHTML(candidateValue)}"></option>`;
+              }
+            )
+            .join("")}
             </datalist>
           </label>
         </div>
@@ -9035,21 +9039,20 @@ class PluginSettingsUI {
             <span class="mb-1 block text-zinc-200">${setting.displayName}</span>
             <select class="${BaseModalUI.INPUT_CLASS}" data-key="${key}">
               ${setting.options.candidates
-                .map(
-                  (candidate) => {
-                    const candidateValue = typeof candidate === 'object' ? candidate.value : candidate;
-                    const candidateLabel = typeof candidate === 'object' ? candidate.label : candidate;
-                    const isHeader = typeof candidate === 'object' && candidate.isHeader;
-                    return `
-                    <option value="${Utils.escapeHTML(candidateValue)}" ${
-                      value === candidateValue ? "selected" : ""
-                    } ${isHeader ? "disabled" : ""}>
+          .map(
+            (candidate) => {
+              const candidateValue = typeof candidate === 'object' ? candidate.value : candidate;
+              const candidateLabel = typeof candidate === 'object' ? candidate.label : candidate;
+              const isHeader = typeof candidate === 'object' && candidate.isHeader;
+              return `
+                    <option value="${Utils.escapeHTML(candidateValue)}" ${value === candidateValue ? "selected" : ""
+                } ${isHeader ? "disabled" : ""}>
                       ${Utils.escapeHTML(candidateLabel)}
                     </option>
                   `;
-                  }
-                )
-                .join("")}
+            }
+          )
+          .join("")}
             </select>
           </label>
         </div>
@@ -9084,8 +9087,8 @@ class PluginSettingsUI {
           <label class="block">
             <span class="mb-1 block text-zinc-200">${setting.displayName}</span>
             <textarea class="w-full px-3 py-2 resize-none overflow-hidden rounded border border-zinc-700 focus:outline-none focus:ring-1 focus:ring-blue-500 bg-zinc-800 text-zinc-200" rows="1" wrap="off" placeholder="${Utils.escapeHTML(
-              setting.options?.placeholder || ""
-            )}" data-useEditor="1" data-key="${key}">${Utils.escapeHTML(
+        setting.options?.placeholder || ""
+      )}" data-useEditor="1" data-key="${key}">${Utils.escapeHTML(
         value
       )}</textarea>
           </label>
@@ -9097,8 +9100,8 @@ class PluginSettingsUI {
         <label class="block">
           <span class="mb-1 block text-zinc-200">${setting.displayName}</span>
           <input type="text" class="${BaseModalUI.INPUT_CLASS}" placeholder="${Utils.escapeHTML(
-            setting.options?.placeholder || ""
-          )}" data-key="${key}" value="${Utils.escapeHTML(value)}">
+      setting.options?.placeholder || ""
+    )}" data-key="${key}" value="${Utils.escapeHTML(value)}">
         </label>
       </div>
     `;
@@ -9115,7 +9118,7 @@ class PluginSettingsUI {
     return groups;
   }
   bindEvents(modal) {
-    const usageMetricsButton = modal.querySelector( 
+    const usageMetricsButton = modal.querySelector(
       "#" + CSS.escape(PluginSettingsUI.USAGE_METRICS_BUTTON_ID)
     );
     const toolsButton = modal.querySelector(
@@ -9136,7 +9139,7 @@ class PluginSettingsUI {
     const saveButton = modal.querySelector(
       "#" + CSS.escape(PluginSettingsUI.SAVE_SETTINGS_BUTTON_ID)
     );
-    
+
     const dropdownContainer = modal.querySelector("#common-settings-dropdown-container");
     const dropdownTrigger = modal.querySelector("#common-settings-dropdown-trigger");
     const dropdownMenu = modal.querySelector("#common-settings-dropdown-menu");
@@ -9145,26 +9148,26 @@ class PluginSettingsUI {
       e.stopPropagation();
       dropdownMenu?.classList.toggle("hidden");
     });
-    
+
     document.addEventListener("click", (e) => {
-        if (dropdownContainer && !dropdownContainer.contains(e.target)) {
-            dropdownMenu?.classList.add("hidden");
-        }
+      if (dropdownContainer && !dropdownContainer.contains(e.target)) {
+        dropdownMenu?.classList.add("hidden");
+      }
     });
 
     dropdownMenu?.addEventListener("click", (e) => {
-        const target = e.target.closest('button[data-scroll-to]');
-        if (target) {
-            const scrollToValue = target.dataset.scrollTo;
-            const targetElement = modal.querySelector(`details[data-full-category="${scrollToValue}"]`);
-            if (targetElement) {
-                targetElement.open = true;
-                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-            dropdownMenu.classList.add("hidden");
+      const target = e.target.closest('button[data-scroll-to]');
+      if (target) {
+        const scrollToValue = target.dataset.scrollTo;
+        const targetElement = modal.querySelector(`details[data-full-category="${scrollToValue}"]`);
+        if (targetElement) {
+          targetElement.open = true;
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
+        dropdownMenu.classList.add("hidden");
+      }
     });
-    
+
     BaseModalUI.bindEscapeKey(modal);
     usageMetricsButton?.addEventListener("click", () => {
       modal.remove();
@@ -9175,73 +9178,73 @@ class PluginSettingsUI {
       PluginToolsUI.showModal();
     });
     exportButton?.addEventListener("click", async () => {
-        const confirmed = await Utils.confirmEx(
-            "현재 플러그인의 모든 설정(폴리쉬, 체크리스트 포함)을 브라우저 DB에 저장하시겠습니까?"
-        );
-        if (!confirmed) return;
+      const confirmed = await Utils.confirmEx(
+        "현재 플러그인의 모든 설정(폴리쉬, 체크리스트 포함)을 브라우저 DB에 저장하시겠습니까?"
+      );
+      if (!confirmed) return;
 
-        try {
-            const settingsData = this.manager.toJSON();
-            const polishData = PolishManager.exportData();
-            const checklistData = ChecklistManager.exportData();
-            
-            const combinedData = { 
-                lbiSettings: settingsData, 
-                polishData: polishData,
-                checklistData: checklistData 
-            };
-            
-            await put("settings_v2", combinedData); // 새로운 키에 통합 데이터 저장
-            await put("usage_metrics_db", UsageMetricsManager.getDB());
+      try {
+        const settingsData = this.manager.toJSON();
+        const polishData = PolishManager.exportData();
+        const checklistData = ChecklistManager.exportData();
 
-            Logger.debug("Exported combined settings to DB:", combinedData);
-            window.alert("모든 설정이 브라우저에 저장되었습니다.");
+        const combinedData = {
+          lbiSettings: settingsData,
+          polishData: polishData,
+          checklistData: checklistData
+        };
 
-        } catch (error) {
-            Logger.error("Failed to export settings to DB:", error);
-            window.alert("설정 저장에 실패했습니다.");
-        }
+        await put("settings_v2", combinedData); // 새로운 키에 통합 데이터 저장
+        await put("usage_metrics_db", UsageMetricsManager.getDB());
+
+        Logger.debug("Exported combined settings to DB:", combinedData);
+        window.alert("모든 설정이 브라우저에 저장되었습니다.");
+
+      } catch (error) {
+        Logger.error("Failed to export settings to DB:", error);
+        window.alert("설정 저장에 실패했습니다.");
+      }
     });
     importButton?.addEventListener("click", async () => {
-        const data = await get$1("settings_v2") || await get$1("settings"); // 새 키 먼저 확인, 없으면 구버전 키 확인
-        if (!data) {
-            window.alert("저장된 설정이 없습니다.");
-            return;
+      const data = await get$1("settings_v2") || await get$1("settings"); // 새 키 먼저 확인, 없으면 구버전 키 확인
+      if (!data) {
+        window.alert("저장된 설정이 없습니다.");
+        return;
+      }
+
+      const confirmed = await Utils.confirmEx(
+        "브라우저에 저장된 설정을 불러오시겠습니까? 현재 설정을 덮어씁니다."
+      );
+      if (!confirmed) return;
+
+      try {
+        // 새 형식 데이터 처리
+        if (data.lbiSettings) {
+          this.manager.fromJSON(data.lbiSettings);
+          if (data.polishData) PolishManager.importData(data.polishData);
+          if (data.checklistData) ChecklistManager.importData(data.checklistData);
+          Logger.debug("Imported combined settings from DB:", data);
+          window.alert("모든 설정(폴리쉬, 체크리스트 포함)을 불러왔습니다.");
+        } else { // 구 형식 데이터 처리 (하위 호환성)
+          this.manager.fromJSON(data);
+          Logger.debug("Imported legacy settings from DB:", data);
+          window.alert("플러그인 설정만 불러왔습니다. (구버전 데이터)");
         }
 
-        const confirmed = await Utils.confirmEx(
-            "브라우저에 저장된 설정을 불러오시겠습니까? 현재 설정을 덮어씁니다."
-        );
-        if (!confirmed) return;
-        
-        try {
-            // 새 형식 데이터 처리
-            if (data.lbiSettings) {
-                this.manager.fromJSON(data.lbiSettings);
-                if (data.polishData) PolishManager.importData(data.polishData);
-                if (data.checklistData) ChecklistManager.importData(data.checklistData);
-                Logger.debug("Imported combined settings from DB:", data);
-                window.alert("모든 설정(폴리쉬, 체크리스트 포함)을 불러왔습니다.");
-            } else { // 구 형식 데이터 처리 (하위 호환성)
-                this.manager.fromJSON(data);
-                Logger.debug("Imported legacy settings from DB:", data);
-                window.alert("플러그인 설정만 불러왔습니다. (구버전 데이터)");
-            }
-
-            const usageMetricsDB = await get$1("usage_metrics_db");
-            if (usageMetricsDB) {
-                UsageMetricsManager.saveDB(usageMetricsDB);
-            }
-
-            modal.remove();
-            this.showModal();
-
-        } catch(error) {
-            Logger.error("Failed to import settings from DB:", error);
-            window.alert("설정 불러오기에 실패했습니다.");
+        const usageMetricsDB = await get$1("usage_metrics_db");
+        if (usageMetricsDB) {
+          UsageMetricsManager.saveDB(usageMetricsDB);
         }
+
+        modal.remove();
+        this.showModal();
+
+      } catch (error) {
+        Logger.error("Failed to import settings from DB:", error);
+        window.alert("설정 불러오기에 실패했습니다.");
+      }
     });
-    
+
     categoryTabs
       ?.querySelectorAll("button[data-category]:not(#common-settings-dropdown-trigger)")
       .forEach((button) => {
@@ -9251,10 +9254,10 @@ class PluginSettingsUI {
 
           const allTabs = categoryTabs.querySelectorAll("button[data-category]");
           allTabs.forEach((btn) => {
-              btn.classList.remove("bg-blue-500", "text-zinc-100");
-              btn.classList.add("bg-zinc-800", "hover:bg-zinc-700", "text-zinc-100");
-            });
-            
+            btn.classList.remove("bg-blue-500", "text-zinc-100");
+            btn.classList.add("bg-zinc-800", "hover:bg-zinc-700", "text-zinc-100");
+          });
+
           e.currentTarget.classList.remove("bg-zinc-800", "hover:bg-zinc-700", "text-zinc-100");
           e.currentTarget.classList.add("bg-blue-500", "text-zinc-100");
 
@@ -9352,7 +9355,7 @@ class UsageMetricsUI {
   static CLEAR_DATA_BUTTON_ID = `${UsageMetricsUI.ROOT_ID}-clearDataButton`;
   static EXPORT_DATA_BUTTON_ID = `${UsageMetricsUI.ROOT_ID}-exportDataButton`;
   static REFRESH_BUTTON_ID = `${UsageMetricsUI.ROOT_ID}-refreshButton`;
-  
+
   static showModal() {
     const modal = BaseModalUI.createModal(UsageMetricsUI.MODAL_ID);
 
@@ -9451,10 +9454,10 @@ class UsageMetricsUI {
               </div>
               <div id="barChartContainer" class="p-4 rounded-lg bg-zinc-800 border border-zinc-700">
                 ${UsageMetricsUI.renderBarChart(
-                  UsageMetricsUI.aggregateByTimeRange(db.records, 'day', {}),
-                  'tokens',
-                  'day'
-                )}
+      UsageMetricsUI.aggregateByTimeRange(db.records, 'day', {}),
+      'tokens',
+      'day'
+    )}
               </div>
             </div>
 
@@ -9493,10 +9496,10 @@ class UsageMetricsUI {
               </div>
               <div id="donutChartContainer" class="p-4 rounded-lg bg-zinc-800 border border-zinc-700">
                 ${UsageMetricsUI.renderDonutChart(
-                  UsageMetricsUI.aggregateForDonut(db.records, 'model', 'tokens', {}),
-                  'model',
-                  'tokens'
-                )}
+      UsageMetricsUI.aggregateForDonut(db.records, 'model', 'tokens', {}),
+      'model',
+      'tokens'
+    )}
               </div>
             </div>
 
@@ -9516,7 +9519,7 @@ class UsageMetricsUI {
         </div>
       </div>
     `;
-    
+
     this.bindEvents(modal);
     document.body.appendChild(modal);
   }
@@ -9611,18 +9614,18 @@ class UsageMetricsUI {
 
   static aggregateByTimeRange(records, timeRange, filters = {}) {
     const filtered = UsageMetricsUI.applyFilters(records, filters);
-    
+
     const now = new Date();
     const currentBucketKey = UsageMetricsUI.getBucketKey(now, timeRange);
-    
+
     const bucketsToCreate = [];
     let currentDate = new Date(now);
     for (let i = 0; i < 100; i++) {
       const bucketKey = UsageMetricsUI.getBucketKey(currentDate, timeRange);
-      bucketsToCreate.unshift(bucketKey); 
+      bucketsToCreate.unshift(bucketKey);
       currentDate = UsageMetricsUI.moveToPreviousBucket(currentDate, timeRange);
     }
-    
+
     const buckets = {};
     bucketsToCreate.forEach(key => {
       buckets[key] = {
@@ -9636,11 +9639,11 @@ class UsageMetricsUI {
         totalCost: 0
       };
     });
-    
+
     filtered.forEach(record => {
       const timestamp = new Date(record.timestamp);
       const bucketKey = UsageMetricsUI.getBucketKey(timestamp, timeRange);
-      
+
       if (buckets[bucketKey]) {
         buckets[bucketKey].requests++;
         buckets[bucketKey].cachedInputTokens += record.cachedInputTokens || 0;
@@ -9651,14 +9654,14 @@ class UsageMetricsUI {
         buckets[bucketKey].totalCost += record.totalCost || 0;
       }
     });
-    
+
     return bucketsToCreate.map(key => buckets[key]);
   }
 
   // 이전 버킷으로 이동
   static moveToPreviousBucket(date, timeRange) {
     let d = new Date(date);
-    switch(timeRange) {
+    switch (timeRange) {
       case '5min':
         d.setMinutes(d.getMinutes() - 5);
         break;
@@ -9694,8 +9697,8 @@ class UsageMetricsUI {
     const day = String(date.getDate()).padStart(2, '0');
     const hour = String(date.getHours()).padStart(2, '0');
     const minute = date.getMinutes();
-    
-    switch(timeRange) {
+
+    switch (timeRange) {
       case '5min':
         return `${year}-${month}-${day} ${hour}:${String(Math.floor(minute / 5) * 5).padStart(2, '0')}`;
       case '15min':
@@ -9739,10 +9742,10 @@ class UsageMetricsUI {
   static aggregateForDonut(records, groupBy, measureBy, filters = {}) {
     const filtered = UsageMetricsUI.applyFilters(records, filters);
     const groups = {};
-    
+
     filtered.forEach(record => {
       let key;
-      switch(groupBy) {
+      switch (groupBy) {
         case 'provider':
           key = record.provider;
           break;
@@ -9755,7 +9758,7 @@ class UsageMetricsUI {
         default:
           key = 'unknown';
       }
-      
+
       if (!groups[key]) {
         groups[key] = {
           name: key,
@@ -9764,15 +9767,15 @@ class UsageMetricsUI {
           cost: 0
         };
       }
-      
+
       groups[key].requests++;
       groups[key].tokens += (record.inputTokens || 0) + (record.outputTokens || 0);
       groups[key].cost += record.totalCost || 0;
     });
-    
+
     const data = Object.values(groups);
     const total = data.reduce((sum, item) => sum + item[measureBy], 0);
-    
+
     return data.map(item => ({
       ...item,
       value: item[measureBy],
@@ -9790,13 +9793,13 @@ class UsageMetricsUI {
 
     return recentRecords.map(record => {
       const date = new Date(record.timestamp);
-      const dateStr = date.toLocaleString('ko-KR', { month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'});
-      
+      const dateStr = date.toLocaleString('ko-KR', { month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
       // [추가] 상태/지연시간 표시용
       const isError = record.statusCode && record.statusCode !== 200;
       const latencyText = record.latency ? `${record.latency}ms` : '-';
-      const statusHtml = isError 
-        ? `<span class="text-red-400 font-bold ml-2">Error(${record.statusCode})</span>` 
+      const statusHtml = isError
+        ? `<span class="text-red-400 font-bold ml-2">Error(${record.statusCode})</span>`
         : `<span class="text-emerald-400 ml-2">${latencyText}</span>`;
       const borderClass = isError ? "border-red-900/50" : "border-zinc-700";
 
@@ -9843,7 +9846,7 @@ class UsageMetricsUI {
     let maxValue = 0;
     data.forEach(bucket => {
       let value = 0;
-      switch(yAxis) {
+      switch (yAxis) {
         case 'tokens':
           value = bucket.cachedInputTokens + bucket.inputTokens + bucket.outputTokens;
           break;
@@ -9937,7 +9940,7 @@ class UsageMetricsUI {
       // X축 라벨
       const label = UsageMetricsUI.formatBucketLabel(bucket.timestamp, xAxis);
       const labelY = chartHeight + 15;
-      bars += `<text x="${x + barWidth/2}" y="${labelY}" fill="#a1a1aa" font-size="11" text-anchor="middle">${label}</text>`;
+      bars += `<text x="${x + barWidth / 2}" y="${labelY}" fill="#a1a1aa" font-size="11" text-anchor="middle">${label}</text>`;
 
       return bars;
     }).join('');
@@ -9960,7 +9963,7 @@ class UsageMetricsUI {
         </div>
       `;
     }
-    
+
     return `
       <div style="display: flex; border: 1px solid #404040; border-radius: 0.375rem; overflow: hidden;">
         <div style="width: ${yAxisWidth}px; flex-shrink: 0; background-color: #202023; border-right: 1px solid #404040;">
@@ -10050,12 +10053,12 @@ class UsageMetricsUI {
     const innerRadius = 45;
 
     const colors = ['#3b82f6', '#8b5cf6', '#f97316', '#10b981', '#ef4444', '#eab308', '#ec4899', '#06b6d4'];
-    
+
     let currentAngle = -90;
     const segments = data.slice(0, 8).map((item, index) => {
       const percentage = item.percentage;
       const angle = (percentage / 100) * 360;
-      
+
       // 항목이 하나일 때 (100%) 두 개의 반원으로 그리기
       if (angle >= 359.9) {
         const midAngle = currentAngle + 180;
@@ -10112,11 +10115,11 @@ class UsageMetricsUI {
     }).join('');
 
     const legend = data.slice(0, 8).map((item, index) => {
-      const valueStr = measureBy === 'cost' 
+      const valueStr = measureBy === 'cost'
         ? `$${item.value.toFixed(2)}`
         : measureBy === 'tokens'
-        ? `${(item.value / 1000).toFixed(1)}K`
-        : item.value;
+          ? `${(item.value / 1000).toFixed(1)}K`
+          : item.value;
 
       return `
         <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 0.875rem; margin-bottom: 0.5rem;">
@@ -10161,7 +10164,7 @@ class UsageMetricsUI {
 
       const emptyDB = UsageMetricsManager.createEmptyDB();
       UsageMetricsManager.saveDB(emptyDB);
-      
+
       modal.remove();
       UsageMetricsUI.showModal();
       PluginToastUI.show("사용량 데이터가 초기화되었습니다.", 2000);
@@ -10180,7 +10183,7 @@ class UsageMetricsUI {
         link.click();
         document.body.removeChild(link);
         URL.revokeObjectURL(url);
-        
+
         PluginToastUI.show("데이터 내보내기 완료", 2000);
       } catch (error) {
         Logger.error('Failed to export usage metrics:', error);
@@ -10200,7 +10203,7 @@ class UsageMetricsUI {
     const barChartFilterProvider = modal.querySelector('#barChartFilterProvider');
     const barChartFilterRequestType = modal.querySelector('#barChartFilterRequestType');
     const barChartContainer = modal.querySelector('#barChartContainer');
-    
+
     const donutChartGroupBy = modal.querySelector('#donutChartGroupBy');
     const donutChartMeasureBy = modal.querySelector('#donutChartMeasureBy');
     const donutChartFilterTimeRange = modal.querySelector('#donutChartFilterTimeRange');
@@ -10268,8 +10271,8 @@ class UsageMetricsUI {
     const getDonutChartFilters = () => {
       const now = new Date();
       let timeRangeMs = 0;
-      
-      switch(donutChartFilterTimeRange.value) {
+
+      switch (donutChartFilterTimeRange.value) {
         case '1h':
           timeRangeMs = 60 * 60 * 1000;
           break;
@@ -10296,7 +10299,7 @@ class UsageMetricsUI {
       requestAnimationFrame(() => {
         const container = document.getElementById('bar-chart-scroll-container');
         if (container) {
-          const scrollToEnd = function() {
+          const scrollToEnd = function () {
             container.scrollLeft = container.scrollWidth - container.clientWidth;
           };
           scrollToEnd();
@@ -10321,21 +10324,21 @@ class UsageMetricsUI {
       const groupBy = donutChartGroupBy.value;
       const measureBy = donutChartMeasureBy.value;
       const filters = getDonutChartFilters();
-      
+
       // 시간 범위 필터 적용
       let filteredRecords = db.records;
       if (filters.timeRangeMs > 0) {
         const cutoffTime = new Date().getTime() - filters.timeRangeMs;
         filteredRecords = filteredRecords.filter(r => new Date(r.timestamp).getTime() >= cutoffTime);
       }
-      
+
       // 다른 필터 적용
       const appliedFilters = {
         models: filters.models,
         providers: filters.providers,
         requestTypes: filters.requestTypes
       };
-      
+
       const data = UsageMetricsUI.aggregateForDonut(filteredRecords, groupBy, measureBy, appliedFilters);
       donutChartContainer.innerHTML = UsageMetricsUI.renderDonutChart(data, groupBy, measureBy);
     };
@@ -10351,7 +10354,7 @@ class UsageMetricsUI {
     donutChartFilterModel?.addEventListener('change', updateDonutChart);
     donutChartFilterProvider?.addEventListener('change', updateDonutChart);
     donutChartFilterRequestType?.addEventListener('change', updateDonutChart);
-    
+
     scrollBarChartToEnd();
   }
 }
@@ -10561,29 +10564,29 @@ class PluginToolsUI {
   }
   static async exportSettings() {
     try {
-        const settingsData = PLUGIN_SETTINGS_MANAGER.toJSON();
-        const polishData = PolishManager.exportData();
-        const checklistData = ChecklistManager.exportData();
-        
-        const data = { 
-            lbiSettings: settingsData, 
-            polishData: polishData,
-            checklistData: checklistData 
-        };
+      const settingsData = PLUGIN_SETTINGS_MANAGER.toJSON();
+      const polishData = PolishManager.exportData();
+      const checklistData = ChecklistManager.exportData();
 
-        const jsonData = JSON.stringify(data, null, 2);
-        const blob = new Blob([jsonData], { type: "application/json" });
-        const url = URL.createObjectURL(blob);
-        const a2 = document.createElement("a");
-        a2.download = `${PLUGIN_NAME}-${Utils.getTimestamp()}.json`;
-        a2.href = url;
-        document.body.appendChild(a2);
-        a2.click();
-        document.body.removeChild(a2);
-        URL.revokeObjectURL(url);
+      const data = {
+        lbiSettings: settingsData,
+        polishData: polishData,
+        checklistData: checklistData
+      };
+
+      const jsonData = JSON.stringify(data, null, 2);
+      const blob = new Blob([jsonData], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a2 = document.createElement("a");
+      a2.download = `${PLUGIN_NAME}-${Utils.getTimestamp()}.json`;
+      a2.href = url;
+      document.body.appendChild(a2);
+      a2.click();
+      document.body.removeChild(a2);
+      URL.revokeObjectURL(url);
     } catch (error) {
-        Logger.error("Failed to export plugin settings:", error);
-        window.alert("플러그인 설정 내보내기에 실패했습니다.");
+      Logger.error("Failed to export plugin settings:", error);
+      window.alert("플러그인 설정 내보내기에 실패했습니다.");
     }
   }
   static async importSettings() {
@@ -10604,13 +10607,13 @@ class PluginToolsUI {
         const data = JSON.parse(jsonData);
 
         if (data.lbiSettings && (data.polishData || data.checklistData)) {
-            PLUGIN_SETTINGS_MANAGER.fromJSON(data.lbiSettings);
-            if(data.polishData) PolishManager.importData(data.polishData);
-            if(data.checklistData) ChecklistManager.importData(data.checklistData);
-            window.alert(`플러그인 설정, 폴리쉬, 체크리스트 데이터를 성공적으로 가져왔습니다.`);
+          PLUGIN_SETTINGS_MANAGER.fromJSON(data.lbiSettings);
+          if (data.polishData) PolishManager.importData(data.polishData);
+          if (data.checklistData) ChecklistManager.importData(data.checklistData);
+          window.alert(`플러그인 설정, 폴리쉬, 체크리스트 데이터를 성공적으로 가져왔습니다.`);
         } else {
-            PLUGIN_SETTINGS_MANAGER.fromJSON(data);
-            window.alert(`플러그인 설정을 성공적으로 가져왔습니다. (폴리쉬/체크리스트 데이터는 파일에 없습니다)`);
+          PLUGIN_SETTINGS_MANAGER.fromJSON(data);
+          window.alert(`플러그인 설정을 성공적으로 가져왔습니다. (폴리쉬/체크리스트 데이터는 파일에 없습니다)`);
         }
       } catch (error) {
         Logger.error("Failed to import plugin settings:", error);
@@ -10919,7 +10922,7 @@ class PluginToolsUI {
     }
     const lastSummary =
       currentChat.hypaV3Data?.summaries?.[
-        currentChat.hypaV3Data.summaries.length - 1
+      currentChat.hypaV3Data.summaries.length - 1
       ];
     if (!lastSummary) {
       window.alert("현재 챗에 하이파 V3 데이터가 없습니다.");
@@ -11342,15 +11345,14 @@ class GithubCopilotTokenManagerUI {
           <h3 class="text-lg text-zinc-100 font-semibold mb-3">구독 종류</h3>
           <div class="bg-zinc-900 p-3 rounded">
             <div class="flex items-center">
-              ${
-                sku === "monthly_subscriber"
-                  ? `<svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              ${sku === "monthly_subscriber"
+          ? `<svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                    </svg>`
-                  : `<svg class="w-5 h-5 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          : `<svg class="w-5 h-5 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
                    </svg>`
-              }
+        }
               <span class="text-zinc-100 font-medium">${sku}</span>
             </div>
           </div>
@@ -11360,15 +11362,14 @@ class GithubCopilotTokenManagerUI {
           <h3 class="text-lg text-zinc-100 font-semibold mb-3">텔레메트리 상태</h3>
           <div class="bg-zinc-900 p-3 rounded">
             <div class="flex items-center">
-              ${
-                telemetry === "disabled"
-                  ? `<svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              ${telemetry === "disabled"
+          ? `<svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                    </svg>`
-                  : `<svg class="w-5 h-5 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          : `<svg class="w-5 h-5 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
                    </svg>`
-              }
+        }
               <span class="text-zinc-100">${telemetry}</span>
             </div>
           </div>
@@ -11379,8 +11380,8 @@ class GithubCopilotTokenManagerUI {
           <div class="bg-zinc-900 p-3 rounded">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
               ${enabledFeatures
-                .map(
-                  (feature) => `
+          .map(
+            (feature) => `
                 <div class="flex items-center">
                   <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
@@ -11388,8 +11389,8 @@ class GithubCopilotTokenManagerUI {
                   <span class="text-zinc-300">${feature}</span>
                 </div>
               `
-                )
-                .join("")}
+          )
+          .join("")}
             </div>
           </div>
         </div>
@@ -11634,80 +11635,80 @@ function createDualActionHandler(element, params = {}) {
 }
 // ############# AI ASSISTANT UI MANAGER (v4 - 버그 수정 및 UI 개선) - START #############
 const AIAssistantUIManager = (() => {
-    const UI_STATE_KEY = `LBI_AIAssistant_uiState_v3`;
+  const UI_STATE_KEY = `LBI_AIAssistant_uiState_v3`;
 
-    let state = {
-        isDragging: false, isResizing: false, dragStart: {},
-        isExpanded: false,
-        isGloballyEnabled: true,
-        activeTab: 'polish',
-        panelPosition: { x: window.innerWidth - 600, y: 30 },
-        buttonPosition: { x: window.innerWidth - 80, y: 30 },
-        uiSize: { width: 550, height: 450 },
-    };
+  let state = {
+    isDragging: false, isResizing: false, dragStart: {},
+    isExpanded: false,
+    isGloballyEnabled: true,
+    activeTab: 'polish',
+    panelPosition: { x: window.innerWidth - 600, y: 30 },
+    buttonPosition: { x: window.innerWidth - 80, y: 30 },
+    uiSize: { width: 550, height: 450 },
+  };
 
-    let ui = {};
-    let isUiActive = false;
-    let settingsObserverInterval = null;
-    let lastKnownVisibility = { polish: false, checklist: false };
-    
-    // 모바일 롱 프레스 제스처를 위한 변수들
-    let touchTimer = null;
-    let touchStartTime = 0;
-    let touchStartPositions = [];
-    const LONG_PRESS_DURATION = 2000; // 2초
-    const TOUCH_MOVE_TOLERANCE = 10; // 10px 이상 움직이면 롱 프레스로 간주 안 함
+  let ui = {};
+  let isUiActive = false;
+  let settingsObserverInterval = null;
+  let lastKnownVisibility = { polish: false, checklist: false };
 
-    function saveState() {
-        try {
-            localStorage.setItem(UI_STATE_KEY, JSON.stringify({
-                isExpanded: state.isExpanded,
-                isGloballyEnabled: state.isGloballyEnabled,
-                panelPosition: state.panelPosition,
-                buttonPosition: state.buttonPosition,
-                uiSize: state.uiSize, 
-                activeTab: state.activeTab
-            }));
-        } catch (e) { console.error(`[AIAssistantUIManager] 상태 저장 실패:`, e); }
-    }
+  // 모바일 롱 프레스 제스처를 위한 변수들
+  let touchTimer = null;
+  let touchStartTime = 0;
+  let touchStartPositions = [];
+  const LONG_PRESS_DURATION = 2000; // 2초
+  const TOUCH_MOVE_TOLERANCE = 10; // 10px 이상 움직이면 롱 프레스로 간주 안 함
 
-    function loadState() {
-        try {
-            const uiState = JSON.parse(localStorage.getItem(UI_STATE_KEY));
-            if (uiState) {
-                Object.assign(state, uiState);
-                const targetWidth = state.isExpanded ? state.uiSize.width : 50;
-                const targetHeight = state.isExpanded ? state.uiSize.height : 50;
-                if (state.panelPosition) {
-                    state.panelPosition.x = Math.max(0, Math.min(state.panelPosition.x, window.innerWidth - targetWidth));
-                    state.panelPosition.y = Math.max(0, Math.min(state.panelPosition.y, window.innerHeight - targetHeight));
-                }
-                 if (state.buttonPosition) {
-                    state.buttonPosition.x = Math.max(0, Math.min(state.buttonPosition.x, window.innerWidth - 50));
-                    state.buttonPosition.y = Math.max(0, Math.min(state.buttonPosition.y, window.innerHeight - 50));
-                }
-            }
-        } catch (e) { console.error(`[AIAssistantUIManager] 상태 불러오기 실패:`, e); }
-    }
-    
-    function handleClickOutside(event) {
-        const editorModal = document.getElementById('lbi-plugin-text-editor-modal');
-        if (editorModal && editorModal.contains(event.target)) {
-            return;
+  function saveState() {
+    try {
+      localStorage.setItem(UI_STATE_KEY, JSON.stringify({
+        isExpanded: state.isExpanded,
+        isGloballyEnabled: state.isGloballyEnabled,
+        panelPosition: state.panelPosition,
+        buttonPosition: state.buttonPosition,
+        uiSize: state.uiSize,
+        activeTab: state.activeTab
+      }));
+    } catch (e) { console.error(`[AIAssistantUIManager] 상태 저장 실패:`, e); }
+  }
+
+  function loadState() {
+    try {
+      const uiState = JSON.parse(localStorage.getItem(UI_STATE_KEY));
+      if (uiState) {
+        Object.assign(state, uiState);
+        const targetWidth = state.isExpanded ? state.uiSize.width : 50;
+        const targetHeight = state.isExpanded ? state.uiSize.height : 50;
+        if (state.panelPosition) {
+          state.panelPosition.x = Math.max(0, Math.min(state.panelPosition.x, window.innerWidth - targetWidth));
+          state.panelPosition.y = Math.max(0, Math.min(state.panelPosition.y, window.innerHeight - targetHeight));
         }
-        if (ui.panel && !ui.panel.contains(event.target) && !ui.toggleButton.contains(event.target) && state.isExpanded) {
-            togglePanel();
+        if (state.buttonPosition) {
+          state.buttonPosition.x = Math.max(0, Math.min(state.buttonPosition.x, window.innerWidth - 50));
+          state.buttonPosition.y = Math.max(0, Math.min(state.buttonPosition.y, window.innerHeight - 50));
         }
-    }
+      }
+    } catch (e) { console.error(`[AIAssistantUIManager] 상태 불러오기 실패:`, e); }
+  }
 
-    function createUI() {
-        if (document.getElementById('ai-assistant-panel')) return;
-        injectCSS();
-        
-        ui.panel = document.createElement('div');
-        ui.panel.id = 'ai-assistant-panel';
-        ui.panel.className = 'ai-assistant-panel';
-        ui.panel.innerHTML = `
+  function handleClickOutside(event) {
+    const editorModal = document.getElementById('lbi-plugin-text-editor-modal');
+    if (editorModal && editorModal.contains(event.target)) {
+      return;
+    }
+    if (ui.panel && !ui.panel.contains(event.target) && !ui.toggleButton.contains(event.target) && state.isExpanded) {
+      togglePanel();
+    }
+  }
+
+  function createUI() {
+    if (document.getElementById('ai-assistant-panel')) return;
+    injectCSS();
+
+    ui.panel = document.createElement('div');
+    ui.panel.id = 'ai-assistant-panel';
+    ui.panel.className = 'ai-assistant-panel';
+    ui.panel.innerHTML = `
             <div class="ai-assistant-header">
                 <span>🪄 AI 보조 감독관</span>
                 <div class="ai-assistant-header-buttons"><button id="ai-assistant-minimize-btn" class="ai-assistant-header-btn">－</button></div>
@@ -11718,305 +11719,305 @@ const AIAssistantUIManager = (() => {
             <div class="ai-assistant-resizer ai-assistant-resizer-e" data-direction="e"></div><div class="ai-assistant-resizer ai-assistant-resizer-se" data-direction="se"></div>
             <div class="ai-assistant-resizer ai-assistant-resizer-s" data-direction="s"></div><div class="ai-assistant-resizer ai-assistant-resizer-sw" data-direction="sw"></div>
             <div class="ai-assistant-resizer ai-assistant-resizer-w" data-direction="w"></div><div class="ai-assistant-resizer ai-assistant-resizer-nw" data-direction="nw"></div>`;
-        document.body.appendChild(ui.panel);
-        
-        ui.toggleButton = document.createElement('button');
-        ui.toggleButton.id = 'ai-assistant-toggle';
-        ui.toggleButton.className = 'ai-assistant-toggle-btn';
-        ui.toggleButton.textContent = '🪄';
-        document.body.appendChild(ui.toggleButton);
+    document.body.appendChild(ui.panel);
 
-        Object.assign(ui, {
-            header: ui.panel.querySelector('.ai-assistant-header'),
-            tabBar: ui.panel.querySelector('.ai-assistant-tab-bar'),
-            contentArea: ui.panel.querySelector('.ai-assistant-content-area'),
-        });
-        
-        loadState();
+    ui.toggleButton = document.createElement('button');
+    ui.toggleButton.id = 'ai-assistant-toggle';
+    ui.toggleButton.className = 'ai-assistant-toggle-btn';
+    ui.toggleButton.textContent = '🪄';
+    document.body.appendChild(ui.toggleButton);
+
+    Object.assign(ui, {
+      header: ui.panel.querySelector('.ai-assistant-header'),
+      tabBar: ui.panel.querySelector('.ai-assistant-tab-bar'),
+      contentArea: ui.panel.querySelector('.ai-assistant-content-area'),
+    });
+
+    loadState();
+    renderTabsAndContent();
+    bindEvents();
+    updateUIPosition(); updateUISize(); updateUIVisibility();
+    switchTab(state.activeTab);
+  }
+
+  function renderTabsAndContent() {
+    const showPolish = PolishManager.isEnabled();
+    const showChecklist = ChecklistManager.isEnabled();
+
+    let tabsHtml = '';
+    if (showPolish) tabsHtml += `<button class="ai-assistant-tab-btn" data-tab="polish">💅 폴리쉬</button>`;
+    if (showChecklist) tabsHtml += `<button class="ai-assistant-tab-btn" data-tab="checklist">✅ 체크리스트</button>`;
+    if (showPolish) tabsHtml += `<button class="ai-assistant-tab-btn" data-tab="logs">📜 로그</button>`;
+    ui.tabBar.innerHTML = tabsHtml;
+
+    if (!ui.contentArea.querySelector('#polish-content')) {
+      const polishDiv = document.createElement('div');
+      polishDiv.id = 'polish-content';
+      polishDiv.className = 'ai-assistant-tab-content';
+      ui.contentArea.appendChild(polishDiv);
+    }
+    if (!ui.contentArea.querySelector('#checklist-content')) {
+      const checklistDiv = document.createElement('div');
+      checklistDiv.id = 'checklist-content';
+      checklistDiv.className = 'ai-assistant-tab-content';
+      ui.contentArea.appendChild(checklistDiv);
+    }
+    if (!ui.contentArea.querySelector('#logs-content')) {
+      const logsDiv = document.createElement('div');
+      logsDiv.id = 'logs-content';
+      logsDiv.className = 'ai-assistant-tab-content';
+      ui.contentArea.appendChild(logsDiv);
+    }
+
+    if (showPolish) {
+      PolishManager.renderUI(ui.contentArea.querySelector('#polish-content'));
+      PolishManager.renderLogsUI(ui.contentArea.querySelector('#logs-content'));
+    }
+    if (showChecklist) ChecklistManager.renderUI(ui.contentArea.querySelector('#checklist-content'));
+
+    if (!showPolish && showChecklist) state.activeTab = 'checklist';
+    else if (showPolish && !showChecklist) state.activeTab = 'polish';
+    else if (state.activeTab === 'logs' && !showPolish) state.activeTab = showChecklist ? 'checklist' : 'polish';
+    else if (state.activeTab === 'polish' && !showPolish) state.activeTab = 'checklist';
+    else if (state.activeTab === 'checklist' && !showChecklist) state.activeTab = 'polish';
+
+    ui.tabBar.querySelectorAll('.ai-assistant-tab-btn').forEach(btn => btn.addEventListener('click', () => switchTab(btn.dataset.tab)));
+  }
+
+  function switchTab(tabId) {
+    if (!ui.tabBar.querySelector(`[data-tab="${tabId}"]`)) {
+      const firstTab = ui.tabBar.querySelector('.ai-assistant-tab-btn');
+      tabId = firstTab ? firstTab.dataset.tab : null;
+    }
+    if (!tabId) return;
+
+    state.activeTab = tabId;
+    ui.tabBar.querySelectorAll('.ai-assistant-tab-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.tab === tabId));
+    ui.contentArea.querySelectorAll('.ai-assistant-tab-content').forEach(content => {
+      content.classList.toggle('active', content.id === `${tabId}-content`);
+    });
+    saveState();
+  }
+
+  function getEventCoords(e) {
+    if (e.touches && e.touches.length > 0) {
+      return { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    }
+    return { x: e.clientX, y: e.clientY };
+  }
+
+  function bindEvents() {
+    ui.toggleButton.addEventListener('click', togglePanel);
+    ui.panel.querySelector('#ai-assistant-minimize-btn').addEventListener('click', togglePanel);
+
+    ui.header.addEventListener('mousedown', (e) => onDragStart(e, 'panel'));
+    ui.header.addEventListener('touchstart', (e) => onDragStart(e, 'panel'), { passive: false });
+
+    ui.toggleButton.addEventListener('mousedown', (e) => onDragStart(e, 'button'));
+    ui.toggleButton.addEventListener('touchstart', (e) => onDragStart(e, 'button'), { passive: false });
+
+    ui.panel.querySelectorAll('.ai-assistant-resizer').forEach(handle => {
+      handle.addEventListener('mousedown', onResizeStart);
+      handle.addEventListener('touchstart', onResizeStart, { passive: false });
+    });
+  }
+
+  function updateUIVisibility() {
+    if (!ui.panel || !ui.toggleButton) return;
+    ui.panel.style.display = state.isExpanded ? 'flex' : 'none';
+    ui.toggleButton.style.display = state.isExpanded ? 'none' : 'flex';
+
+    if (state.isExpanded) {
+      setTimeout(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        document.addEventListener('touchstart', handleClickOutside);
+      }, 0);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    }
+  }
+
+  function updateUIPosition() {
+    if (state.isExpanded && ui.panel) {
+      ui.panel.style.left = `${state.panelPosition.x}px`;
+      ui.panel.style.top = `${state.panelPosition.y}px`;
+    } else if (ui.toggleButton) {
+      ui.toggleButton.style.left = `${state.buttonPosition.x}px`;
+      ui.toggleButton.style.top = `${state.buttonPosition.y}px`;
+    }
+  }
+  function updateUISize() { if (state.isExpanded && ui.panel) { ui.panel.style.width = `${state.uiSize.width}px`; ui.panel.style.height = `${state.uiSize.height}px`; } }
+
+  function onDragStart(e, targetType) {
+    if (targetType === 'panel' && !e.target.closest('.ai-assistant-header')) return;
+    if (e.target.closest('button') && e.target !== ui.toggleButton) return;
+
+    state.isDragging = false;
+    const target = (targetType === 'panel') ? ui.panel : ui.toggleButton;
+    const rect = target.getBoundingClientRect();
+    const coords = getEventCoords(e);
+    state.dragStart = { x: coords.x, y: coords.y, offsetX: coords.x - rect.left, offsetY: coords.y - rect.top, type: targetType };
+
+    document.addEventListener('mousemove', onDragging);
+    document.addEventListener('touchmove', onDragging, { passive: false });
+    document.addEventListener('mouseup', onDragEnd, { once: true });
+    document.addEventListener('touchend', onDragEnd, { once: true });
+  }
+  function onDragging(e) {
+    e.preventDefault();
+    const coords = getEventCoords(e);
+    const dx = coords.x - state.dragStart.x;
+    const dy = coords.y - state.dragStart.y;
+    if (!state.isDragging && (Math.abs(dx) > 5 || Math.abs(dy) > 5)) state.isDragging = true;
+    if (state.isDragging) {
+      const isPanel = state.dragStart.type === 'panel';
+      const target = isPanel ? ui.panel : ui.toggleButton;
+      let newX = coords.x - state.dragStart.offsetX;
+      let newY = coords.y - state.dragStart.offsetY;
+      const newPosition = { x: Math.max(0, Math.min(newX, window.innerWidth - target.offsetWidth)), y: Math.max(0, Math.min(newY, window.innerHeight - target.offsetHeight)) };
+      if (isPanel) state.panelPosition = newPosition; else state.buttonPosition = newPosition;
+      updateUIPosition();
+    }
+  }
+  function onDragEnd() {
+    document.removeEventListener('mousemove', onDragging);
+    document.removeEventListener('touchmove', onDragging);
+    if (state.isDragging) saveState(); setTimeout(() => { state.isDragging = false; }, 0);
+  }
+  function onResizeStart(e) {
+    e.preventDefault(); e.stopPropagation(); state.isResizing = true;
+    state.resizeDirection = e.target.dataset.direction;
+    const coords = getEventCoords(e);
+    state.dragStart = { x: coords.x, y: coords.y, width: state.uiSize.width, height: state.uiSize.height, left: state.panelPosition.x, top: state.panelPosition.y };
+
+    document.addEventListener('mousemove', onResizing);
+    document.addEventListener('touchmove', onResizing, { passive: false });
+    document.addEventListener('mouseup', onResizeEnd, { once: true });
+    document.addEventListener('touchend', onResizeEnd, { once: true });
+  }
+  function onResizing(e) {
+    if (!state.isResizing) return;
+    const coords = getEventCoords(e);
+    const dx = coords.x - state.dragStart.x;
+    const dy = coords.y - state.dragStart.y;
+    let newWidth = state.dragStart.width, newHeight = state.dragStart.height, newLeft = state.dragStart.left, newTop = state.dragStart.top;
+    if (state.resizeDirection.includes('e')) newWidth = state.dragStart.width + dx;
+    if (state.resizeDirection.includes('s')) newHeight = state.dragStart.height + dy;
+    if (state.resizeDirection.includes('w')) { newWidth = state.dragStart.width - dx; newLeft = state.dragStart.left + dx; }
+    if (state.resizeDirection.includes('n')) { newHeight = state.dragStart.height - dy; newTop = state.dragStart.top + dy; }
+    if (newWidth >= 320) { state.uiSize.width = newWidth; state.panelPosition.x = newLeft; }
+    if (newHeight >= 300) { state.uiSize.height = newHeight; state.panelPosition.y = newTop; }
+    updateUISize(); updateUIPosition();
+  }
+  function onResizeEnd() {
+    state.isResizing = false;
+    document.removeEventListener('mousemove', onResizing);
+    document.removeEventListener('touchmove', onResizing);
+    saveState();
+  }
+  function togglePanel() {
+    if (state.isDragging || state.isResizing) return;
+    state.isExpanded = !state.isExpanded;
+    updateUIVisibility(); updateUIPosition(); updateUISize(); saveState();
+  }
+
+  function destroyUI() {
+    document.removeEventListener('mousedown', handleClickOutside);
+    document.removeEventListener('touchstart', handleClickOutside);
+    ui.panel?.remove();
+    ui.toggleButton?.remove();
+    document.getElementById('ai-assistant-style')?.remove();
+    ui = {}; isUiActive = false;
+  }
+
+  function toggleGlobalEnabled() {
+    state.isGloballyEnabled = !state.isGloballyEnabled;
+    saveState();
+    checkVisibilityAndRender();
+    PluginToastUI.show(`AI 보조 감독관 ${state.isGloballyEnabled ? '켜짐' : '꺼짐'}`, 2000);
+  }
+
+  // PC 단축키 핸들러
+  function handleKeyDown(e) {
+    if (e.shiftKey && e.key === '?' && !e.ctrlKey && !e.altKey && !e.metaKey) {
+      if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
+        return;
+      }
+      e.preventDefault();
+      e.stopPropagation();
+      toggleGlobalEnabled();
+    }
+  }
+
+  // 모바일 롱 프레스 제스처 핸들러들
+  function handleTouchStart(e) {
+    if (e.touches.length === 2) {
+      touchStartTime = Date.now();
+      touchStartPositions = [
+        { x: e.touches[0].clientX, y: e.touches[0].clientY },
+        { x: e.touches[1].clientX, y: e.touches[1].clientY }
+      ];
+
+      if (touchTimer) clearTimeout(touchTimer);
+      touchTimer = setTimeout(() => {
+        e.preventDefault();
+        toggleGlobalEnabled();
+        touchTimer = null;
+      }, LONG_PRESS_DURATION);
+    }
+  }
+
+  function handleTouchMove(e) {
+    if (!touchTimer || e.touches.length !== 2) return;
+
+    const dx1 = Math.abs(e.touches[0].clientX - touchStartPositions[0].x);
+    const dy1 = Math.abs(e.touches[0].clientY - touchStartPositions[0].y);
+    const dx2 = Math.abs(e.touches[1].clientX - touchStartPositions[1].x);
+    const dy2 = Math.abs(e.touches[1].clientY - touchStartPositions[1].y);
+
+    if (dx1 > TOUCH_MOVE_TOLERANCE || dy1 > TOUCH_MOVE_TOLERANCE || dx2 > TOUCH_MOVE_TOLERANCE || dy2 > TOUCH_MOVE_TOLERANCE) {
+      if (touchTimer) clearTimeout(touchTimer);
+      touchTimer = null;
+    }
+  }
+
+  function handleTouchEnd(e) {
+    if (touchTimer) {
+      clearTimeout(touchTimer);
+      touchTimer = null;
+    }
+  }
+
+  function checkVisibilityAndRender() {
+    if (!state.isGloballyEnabled) {
+      if (isUiActive) {
+        destroyUI();
+      }
+      return;
+    }
+    const showPolish = PolishManager.isEnabled();
+    const showChecklist = ChecklistManager.isEnabled();
+    const shouldBeVisible = showPolish || showChecklist;
+    if (shouldBeVisible && !isUiActive) {
+      isUiActive = true;
+      createUI();
+    } else if (!shouldBeVisible && isUiActive) {
+      destroyUI();
+    } else if (isUiActive) {
+      if (showPolish !== lastKnownVisibility.polish || showChecklist !== lastKnownVisibility.checklist) {
         renderTabsAndContent();
-        bindEvents();
-        updateUIPosition(); updateUISize(); updateUIVisibility();
         switchTab(state.activeTab);
+      }
     }
+    lastKnownVisibility = { polish: showPolish, checklist: showChecklist };
+  }
 
-    function renderTabsAndContent() {
-        const showPolish = PolishManager.isEnabled();
-        const showChecklist = ChecklistManager.isEnabled();
-    
-        let tabsHtml = '';
-        if (showPolish) tabsHtml += `<button class="ai-assistant-tab-btn" data-tab="polish">💅 폴리쉬</button>`;
-        if (showChecklist) tabsHtml += `<button class="ai-assistant-tab-btn" data-tab="checklist">✅ 체크리스트</button>`;
-        if (showPolish) tabsHtml += `<button class="ai-assistant-tab-btn" data-tab="logs">📜 로그</button>`;
-        ui.tabBar.innerHTML = tabsHtml;
-    
-        if (!ui.contentArea.querySelector('#polish-content')) {
-            const polishDiv = document.createElement('div');
-            polishDiv.id = 'polish-content';
-            polishDiv.className = 'ai-assistant-tab-content';
-            ui.contentArea.appendChild(polishDiv);
-        }
-        if (!ui.contentArea.querySelector('#checklist-content')) {
-            const checklistDiv = document.createElement('div');
-            checklistDiv.id = 'checklist-content';
-            checklistDiv.className = 'ai-assistant-tab-content';
-            ui.contentArea.appendChild(checklistDiv);
-        }
-        if (!ui.contentArea.querySelector('#logs-content')) {
-            const logsDiv = document.createElement('div');
-            logsDiv.id = 'logs-content';
-            logsDiv.className = 'ai-assistant-tab-content';
-            ui.contentArea.appendChild(logsDiv);
-        }
-        
-        if (showPolish) {
-            PolishManager.renderUI(ui.contentArea.querySelector('#polish-content'));
-            PolishManager.renderLogsUI(ui.contentArea.querySelector('#logs-content'));
-        }
-        if (showChecklist) ChecklistManager.renderUI(ui.contentArea.querySelector('#checklist-content'));
-    
-        if (!showPolish && showChecklist) state.activeTab = 'checklist';
-        else if (showPolish && !showChecklist) state.activeTab = 'polish';
-        else if (state.activeTab === 'logs' && !showPolish) state.activeTab = showChecklist ? 'checklist' : 'polish';
-        else if (state.activeTab === 'polish' && !showPolish) state.activeTab = 'checklist';
-        else if (state.activeTab === 'checklist' && !showChecklist) state.activeTab = 'polish';
-        
-        ui.tabBar.querySelectorAll('.ai-assistant-tab-btn').forEach(btn => btn.addEventListener('click', () => switchTab(btn.dataset.tab)));
-    }
-
-    function switchTab(tabId) {
-        if (!ui.tabBar.querySelector(`[data-tab="${tabId}"]`)) {
-            const firstTab = ui.tabBar.querySelector('.ai-assistant-tab-btn');
-            tabId = firstTab ? firstTab.dataset.tab : null;
-        }
-        if (!tabId) return;
-
-        state.activeTab = tabId;
-        ui.tabBar.querySelectorAll('.ai-assistant-tab-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.tab === tabId));
-        ui.contentArea.querySelectorAll('.ai-assistant-tab-content').forEach(content => {
-            content.classList.toggle('active', content.id === `${tabId}-content`);
-        });
-        saveState();
-    }
-    
-    function getEventCoords(e) {
-        if (e.touches && e.touches.length > 0) {
-            return { x: e.touches[0].clientX, y: e.touches[0].clientY };
-        }
-        return { x: e.clientX, y: e.clientY };
-    }
-
-    function bindEvents() {
-        ui.toggleButton.addEventListener('click', togglePanel);
-        ui.panel.querySelector('#ai-assistant-minimize-btn').addEventListener('click', togglePanel);
-        
-        ui.header.addEventListener('mousedown', (e) => onDragStart(e, 'panel'));
-        ui.header.addEventListener('touchstart', (e) => onDragStart(e, 'panel'), { passive: false });
-        
-        ui.toggleButton.addEventListener('mousedown', (e) => onDragStart(e, 'button'));
-        ui.toggleButton.addEventListener('touchstart', (e) => onDragStart(e, 'button'), { passive: false });
-        
-        ui.panel.querySelectorAll('.ai-assistant-resizer').forEach(handle => {
-            handle.addEventListener('mousedown', onResizeStart);
-            handle.addEventListener('touchstart', onResizeStart, { passive: false });
-        });
-    }
-    
-    function updateUIVisibility() {
-        if (!ui.panel || !ui.toggleButton) return; 
-        ui.panel.style.display = state.isExpanded ? 'flex' : 'none'; 
-        ui.toggleButton.style.display = state.isExpanded ? 'none' : 'flex';
-
-        if (state.isExpanded) {
-            setTimeout(() => {
-                document.addEventListener('mousedown', handleClickOutside);
-                document.addEventListener('touchstart', handleClickOutside);
-            }, 0);
-        } else {
-            document.removeEventListener('mousedown', handleClickOutside);
-            document.removeEventListener('touchstart', handleClickOutside);
-        }
-    }
-
-    function updateUIPosition() { 
-        if (state.isExpanded && ui.panel) {
-             ui.panel.style.left = `${state.panelPosition.x}px`;
-             ui.panel.style.top = `${state.panelPosition.y}px`;
-        } else if (ui.toggleButton) {
-             ui.toggleButton.style.left = `${state.buttonPosition.x}px`;
-             ui.toggleButton.style.top = `${state.buttonPosition.y}px`;
-        }
-    }
-    function updateUISize() { if (state.isExpanded && ui.panel) { ui.panel.style.width = `${state.uiSize.width}px`; ui.panel.style.height = `${state.uiSize.height}px`; } }
-    
-    function onDragStart(e, targetType) {
-        if (targetType === 'panel' && !e.target.closest('.ai-assistant-header')) return;
-        if (e.target.closest('button') && e.target !== ui.toggleButton) return;
-
-        state.isDragging = false;
-        const target = (targetType === 'panel') ? ui.panel : ui.toggleButton;
-        const rect = target.getBoundingClientRect();
-        const coords = getEventCoords(e);
-        state.dragStart = { x: coords.x, y: coords.y, offsetX: coords.x - rect.left, offsetY: coords.y - rect.top, type: targetType };
-        
-        document.addEventListener('mousemove', onDragging);
-        document.addEventListener('touchmove', onDragging, { passive: false });
-        document.addEventListener('mouseup', onDragEnd, { once: true });
-        document.addEventListener('touchend', onDragEnd, { once: true });
-    }
-    function onDragging(e) { 
-        e.preventDefault(); 
-        const coords = getEventCoords(e);
-        const dx = coords.x - state.dragStart.x; 
-        const dy = coords.y - state.dragStart.y; 
-        if (!state.isDragging && (Math.abs(dx) > 5 || Math.abs(dy) > 5)) state.isDragging = true; 
-        if (state.isDragging) { 
-            const isPanel = state.dragStart.type === 'panel'; 
-            const target = isPanel ? ui.panel : ui.toggleButton; 
-            let newX = coords.x - state.dragStart.offsetX; 
-            let newY = coords.y - state.dragStart.offsetY; 
-            const newPosition = { x: Math.max(0, Math.min(newX, window.innerWidth - target.offsetWidth)), y: Math.max(0, Math.min(newY, window.innerHeight - target.offsetHeight)) }; 
-            if (isPanel) state.panelPosition = newPosition; else state.buttonPosition = newPosition; 
-            updateUIPosition(); 
-        } 
-    }
-    function onDragEnd() { 
-        document.removeEventListener('mousemove', onDragging);
-        document.removeEventListener('touchmove', onDragging);
-        if (state.isDragging) saveState(); setTimeout(() => { state.isDragging = false; }, 0); 
-    }
-    function onResizeStart(e) {
-        e.preventDefault(); e.stopPropagation(); state.isResizing = true; 
-        state.resizeDirection = e.target.dataset.direction; 
-        const coords = getEventCoords(e);
-        state.dragStart = { x: coords.x, y: coords.y, width: state.uiSize.width, height: state.uiSize.height, left: state.panelPosition.x, top: state.panelPosition.y }; 
-        
-        document.addEventListener('mousemove', onResizing);
-        document.addEventListener('touchmove', onResizing, { passive: false });
-        document.addEventListener('mouseup', onResizeEnd, { once: true }); 
-        document.addEventListener('touchend', onResizeEnd, { once: true }); 
-    }
-    function onResizing(e) { 
-        if (!state.isResizing) return; 
-        const coords = getEventCoords(e);
-        const dx = coords.x - state.dragStart.x; 
-        const dy = coords.y - state.dragStart.y; 
-        let newWidth = state.dragStart.width, newHeight = state.dragStart.height, newLeft = state.dragStart.left, newTop = state.dragStart.top; 
-        if (state.resizeDirection.includes('e')) newWidth = state.dragStart.width + dx; 
-        if (state.resizeDirection.includes('s')) newHeight = state.dragStart.height + dy; 
-        if (state.resizeDirection.includes('w')) { newWidth = state.dragStart.width - dx; newLeft = state.dragStart.left + dx; } 
-        if (state.resizeDirection.includes('n')) { newHeight = state.dragStart.height - dy; newTop = state.dragStart.top + dy; } 
-        if (newWidth >= 320) { state.uiSize.width = newWidth; state.panelPosition.x = newLeft; } 
-        if (newHeight >= 300) { state.uiSize.height = newHeight; state.panelPosition.y = newTop; } 
-        updateUISize(); updateUIPosition(); 
-    }
-    function onResizeEnd() { 
-        state.isResizing = false; 
-        document.removeEventListener('mousemove', onResizing); 
-        document.removeEventListener('touchmove', onResizing); 
-        saveState(); 
-    }
-    function togglePanel() { 
-        if (state.isDragging || state.isResizing) return; 
-        state.isExpanded = !state.isExpanded; 
-        updateUIVisibility(); updateUIPosition(); updateUISize(); saveState(); 
-    }
-    
-    function destroyUI() { 
-        document.removeEventListener('mousedown', handleClickOutside);
-        document.removeEventListener('touchstart', handleClickOutside);
-        ui.panel?.remove(); 
-        ui.toggleButton?.remove(); 
-        document.getElementById('ai-assistant-style')?.remove(); 
-        ui = {}; isUiActive = false; 
-    }
-
-    function toggleGlobalEnabled() {
-        state.isGloballyEnabled = !state.isGloballyEnabled;
-        saveState();
-        checkVisibilityAndRender();
-        PluginToastUI.show(`AI 보조 감독관 ${state.isGloballyEnabled ? '켜짐' : '꺼짐'}`, 2000);
-    }
-
-    // PC 단축키 핸들러
-    function handleKeyDown(e) {
-        if (e.shiftKey && e.key === '?' && !e.ctrlKey && !e.altKey && !e.metaKey) {
-            if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
-                return;
-            }
-            e.preventDefault();
-            e.stopPropagation();
-            toggleGlobalEnabled();
-        }
-    }
-
-    // 모바일 롱 프레스 제스처 핸들러들
-    function handleTouchStart(e) {
-        if (e.touches.length === 2) {
-            touchStartTime = Date.now();
-            touchStartPositions = [
-                { x: e.touches[0].clientX, y: e.touches[0].clientY },
-                { x: e.touches[1].clientX, y: e.touches[1].clientY }
-            ];
-
-            if (touchTimer) clearTimeout(touchTimer);
-            touchTimer = setTimeout(() => {
-                e.preventDefault();
-                toggleGlobalEnabled();
-                touchTimer = null;
-            }, LONG_PRESS_DURATION);
-        }
-    }
-
-    function handleTouchMove(e) {
-        if (!touchTimer || e.touches.length !== 2) return;
-        
-        const dx1 = Math.abs(e.touches[0].clientX - touchStartPositions[0].x);
-        const dy1 = Math.abs(e.touches[0].clientY - touchStartPositions[0].y);
-        const dx2 = Math.abs(e.touches[1].clientX - touchStartPositions[1].x);
-        const dy2 = Math.abs(e.touches[1].clientY - touchStartPositions[1].y);
-
-        if (dx1 > TOUCH_MOVE_TOLERANCE || dy1 > TOUCH_MOVE_TOLERANCE || dx2 > TOUCH_MOVE_TOLERANCE || dy2 > TOUCH_MOVE_TOLERANCE) {
-            if (touchTimer) clearTimeout(touchTimer);
-            touchTimer = null;
-        }
-    }
-
-    function handleTouchEnd(e) {
-        if (touchTimer) {
-            clearTimeout(touchTimer);
-            touchTimer = null;
-        }
-    }
-    
-    function checkVisibilityAndRender() {
-        if (!state.isGloballyEnabled) {
-            if (isUiActive) {
-                destroyUI();
-            }
-            return;
-        }
-        const showPolish = PolishManager.isEnabled();
-        const showChecklist = ChecklistManager.isEnabled();
-        const shouldBeVisible = showPolish || showChecklist;
-        if (shouldBeVisible && !isUiActive) {
-            isUiActive = true;
-            createUI();
-        } else if (!shouldBeVisible && isUiActive) {
-            destroyUI();
-        } else if (isUiActive) {
-            if (showPolish !== lastKnownVisibility.polish || showChecklist !== lastKnownVisibility.checklist) {
-                renderTabsAndContent();
-                switchTab(state.activeTab);
-            }
-        }
-        lastKnownVisibility = { polish: showPolish, checklist: showChecklist };
-    }
-
-    function injectCSS() {
-        if (document.getElementById('ai-assistant-style')) return;
-        const style = document.createElement('style');
-        style.id = 'ai-assistant-style';
-        style.textContent = `
+  function injectCSS() {
+    if (document.getElementById('ai-assistant-style')) return;
+    const style = document.createElement('style');
+    style.id = 'ai-assistant-style';
+    style.textContent = `
             .ai-assistant-panel, .ai-assistant-toggle-btn { position: fixed; z-index: 10001; }
             .ai-assistant-panel { display: flex; flex-direction: column; background-color: rgba(40, 40, 40, 0.9); backdrop-filter: blur(10px); border: 1px solid #444; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); color: #eee; font-family: sans-serif; min-width: 320px; max-width: 95vw; min-height: 300px; box-sizing: border-box; }
             .ai-assistant-toggle-btn { width: 50px; height: 50px; border-radius: 50%; background-color: #2d3748; color: #e2e8f0; border: 1px solid #4a5568; font-size: 22px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
@@ -12032,36 +12033,36 @@ const AIAssistantUIManager = (() => {
             #polish-content { flex-direction: row; gap: 15px; padding: 0; }
             #logs-content { padding: 15px; }
         `;
-        document.head.appendChild(style);
-    }
-    
-    return {
-        initialize: () => { 
-            loadState();
-            if (settingsObserverInterval) return;
-            // PC와 모바일 이벤트 리스너 추가
-            document.addEventListener('keydown', handleKeyDown, true);
-            document.addEventListener('touchstart', handleTouchStart);
-            document.addEventListener('touchmove', handleTouchMove);
-            document.addEventListener('touchend', handleTouchEnd);
-            document.addEventListener('touchcancel', handleTouchEnd); // 터치 취소 이벤트도 처리
-            settingsObserverInterval = setInterval(checkVisibilityAndRender, 1000); 
-        },
-        destroy: () => { 
-            if (settingsObserverInterval) { 
-                clearInterval(settingsObserverInterval); 
-                settingsObserverInterval = null; 
-            } 
-            // 이벤트 리스너 제거
-            document.removeEventListener('keydown', handleKeyDown, true);
-            document.removeEventListener('touchstart', handleTouchStart);
-            document.removeEventListener('touchmove', handleTouchMove);
-            document.removeEventListener('touchend', handleTouchEnd);
-            document.removeEventListener('touchcancel', handleTouchEnd);
-            destroyUI(); 
-        },
-        toggleGlobalEnabled: toggleGlobalEnabled
-    };
+    document.head.appendChild(style);
+  }
+
+  return {
+    initialize: () => {
+      loadState();
+      if (settingsObserverInterval) return;
+      // PC와 모바일 이벤트 리스너 추가
+      document.addEventListener('keydown', handleKeyDown, true);
+      document.addEventListener('touchstart', handleTouchStart);
+      document.addEventListener('touchmove', handleTouchMove);
+      document.addEventListener('touchend', handleTouchEnd);
+      document.addEventListener('touchcancel', handleTouchEnd); // 터치 취소 이벤트도 처리
+      settingsObserverInterval = setInterval(checkVisibilityAndRender, 1000);
+    },
+    destroy: () => {
+      if (settingsObserverInterval) {
+        clearInterval(settingsObserverInterval);
+        settingsObserverInterval = null;
+      }
+      // 이벤트 리스너 제거
+      document.removeEventListener('keydown', handleKeyDown, true);
+      document.removeEventListener('touchstart', handleTouchStart);
+      document.removeEventListener('touchmove', handleTouchMove);
+      document.removeEventListener('touchend', handleTouchEnd);
+      document.removeEventListener('touchcancel', handleTouchEnd);
+      destroyUI();
+    },
+    toggleGlobalEnabled: toggleGlobalEnabled
+  };
 })();
 // ############# AI ASSISTANT UI MANAGER (v4) - END #############
 // [수정됨] 중복 방지 조건문을 제거하고, 무조건 실행하도록 되돌림.
@@ -12083,7 +12084,7 @@ RisuCharMessageAutoTranslator.initialize();
 RisuTextAreaEnhancer.initialize();
 PolishManager.initialize();
 ChecklistManager.initialize();
-AIAssistantUIManager.initialize(); 
+AIAssistantUIManager.initialize();
 new PluginSettingsUI(PLUGIN_SETTING_DEFINITIONS).initialize();
 RisuPluginCollapseManager.initialize();
 
