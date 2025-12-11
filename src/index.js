@@ -1520,6 +1520,30 @@ const LLM_DEFINITIONS = [
     ],
     price: { inputPrice: 1.25, outputPrice: 10.0, cachedInputPrice: 0.125 },
   },
+  {
+    uniqueId: "gpt-5.2-2025-12-09",
+    id: "gpt-5.2-2025-12-09",
+    name: "GPT-5.2 (2025/12/09)",
+    provider: LLM_PROVIDER.OPENAI,
+    tokenizer: LLM_TOKENIZER.O200K_BASE,
+    flags: [
+      LLM_FLAG.hasFullSystemPrompt,
+      LLM_FLAG.hasMaxCompletionTokens,
+      LLM_FLAG.forceDisableSamplingParams,
+    ],
+    price: { inputPrice: 2.0, outputPrice: 16.0, cachedInputPrice: 0.2 },
+  },
+  {
+    uniqueId: "gpt-5.2-chat-latest",
+    id: "gpt-5.2-chat-latest",
+    name: "GPT-5.2 Chat (Latest)",
+    provider: LLM_PROVIDER.OPENAI,
+    tokenizer: LLM_TOKENIZER.O200K_BASE,
+    flags: [
+      LLM_FLAG.hasMaxCompletionTokens,
+    ],
+    price: { inputPrice: 2.0, outputPrice: 16.0, cachedInputPrice: 0.2 },
+  },
   // OpenAICompatible (동적 생성: custom1-9)
   ...generateCustomModels(),
 ];
