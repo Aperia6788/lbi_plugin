@@ -1,9 +1,9 @@
 {
   "name": "lbi-plugin",
-  "version": "0.35.0-pre26",
+  "version": "0.35.0-pre28",
   "description": "RisuAI LBI Plugin - Modular Build",
   "type": "module",
-  "main": "dist/LBI-0.35.0-pre26_Refactored.js",
+  "main": "dist/LBI-0.35.0-pre28.js",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",

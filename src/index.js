@@ -1,5 +1,5 @@
-//@name LBI-pre26
-//@display-name LBI-pre26
+//@name LBI-pre28
+//@display-name LBI-pre28
 //@arg common_googleAIProvider_apiKey string
 //@arg common_fallbackToVertexGemini string
 //@arg common_vertexAIProvider_projectId string
@@ -13,6 +13,8 @@
 //@arg chat_claude_useDecoupledStreaming string
 //@arg common_deepseekProvider_apiKey string
 //@arg common_deepseekProvider_customUrl string
+//@arg common_deepseekProvider_reasoning string
+//@arg common_deepseekProvider_provider string
 //@arg common_openaiProvider_apiKey string
 //@arg common_awsProvider_accessKey string
 //@arg common_awsProvider_secretAccessKey string
@@ -25,10 +27,13 @@
 //@arg common_openaiCompatibleProvider_useDecoupledStreaming string
 //@arg common_openaiCompatibleProvider_hasFirstSystemPrompt string
 //@arg common_openaiCompatibleProvider_requiresAlternateRole string
+//@arg common_openaiCompatibleProvider_mergeSystemPrompt string
 //@arg common_openaiCompatibleProvider_mustStartWithUserInput string
 //@arg common_openaiCompatibleProvider_useMaxOutputTokensInstead string
 //@arg common_openaiCompatibleProvider_verbosity string
 //@arg common_openaiCompatibleProvider_reasoningEffort string
+//@arg common_openaiCompatibleProvider_reasoning string
+//@arg common_openaiCompatibleProvider_provider string
 //@arg common_openaiCompatibleProvider_useThoughtSignature string
 //@arg common_openaiCompatibleProvider_2_url string
 //@arg common_openaiCompatibleProvider_2_apiKey string
@@ -38,10 +43,13 @@
 //@arg common_openaiCompatibleProvider_2_useDecoupledStreaming string
 //@arg common_openaiCompatibleProvider_2_hasFirstSystemPrompt string
 //@arg common_openaiCompatibleProvider_2_requiresAlternateRole string
+//@arg common_openaiCompatibleProvider_2_mergeSystemPrompt string
 //@arg common_openaiCompatibleProvider_2_mustStartWithUserInput string
 //@arg common_openaiCompatibleProvider_2_useMaxOutputTokensInstead string
 //@arg common_openaiCompatibleProvider_2_verbosity string
 //@arg common_openaiCompatibleProvider_2_reasoningEffort string
+//@arg common_openaiCompatibleProvider_2_reasoning string
+//@arg common_openaiCompatibleProvider_2_provider string
 //@arg common_openaiCompatibleProvider_2_useThoughtSignature string
 //@arg common_openaiCompatibleProvider_3_url string
 //@arg common_openaiCompatibleProvider_3_apiKey string
@@ -51,10 +59,13 @@
 //@arg common_openaiCompatibleProvider_3_useDecoupledStreaming string
 //@arg common_openaiCompatibleProvider_3_hasFirstSystemPrompt string
 //@arg common_openaiCompatibleProvider_3_requiresAlternateRole string
+//@arg common_openaiCompatibleProvider_3_mergeSystemPrompt string
 //@arg common_openaiCompatibleProvider_3_mustStartWithUserInput string
 //@arg common_openaiCompatibleProvider_3_useMaxOutputTokensInstead string
 //@arg common_openaiCompatibleProvider_3_verbosity string
 //@arg common_openaiCompatibleProvider_3_reasoningEffort string
+//@arg common_openaiCompatibleProvider_3_reasoning string
+//@arg common_openaiCompatibleProvider_3_provider string
 //@arg common_openaiCompatibleProvider_3_useThoughtSignature string
 //@arg common_openaiCompatibleProvider_4_url string
 //@arg common_openaiCompatibleProvider_4_apiKey string
@@ -64,10 +75,13 @@
 //@arg common_openaiCompatibleProvider_4_useDecoupledStreaming string
 //@arg common_openaiCompatibleProvider_4_hasFirstSystemPrompt string
 //@arg common_openaiCompatibleProvider_4_requiresAlternateRole string
+//@arg common_openaiCompatibleProvider_4_mergeSystemPrompt string
 //@arg common_openaiCompatibleProvider_4_mustStartWithUserInput string
 //@arg common_openaiCompatibleProvider_4_useMaxOutputTokensInstead string
 //@arg common_openaiCompatibleProvider_4_verbosity string
 //@arg common_openaiCompatibleProvider_4_reasoningEffort string
+//@arg common_openaiCompatibleProvider_4_reasoning string
+//@arg common_openaiCompatibleProvider_4_provider string
 //@arg common_openaiCompatibleProvider_4_useThoughtSignature string
 //@arg common_openaiCompatibleProvider_5_url string
 //@arg common_openaiCompatibleProvider_5_apiKey string
@@ -77,10 +91,13 @@
 //@arg common_openaiCompatibleProvider_5_useDecoupledStreaming string
 //@arg common_openaiCompatibleProvider_5_hasFirstSystemPrompt string
 //@arg common_openaiCompatibleProvider_5_requiresAlternateRole string
+//@arg common_openaiCompatibleProvider_5_mergeSystemPrompt string
 //@arg common_openaiCompatibleProvider_5_mustStartWithUserInput string
 //@arg common_openaiCompatibleProvider_5_useMaxOutputTokensInstead string
 //@arg common_openaiCompatibleProvider_5_verbosity string
 //@arg common_openaiCompatibleProvider_5_reasoningEffort string
+//@arg common_openaiCompatibleProvider_5_reasoning string
+//@arg common_openaiCompatibleProvider_5_provider string
 //@arg common_openaiCompatibleProvider_5_useThoughtSignature string
 //@arg common_openaiCompatibleProvider_6_url string
 //@arg common_openaiCompatibleProvider_6_apiKey string
@@ -90,10 +107,13 @@
 //@arg common_openaiCompatibleProvider_6_useDecoupledStreaming string
 //@arg common_openaiCompatibleProvider_6_hasFirstSystemPrompt string
 //@arg common_openaiCompatibleProvider_6_requiresAlternateRole string
+//@arg common_openaiCompatibleProvider_6_mergeSystemPrompt string
 //@arg common_openaiCompatibleProvider_6_mustStartWithUserInput string
 //@arg common_openaiCompatibleProvider_6_useMaxOutputTokensInstead string
 //@arg common_openaiCompatibleProvider_6_verbosity string
 //@arg common_openaiCompatibleProvider_6_reasoningEffort string
+//@arg common_openaiCompatibleProvider_6_reasoning string
+//@arg common_openaiCompatibleProvider_6_provider string
 //@arg common_openaiCompatibleProvider_6_useThoughtSignature string
 //@arg common_openaiCompatibleProvider_7_url string
 //@arg common_openaiCompatibleProvider_7_apiKey string
@@ -103,10 +123,13 @@
 //@arg common_openaiCompatibleProvider_7_useDecoupledStreaming string
 //@arg common_openaiCompatibleProvider_7_hasFirstSystemPrompt string
 //@arg common_openaiCompatibleProvider_7_requiresAlternateRole string
+//@arg common_openaiCompatibleProvider_7_mergeSystemPrompt string
 //@arg common_openaiCompatibleProvider_7_mustStartWithUserInput string
 //@arg common_openaiCompatibleProvider_7_useMaxOutputTokensInstead string
 //@arg common_openaiCompatibleProvider_7_verbosity string
 //@arg common_openaiCompatibleProvider_7_reasoningEffort string
+//@arg common_openaiCompatibleProvider_7_reasoning string
+//@arg common_openaiCompatibleProvider_7_provider string
 //@arg common_openaiCompatibleProvider_7_useThoughtSignature string
 //@arg common_openaiCompatibleProvider_8_url string
 //@arg common_openaiCompatibleProvider_8_apiKey string
@@ -116,10 +139,13 @@
 //@arg common_openaiCompatibleProvider_8_useDecoupledStreaming string
 //@arg common_openaiCompatibleProvider_8_hasFirstSystemPrompt string
 //@arg common_openaiCompatibleProvider_8_requiresAlternateRole string
+//@arg common_openaiCompatibleProvider_8_mergeSystemPrompt string
 //@arg common_openaiCompatibleProvider_8_mustStartWithUserInput string
 //@arg common_openaiCompatibleProvider_8_useMaxOutputTokensInstead string
 //@arg common_openaiCompatibleProvider_8_verbosity string
 //@arg common_openaiCompatibleProvider_8_reasoningEffort string
+//@arg common_openaiCompatibleProvider_8_reasoning string
+//@arg common_openaiCompatibleProvider_8_provider string
 //@arg common_openaiCompatibleProvider_8_useThoughtSignature string
 //@arg common_openaiCompatibleProvider_9_url string
 //@arg common_openaiCompatibleProvider_9_apiKey string
@@ -129,10 +155,13 @@
 //@arg common_openaiCompatibleProvider_9_useDecoupledStreaming string
 //@arg common_openaiCompatibleProvider_9_hasFirstSystemPrompt string
 //@arg common_openaiCompatibleProvider_9_requiresAlternateRole string
+//@arg common_openaiCompatibleProvider_9_mergeSystemPrompt string
 //@arg common_openaiCompatibleProvider_9_mustStartWithUserInput string
 //@arg common_openaiCompatibleProvider_9_useMaxOutputTokensInstead string
 //@arg common_openaiCompatibleProvider_9_verbosity string
 //@arg common_openaiCompatibleProvider_9_reasoningEffort string
+//@arg common_openaiCompatibleProvider_9_reasoning string
+//@arg common_openaiCompatibleProvider_9_provider string
 //@arg common_openaiCompatibleProvider_9_useThoughtSignature string
 //@arg common_previewPrompt string
 //@arg common_useEditorForInputBox string
@@ -281,7 +310,7 @@ const encoder = new TextEncoder(); const HOST_SERVICES = { appstream2: "appstrea
 const byteToHex = []; for (let i2 = 0; i2 < 256; ++i2) { byteToHex.push((i2 + 256).toString(16).slice(1)) } function unsafeStringify(arr, offset = 0) { return (byteToHex[arr[offset + 0]] + byteToHex[arr[offset + 1]] + byteToHex[arr[offset + 2]] + byteToHex[arr[offset + 3]] + "-" + byteToHex[arr[offset + 4]] + byteToHex[arr[offset + 5]] + "-" + byteToHex[arr[offset + 6]] + byteToHex[arr[offset + 7]] + "-" + byteToHex[arr[offset + 8]] + byteToHex[arr[offset + 9]] + "-" + byteToHex[arr[offset + 10]] + byteToHex[arr[offset + 11]] + byteToHex[arr[offset + 12]] + byteToHex[arr[offset + 13]] + byteToHex[arr[offset + 14]] + byteToHex[arr[offset + 15]]).toLowerCase() } let getRandomValues; const rnds8 = new Uint8Array(16); function rng() { if (!getRandomValues) { if (typeof crypto === "undefined" || !crypto.getRandomValues) { throw new Error("crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported") } getRandomValues = crypto.getRandomValues.bind(crypto) } return getRandomValues(rnds8) } const randomUUID = typeof crypto !== "undefined" && crypto.randomUUID && crypto.randomUUID.bind(crypto); const native = { randomUUID }; function v4(options, buf, offset) { if (native.randomUUID && true && !options) { return native.randomUUID() } options = options || {}; const rnds = options.random ?? options.rng?.() ?? rng(); if (rnds.length < 16) { throw new Error("Random bytes length must be >= 16") } rnds[6] = (rnds[6] & 15) | 64; rnds[8] = (rnds[8] & 63) | 128; return unsafeStringify(rnds) }
 // ==================== CONFIG ====================
 const PLUGIN_TITLE = "LBI";
-const PLUGIN_VERSION = "pre26";
+const PLUGIN_VERSION = "pre28";
 const PLUGIN_NAME = `${PLUGIN_TITLE}-${PLUGIN_VERSION}`;
 const DEFAULT = {
   MAX_TOKENS: 4096,
@@ -426,7 +455,7 @@ function createSlotGenerator(config) {
       Object.entries(template).forEach(([field, fieldDef]) => {
         const key = `${keyPrefix}${field}`;
         const setting = { category, displayName: fieldDef.displayName, type: fieldDef.type };
-        if (fieldDef.options) setting.options = fieldDef.options;
+        if (fieldDef.options) setting.options = JSON.parse(JSON.stringify(fieldDef.options));
         if (fieldDef.dependsOnSuffix) setting.dependsOn = `${keyPrefix}${fieldDef.dependsOnSuffix}`;
         result[key] = setting;
       });
@@ -440,19 +469,22 @@ const OPENAI_COMPATIBLE_PROVIDER_TEMPLATE = {
   url: { displayName: "URL", type: T.S },
   apiKey: { displayName: "키/패스워드 (키 회전 지원)", type: T.S, options: { placeholder: "KEY1 KEY2 KEY3...", useEditor: true } },
   model: { displayName: "모델명", type: T.S },
-  format: { displayName: "포맷 (API 규격)", type: T.S, options: { candidates: [{ value: "openai", label: "OpenAI Compatible (기본)" }, { value: "google", label: "Google Gemini" }, { value: "claude", label: "Anthropic Claude" }], default: "openai" } },
-  tokenizer: { displayName: "토크나이저 (새로고침 필요)", type: T.S, options: { candidates: [] } },
+  format: { displayName: "포맷 (API 규격)", type: T.S, options: { candidates: [{ value: "openai", label: "OpenAI Compatible (기본)" }, { value: "google", label: "Google Gemini" }, { value: "claude", label: "Anthropic Claude" }], default: "openai", layout: "two-col" } },
+  tokenizer: { displayName: "토크나이저 (새로고침)", type: T.S, options: { candidates: ["", "o200k_base", "cl100k_base", "mistral", "llama", "novelai", "claude", "novellist", "gemma", "cohere"], layout: "two-col" } },
   useStreaming: { displayName: "스트리밍 사용", type: T.B },
   useDecoupledStreaming: { displayName: "Use decoupled streaming", type: T.B, dependsOnSuffix: "useStreaming" },
   hasFirstSystemPrompt: { displayName: "hasFirstSystemPrompt", type: T.B },
   requiresAlternateRole: { displayName: "requiresAlternateRole", type: T.B },
+  mergeSystemPrompt: { displayName: "시스템 프롬프트 합치기", type: T.B },
   mustStartWithUserInput: { displayName: "mustStartWithUserInput", type: T.B },
   useMaxOutputTokensInstead: { displayName: "max_output_tokens 사용", type: T.B },
-  verbosity: { displayName: "verbosity", type: T.S, options: { candidates: ["", "low", "medium", "high"] } },
-  reasoningEffort: { displayName: "reasoning_effort", type: T.S, options: { candidates: ["", "none", "minimal", "low", "medium", "high"] } },
-  inputPrice: { displayName: "Input Price (per 1M tokens)", type: T.S, options: { placeholder: "0.0" } },
-  outputPrice: { displayName: "Output Price (per 1M tokens)", type: T.S, options: { placeholder: "0.0" } },
-  cachedInputPrice: { displayName: "Cached Input Price (per 1M tokens)", type: T.S, options: { placeholder: "0.0" } },
+  verbosity: { displayName: "verbosity", type: T.S, options: { candidates: ["", "low", "medium", "high"], layout: "two-col" } },
+  reasoningEffort: { displayName: "reasoning_effort", type: T.S, options: { candidates: ["", "none", "minimal", "low", "medium", "high"], layout: "two-col" } },
+  reasoning: { displayName: "추론 (DeepSeek)", type: T.S, options: { candidates: ["", "O", "X"], layout: "two-col" } },
+  provider: { displayName: "프로바이더 (OpenRouter)", type: T.S, options: { placeholder: "프로바이더명 (예: Hyperbolic)", layout: "two-col" } },
+  inputPrice: { displayName: "Input Price (1M)", type: T.S, options: { placeholder: "0.0", layout: "three-col" } },
+  outputPrice: { displayName: "Output Price (1M)", type: T.S, options: { placeholder: "0.0", layout: "three-col" } },
+  cachedInputPrice: { displayName: "Cached Price (1M)", type: T.S, options: { placeholder: "0.0", layout: "three-col" } },
   useThoughtSignature: { displayName: "Gemini 3 생각 서명 사용", type: T.B },
 };
 
@@ -500,11 +532,13 @@ const PLUGIN_SETTING_DEFINITIONS_BASE = {
   // 딥식
   common_deepseekProvider_apiKey: def(CAT.COMMON_DEEPSEEK, "API 키 (키 회전 지원)", T.S, { placeholder: "KEY1 KEY2 KEY3...", useEditor: true }),
   common_deepseekProvider_customUrl: def(CAT.COMMON_DEEPSEEK, "커스텀 URL (프록시용)", T.S, { candidates: ["", "https://openrouter.ai/api/v1/chat/completions", "https://api.fireworks.ai/inference/v1/chat/completions", "https://api.together.xyz/v1/chat/completions", "https://api.hyperbolic.xyz/v1/chat/completions", "https://api.kluster.ai/v1/chat/completions", "https://api.featherless.ai/v1/chat/completions", "https://chatapi.akash.network/api/v1/chat/completions", "https://api.minimaxi.chat/v1/text/chatcompletion_v2"], allowNonCandidate: true }),
+  common_deepseekProvider_reasoning: def(CAT.COMMON_DEEPSEEK, "추론 활성화", T.S, { candidates: ["", "O", "X"], layout: "two-col" }),
+  common_deepseekProvider_provider: def(CAT.COMMON_DEEPSEEK, "프로바이더 (OpenRouter)", T.S, { placeholder: "프로바이더명 (예: Hyperbolic)", layout: "two-col" }),
   // 오픈AI
   common_openaiProvider_apiKey: def(CAT.COMMON_OPENAI, "API 키 (키 회전 지원)", T.S, { placeholder: "KEY1 KEY2 KEY3...", useEditor: true }),
-  common_openaiProvider_reasoningEffort: def(CAT.COMMON_OPENAI, "Reasoning Effort (추론 강도)", T.S, { candidates: ["", "none", "minimal", "low", "medium", "high"], placeholder: "기본값: auto" }),
-  common_openaiProvider_verbosity: def(CAT.COMMON_OPENAI, "Verbosity (응답 상세 수준)", T.S, { candidates: ["", "low", "medium", "high"], placeholder: "기본값: auto" }),
-  common_openaiProvider_servicetier: def(CAT.COMMON_OPENAI, "Service tier (응답 속도/Flex)", T.S, { candidates: ["", "flex", "default"], placeholder: "기본값: default" }),
+  common_openaiProvider_reasoningEffort: def(CAT.COMMON_OPENAI, "추론 강도", T.S, { candidates: ["", "none", "minimal", "low", "medium", "high"], layout: "three-col" }),
+  common_openaiProvider_verbosity: def(CAT.COMMON_OPENAI, "응답 상세", T.S, { candidates: ["", "low", "medium", "high"], layout: "three-col" }),
+  common_openaiProvider_servicetier: def(CAT.COMMON_OPENAI, "응답 속도", T.S, { candidates: ["", "flex", "default"], layout: "three-col" }),
   common_openaiProvider_useExtendedCache: def(CAT.COMMON_OPENAI, "24시간 프롬프트 캐시 사용 (베타)", T.B),
   // AWS
   common_awsProvider_accessKey: def(CAT.COMMON_AWS, "액세스 키", T.S),
@@ -1231,7 +1265,7 @@ class Logger {
   }
   static shouldLog(level) {
     try {
-      const disabled = risuAPI.getArg("LBI-pre26::common_disableLog");
+      const disabled = risuAPI.getArg(`${PLUGIN_NAME}::common_disableLog`);
       if (String(disabled).trim().toLowerCase() === "true" || String(disabled).trim() === "1") {
         return false;
       }
@@ -1702,6 +1736,14 @@ class PluginSettingsManager {
           return roundNumber(num, 8);
         }
       }
+      case PLUGIN_SETTING_TYPE.MULTI_SELECT: {
+        const trimmed = raw.trim();
+        if (!trimmed || trimmed === 'undefined') {
+          return [];
+        }
+        // MULTI_SELECT는 쉼표로 구분된 문자열을 배열로 파싱
+        return trimmed.split(',').map(v => v.trim()).filter(v => v.length > 0);
+      }
       default: {
         const trimmed = raw.trim();
         if (!trimmed || trimmed === 'undefined') {
@@ -1955,9 +1997,7 @@ async function risuFetchEx(pluginRequest, url, arg) {
   }
 
   // abort signal을 polling으로 체크하는 Promise 구현
-  const abortCheckPromise = new Promise((_, reject) => {
-    if (!pluginRequest.abortSignal) return;
-
+  const abortCheckPromise = pluginRequest.abortSignal ? new Promise((_, reject) => {
     const checkInterval = setInterval(() => {
       if (pluginRequest.abortSignal.aborted) {
         clearInterval(checkInterval);
@@ -1966,7 +2006,7 @@ async function risuFetchEx(pluginRequest, url, arg) {
     }, 50);
 
     setTimeout(() => clearInterval(checkInterval), 10000);
-  });
+  }) : null;
 
   try {
     // REQUEST_TYPE → settings getter 매핑 (중앙화)
@@ -1995,7 +2035,9 @@ async function risuFetchEx(pluginRequest, url, arg) {
       throw new Error(`Unexpected request type: ${JSON.stringify(pluginRequest)}`);
     }
 
-    const result = await Promise.race([fetchPromise, abortCheckPromise]);
+    const result = await (abortCheckPromise
+      ? Promise.race([fetchPromise, abortCheckPromise])
+      : fetchPromise);
 
     if (pluginRequest.abortSignal?.aborted) {
       throw new Error('Request was aborted');
@@ -2139,6 +2181,8 @@ function getCommonSettings() {
     novelaiProvider_apiKey,
     deepseekProvider_apiKey,
     deepseekProvider_customUrl,
+    deepseekProvider_reasoning: PLUGIN_SETTINGS_MANAGER.get("common_deepseekProvider_reasoning"),
+    deepseekProvider_provider: PLUGIN_SETTINGS_MANAGER.get("common_deepseekProvider_provider"),
     openaiProvider_apiKey,
     openaiProvider_reasoningEffort,
     openaiProvider_verbosity,
@@ -2180,9 +2224,12 @@ function getOpenAICompatibleSettings(providerSuffix = "") {
     hasFirstSystemPrompt: PLUGIN_SETTINGS_MANAGER.get(`common_openaiCompatibleProvider${suffix}_hasFirstSystemPrompt`),
     mustStartWithUserInput: PLUGIN_SETTINGS_MANAGER.get(`common_openaiCompatibleProvider${suffix}_mustStartWithUserInput`),
     requiresAlternateRole: PLUGIN_SETTINGS_MANAGER.get(`common_openaiCompatibleProvider${suffix}_requiresAlternateRole`),
+    mergeSystemPrompt: PLUGIN_SETTINGS_MANAGER.get(`common_openaiCompatibleProvider${suffix}_mergeSystemPrompt`),
     useMaxOutputTokensInstead: PLUGIN_SETTINGS_MANAGER.get(`common_openaiCompatibleProvider${suffix}_useMaxOutputTokensInstead`),
     verbosity: PLUGIN_SETTINGS_MANAGER.get(`common_openaiCompatibleProvider${suffix}_verbosity`),
     reasoningEffort: PLUGIN_SETTINGS_MANAGER.get(`common_openaiCompatibleProvider${suffix}_reasoningEffort`),
+    reasoning: PLUGIN_SETTINGS_MANAGER.get(`common_openaiCompatibleProvider${suffix}_reasoning`),
+    provider: PLUGIN_SETTINGS_MANAGER.get(`common_openaiCompatibleProvider${suffix}_provider`),
     inputPrice: PLUGIN_SETTINGS_MANAGER.get(`common_openaiCompatibleProvider${suffix}_inputPrice`),
     outputPrice: PLUGIN_SETTINGS_MANAGER.get(`common_openaiCompatibleProvider${suffix}_outputPrice`),
     cachedInputPrice: PLUGIN_SETTINGS_MANAGER.get(`common_openaiCompatibleProvider${suffix}_cachedInputPrice`),
@@ -2579,6 +2626,7 @@ for (let i = 1; i <= 9; i++) {
   const key = `common_openaiCompatibleProvider${suffix}_tokenizer`;
   if (PLUGIN_SETTING_DEFINITIONS[key]) {
     PLUGIN_SETTING_DEFINITIONS[key].options = {
+      ...PLUGIN_SETTING_DEFINITIONS[key].options,
       candidates: Object.values(LLM_TOKENIZER),
     };
   }
@@ -3545,6 +3593,20 @@ class DeepseekProvider extends BaseProvider {
         presence_penalty: pluginRequest.presence_penalty,
       }),
     };
+    // [수정] reasoning O/X → {"enabled": true/false} 변환 (DeepSeek 추론용)
+    if (commonSettings.deepseekProvider_reasoning && commonSettings.deepseekProvider_reasoning.trim()) {
+      const val = commonSettings.deepseekProvider_reasoning.trim().toUpperCase();
+      if (val === "O") {
+        body.reasoning = { enabled: true };
+      } else if (val === "X") {
+        body.reasoning = { enabled: false };
+      }
+    }
+    // [수정] provider 자동 래핑 (OpenRouter 프로바이더 지정용)
+    if (commonSettings.deepseekProvider_provider && commonSettings.deepseekProvider_provider.trim()) {
+      const providerName = commonSettings.deepseekProvider_provider.trim();
+      body.provider = { order: [providerName] };
+    }
     DeepseekProvider.validateApiParameters(body);
     if (
       commonSettings.previewPrompt &&
@@ -4572,6 +4634,51 @@ class OpenAICompatibleProvider extends BaseProvider {
         }
       }
     }
+    // [신규] mergeSystemPrompt 로직 - 시스템 프롬프트 합치기
+    if (providerSettings.mergeSystemPrompt) {
+      // 1. 첫 번째 유저/어시스턴트 메시지 위치 찾기
+      let splitIndex = openAIChats.findIndex(
+        (message) =>
+          message.role === LLM_ROLE.USER || message.role === LLM_ROLE.ASSISTANT
+      );
+      if (splitIndex === -1) {
+        splitIndex = openAIChats.length;
+      }
+      // 2. 첫 번째 유저/어시스턴트 전까지의 모든 시스템 메시지를 하나로 합침
+      const mergedSystemContent = openAIChats
+        .slice(0, splitIndex)
+        .map((message) => message.content.trim())
+        .join("\n\n");
+      // 3. 나머지 메시지들 처리 (연속된 동일 역할 합치기)
+      const remainingChats = openAIChats.slice(splitIndex);
+      const mergedMessages = [];
+      for (let i2 = 0; i2 < remainingChats.length; i2++) {
+        const message = remainingChats[i2];
+        const trimmedContent = message.content.trim();
+        const lastMessage = mergedMessages.length > 0 ? mergedMessages.at(-1) : null;
+        if (message.role === LLM_ROLE.SYSTEM) {
+          // 시스템 메시지는 \n\n으로 합침
+          if (lastMessage?.role === message.role) {
+            mergedMessages[mergedMessages.length - 1].content += "\n\n" + trimmedContent;
+          } else {
+            mergedMessages.push({ role: message.role, content: trimmedContent });
+          }
+        } else if (message.role === LLM_ROLE.USER || message.role === LLM_ROLE.ASSISTANT) {
+          // 유저/어시스턴트 메시지는 \n으로 합침
+          if (lastMessage?.role === message.role) {
+            mergedMessages[mergedMessages.length - 1].content += "\n" + trimmedContent;
+          } else {
+            mergedMessages.push({ role: message.role, content: trimmedContent });
+          }
+        }
+      }
+      // 4. 합쳐진 시스템 메시지를 맨 앞에 추가
+      if (mergedSystemContent) {
+        openAIChats = [{ role: LLM_ROLE.SYSTEM, content: mergedSystemContent }, ...mergedMessages];
+      } else {
+        openAIChats = mergedMessages;
+      }
+    }
     if (providerSettings.requiresAlternateRole) {
       let newMessages = [];
       for (let i2 = 0; i2 < openAIChats.length; i2++) {
@@ -4637,6 +4744,20 @@ class OpenAICompatibleProvider extends BaseProvider {
     }
     if (providerSettings.reasoningEffort !== "") {
       body.reasoning_effort = providerSettings.reasoningEffort;
+    }
+    // [수정] reasoning O/X → {"enabled": true/false} 변환 (DeepSeek 추론용)
+    if (providerSettings.reasoning && providerSettings.reasoning.trim()) {
+      const val = providerSettings.reasoning.trim().toUpperCase();
+      if (val === "O") {
+        body.reasoning = { enabled: true };
+      } else if (val === "X") {
+        body.reasoning = { enabled: false };
+      }
+    }
+    // [수정] provider 자동 래핑 (OpenRouter 프로바이더 지정용)
+    if (providerSettings.provider && providerSettings.provider.trim()) {
+      const providerName = providerSettings.provider.trim();
+      body.provider = { order: [providerName] };
     }
     if (
       OpenAICompatibleProvider.isGithubClaudeThinking(pluginRequest, modelDef)
@@ -7965,7 +8086,7 @@ ${processed}`;
       const modelDef = getLLMDefinition("gemini-2.0-flash-exp");
       const modelContent = (
         await AutoProvider.getResponse(pluginRequest, modelDef)
-      ).trim();
+      ).content.trim();
       Logger.debug("Model content:", modelContent);
       return (
         thoughts
@@ -8892,10 +9013,29 @@ class PluginSettingsUI {
           .map(def => def.category.join(' > '))
         )];
 
+        // 프로바이더 바로가기 버튼 (2줄 그리드)
+        const providerShortcuts = [
+          { name: "구글", category: "공통 설정 > 구글 스튜디오" },
+          { name: "버텍스", category: "공통 설정 > 버텍스" },
+          { name: "엔트로픽", category: "공통 설정 > 엔트로픽" },
+          { name: "노블AI", category: "공통 설정 > 노블AI" },
+          { name: "딥식", category: "공통 설정 > 딥식" },
+          { name: "오픈AI", category: "공통 설정 > 오픈AI" },
+          { name: "AWS", category: "공통 설정 > AWS" },
+          { name: "제미니", category: "공통 설정 > 제미니 설정" },
+        ];
+        dropdownItems += `<li style="padding: 4px 8px;"><div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px;">`;
+        providerShortcuts.forEach(p => {
+          if (commonSubCategories.includes(p.category)) {
+            dropdownItems += `<button style="padding: 4px 8px; font-size: 12px; color: #e4e4e7; background: #52525b; border-radius: 4px;" onmouseover="this.style.background='#71717a'" onmouseout="this.style.background='#52525b'" data-scroll-to="${p.category}">${p.name}</button>`;
+          }
+        });
+        dropdownItems += `</div></li><li style="border-bottom: 1px solid #52525b; margin: 4px 0;"></li>`;
+
         // '공통 설정'의 최상단으로 이동하는 옵션 추가
         dropdownItems += `<li><button class="block w-full text-left px-4 py-2 text-sm text-zinc-200 hover:bg-zinc-600" data-scroll-to="${commonSubCategories.find(c => c.split(' > ').length === 2) || ''}">공통 설정 (상단)</button></li>`;
 
-        // '커스텀 1'부터 '커스텀 8'까지의 옵션 추가
+        // '커스텀 1'부터 '커스텀 9'까지의 옵션 추가
         for (let i = 1; i <= 9; i++) {
           const customCategoryName = `공통 설정 > 커스텀 ${i} (OpenAI 호환)`;
           if (commonSubCategories.includes(customCategoryName)) {
@@ -8941,6 +9081,34 @@ class PluginSettingsUI {
       const isOpen = !category.includes("커스텀");
       const categoryName = Object.values(this.definitions).find(def => def.category[0] === category.split(" > ")[0])?.category[0] || category;
 
+      // 레이아웃 그룹핑 로직
+      let settingsHtml = "";
+      let currentLayout = null;
+      let layoutBuffer = [];
+
+      const flushLayout = () => {
+        if (layoutBuffer.length === 0) return;
+        const gridCols = currentLayout === "three-col" ? "repeat(3, 1fr)" : "repeat(2, 1fr)";
+        settingsHtml += `<div style="display: grid; grid-template-columns: ${gridCols}; gap: 8px; margin-bottom: 8px; align-items: start;">${layoutBuffer.join("")}</div>`;
+        layoutBuffer = [];
+        currentLayout = null;
+      };
+
+      for (const [key, setting] of settings) {
+        const layout = setting.options?.layout;
+        if (layout && (layout === "two-col" || layout === "three-col")) {
+          if (currentLayout && currentLayout !== layout) {
+            flushLayout();
+          }
+          currentLayout = layout;
+          layoutBuffer.push(this.generateSettingField(key, setting, true));
+        } else {
+          flushLayout();
+          settingsHtml += this.generateSettingField(key, setting, false);
+        }
+      }
+      flushLayout();
+
       content += `
        <details class="mb-2" data-full-category="${category}" data-category-content="${categoryName}" ${isOpen ? "open" : ""}>
          <summary class="text-lg text-zinc-100 font-semibold mb-2 cursor-pointer hover:text-blue-400 transition-colors list-none">
@@ -8952,9 +9120,7 @@ class PluginSettingsUI {
            </div>
          </summary>
          <div class="pl-6 pt-2">
-           ${settings
-          .map(([key, setting]) => this.generateSettingField(key, setting))
-          .join("")}
+           ${settingsHtml}
          </div>
        </details>
      `;
@@ -8972,7 +9138,7 @@ class PluginSettingsUI {
     }
     return content;
   }
-  generateSettingField(key, setting) {
+  generateSettingField(key, setting, inGrid = false) {
     // RisuAI에서 직접 값을 가져옵니다. 값이 없으면 'undefined' 문자열이 됩니다.
     let value = getArgEx(`${PLUGIN_NAME}::${key}`);
 
@@ -9036,8 +9202,9 @@ class PluginSettingsUI {
       setting.options?.candidates?.length
     ) {
       if (setting.options.allowNonCandidate) {
+        const wrapperClass = inGrid ? '' : 'mb-2';
         return `
-        <div class="mb-2">
+        <div class="${wrapperClass}">
           <label class="block">
             <span class="mb-1 block text-zinc-200">${setting.displayName}</span>
             <input class="${BaseModalUI.INPUT_CLASS}" data-key="${key}" value="${Utils.escapeHTML(
@@ -9057,8 +9224,9 @@ class PluginSettingsUI {
         </div>
       `;
       }
+      const wrapperClass = inGrid ? '' : 'mb-2';
       return `
-        <div class="mb-2">
+        <div class="${wrapperClass}">
           <label class="block">
             <span class="mb-1 block text-zinc-200">${setting.displayName}</span>
             <select class="${BaseModalUI.INPUT_CLASS}" data-key="${key}">

@@ -1,6 +1,6 @@
 // ==================== CONFIG ====================
 export const PLUGIN_TITLE = "LBI";
-export const PLUGIN_VERSION = "pre26";
+export const PLUGIN_VERSION = "pre28";
 export const PLUGIN_NAME = `${PLUGIN_TITLE}-${PLUGIN_VERSION}`;
 
 export const DEFAULT = {
